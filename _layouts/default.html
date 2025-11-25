@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Sarah Dugan</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="{{ '/' | relative_url }}" class="nav-logo">Sarah Dugan</a>
+            <div class="nav-links">
+                <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+                <a href="{{ '/about-me.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a>
+                <a href="{{ '/my-work.html' | relative_url }}" {% if page.url contains 'work' %}class="active"{% endif %}>Work</a>
+                <a href="{{ '/resume.html' | relative_url }}" {% if page.url contains 'resume' %}class="active"{% endif %}>Resume</a>
+                <a href="{{ '/friends&philosophy.html' | relative_url }}" {% if page.url contains 'philosophy' %}class="active"{% endif %}>Philosophy</a>
+            </div>
+        </div>
+    </nav>
 
+    <main class="main">
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Sarah Dugan</p>
+            <div class="footer-links">
+                <a href="mailto:sarahcdugan@gmail.com">Email</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ '/assets/js/slideshow.js' | relative_url }}"></script>
+</body>
+</html>
