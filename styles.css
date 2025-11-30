@@ -333,3 +333,37 @@ strong {
         height: 600px;
     }
 }
+/* ========================================
+   Slideshow
+   ======================================== */
+
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: var(--space-xl) auto;
+    background-color: var(--color-bg-alt);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    padding: var(--space-lg);
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    background-color: rgba(0, 0,
