@@ -58,6 +58,12 @@ title: My Work
   </div>
   
   <div class="carousel-item">
+    <h3>Stellic Learning Center</h3>
+    <p>Architected and built a complete documentation portal from scratch, migrating 500+ pages to GitBook with AI-powered search.</p>
+    <a href="https://learn.stellic.com/" target="_blank">Visit site →</a>
+  </div>
+  
+  <div class="carousel-item">
     <h3>Gemini Embeddings</h3>
     <p>Comprehensive documentation covering embeddings fundamentals and implementation, telling the complete AI/ML embeddings story.</p>
     <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank">View docs →</a>
@@ -87,10 +93,5 @@ title: My Work
     <a href="https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b" target="_blank">Read post →</a>
   </div>
   
-  <div class="carousel-item">
-    <h3>Stellic Learning Center</h3>
-    <p>Architected and built a complete documentation portal from scratch, migrating 500+ pages to GitBook with AI-powered search.</p>
-    <a href="https://learn.stellic.com/" target="_blank">Visit site →</a>
-  </div>
 </div>
 <p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share additional writing samples.</p>
