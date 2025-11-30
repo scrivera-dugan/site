@@ -75,9 +75,7 @@ ML and AI systems are inherently complex. I'm comfortable sitting with ambiguity
 
 Some of my most meaningful professional experiences have been the friendships built through shared goals: traveling to conferences together, solving hard problems over coffee, celebrating launches as a team.
 
-I'm looking for a role where that kind of connection is possible. Where I'm not just a contractor passing through, but a collaborator who's genuinely part of building something that matters.
-
-## Through the Years
+## Work friends through the years!
 
 <div class="photo-carousel">
     <div class="photo-carousel-item"><img src="{{ '/images/056166f5-1338-4aff-be85-f7b1b361fad4.jpg' | relative_url }}" alt="Team photo"></div>
