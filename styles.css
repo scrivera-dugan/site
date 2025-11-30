@@ -339,7 +339,7 @@ strong {
 
 .slideshow-container {
     position: relative;
-    max-width: 800px;
+    max-width: 600px;
     margin: var(--space-xl) auto;
     background-color: var(--color-bg-alt);
     border-radius: 12px;
@@ -349,12 +349,13 @@ strong {
 
 .slide {
     display: none;
-    padding: var(--space-lg);
+    padding: var(--space-md);
 }
 
 .slide img {
     width: 100%;
-    height: auto;
+    height: 450px;
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -366,4 +367,17 @@ strong {
     margin-top: -22px;
     padding: 16px;
     color: white;
-    background-color: rgba(0, 0,
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:ho
