@@ -3,7 +3,8 @@ layout: default
 title: My Work
 ---
 # My Work
-*A selection of projects where I've shaped how people understand complex technology.*
+*A selection of projects where I've shaped how people understand complex technology.
+Detailed work samples and case studies are available upon request. Please contact me at sarahcdugan@gmail.com for access.*
 
 ---
 
