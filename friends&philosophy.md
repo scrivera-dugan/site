@@ -29,153 +29,61 @@ I'm looking for a role where that kind of connection is possible. Where I'm not 
 
 ## Through the Years
 
-Here are some snapshots from my journey working with incredible teams:
-
-<div class="slideshow-container">
-    <div class="slide fade">
-        <img src="{{ '/images/056166f5-1338-4aff-be85-f7b1b361fad4.jpg' | relative_url }}" alt="Team photo">
+<div class="carousel-wrapper">
+    <div class="carousel-track">
+        <div class="carousel-item"><img src="{{ '/images/056166f5-1338-4aff-be85-f7b1b361fad4.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/0777b0a6-7353-4acb-a639-1bcb168d5f65.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/1647f7c6-44c1-420e-9725-eecdb64cdb80.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/6a859b3f-3fc8-4a3a-91dd-fdce98ec36a5.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/7dea1cbf-4c4b-417a-a06e-95c7218ebab4.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/7dffc18a-732d-4240-b80f-8919e485dad3.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/815eca58-04a7-4af3-ad01-de91cddd50de.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/84c9193c-fe08-4644-96d0-76e8b3471904.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/88edb7b6-356d-435a-8037-ff31eee3bafd.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/966ec5f1-0d79-4536-b09d-93e46f920fff.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG-20180307-WA0006.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG-20240802-WA0004.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_20240409_152400.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_2079.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_5299.JPG' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_6124.JPG' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_6810.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_9290.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231013_204325716.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231104_023135936.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231207_170810884.MP.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240411_195657069.MP.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240425_161842085.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240517_011448409.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/b50594e8-7c2a-4a3f-81f0-6b2c268cb481.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/d2aa9f2c-0f69-40b0-a2b5-e6c88012e404.jpg' | relative_url }}" alt="Team photo"></div>
+        
+        <!-- Duplicate set for seamless loop -->
+        <div class="carousel-item"><img src="{{ '/images/056166f5-1338-4aff-be85-f7b1b361fad4.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/0777b0a6-7353-4acb-a639-1bcb168d5f65.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/1647f7c6-44c1-420e-9725-eecdb64cdb80.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/6a859b3f-3fc8-4a3a-91dd-fdce98ec36a5.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/7dea1cbf-4c4b-417a-a06e-95c7218ebab4.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/7dffc18a-732d-4240-b80f-8919e485dad3.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/815eca58-04a7-4af3-ad01-de91cddd50de.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/84c9193c-fe08-4644-96d0-76e8b3471904.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/88edb7b6-356d-435a-8037-ff31eee3bafd.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/966ec5f1-0d79-4536-b09d-93e46f920fff.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG-20180307-WA0006.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG-20240802-WA0004.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_20240409_152400.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_2079.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_5299.JPG' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_6124.JPG' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_6810.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/IMG_9290.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231013_204325716.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231104_023135936.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20231207_170810884.MP.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240411_195657069.MP.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240425_161842085.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/PXL_20240517_011448409.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/b50594e8-7c2a-4a3f-81f0-6b2c268cb481.jpg' | relative_url }}" alt="Team photo"></div>
+        <div class="carousel-item"><img src="{{ '/images/d2aa9f2c-0f69-40b0-a2b5-e6c88012e404.jpg' | relative_url }}" alt="Team photo"></div>
     </div>
-    <div class="slide fade">
-        <img src="{{ '/images/0777b0a6-7353-4acb-a639-1bcb168d5f65.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/1647f7c6-44c1-420e-9725-eecdb64cdb80.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/6a859b3f-3fc8-4a3a-91dd-fdce98ec36a5.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/7dea1cbf-4c4b-417a-a06e-95c7218ebab4.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/7dffc18a-732d-4240-b80f-8919e485dad3.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/815eca58-04a7-4af3-ad01-de91cddd50de.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/84c9193c-fe08-4644-96d0-76e8b3471904.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/88edb7b6-356d-435a-8037-ff31eee3bafd.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/966ec5f1-0d79-4536-b09d-93e46f920fff.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG-20180307-WA0006.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG-20240802-WA0004.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_20240409_152400.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_2079.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_5299.JPG' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_6124.JPG' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_6810.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/IMG_9290.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20231013_204325716.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20231104_023135936.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20231207_170810884.MP.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20240411_195657069.MP.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20240425_161842085.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/PXL_20240517_011448409.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/b50594e8-7c2a-4a3f-81f0-6b2c268cb481.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    <div class="slide fade">
-        <img src="{{ '/images/d2aa9f2c-0f69-40b0-a2b5-e6c88012e404.jpg' | relative_url }}" alt="Team photo">
-    </div>
-    
-    <a class="prev" onclick="changeSlide(-1)">❮</a>
-    <a class="next" onclick="changeSlide(1)">❯</a>
 </div>
-
-<div class="dot-container">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
-    <span class="dot" onclick="currentSlide(6)"></span>
-    <span class="dot" onclick="currentSlide(7)"></span>
-    <span class="dot" onclick="currentSlide(8)"></span>
-    <span class="dot" onclick="currentSlide(9)"></span>
-    <span class="dot" onclick="currentSlide(10)"></span>
-    <span class="dot" onclick="currentSlide(11)"></span>
-    <span class="dot" onclick="currentSlide(12)"></span>
-    <span class="dot" onclick="currentSlide(13)"></span>
-    <span class="dot" onclick="currentSlide(14)"></span>
-    <span class="dot" onclick="currentSlide(15)"></span>
-    <span class="dot" onclick="currentSlide(16)"></span>
-    <span class="dot" onclick="currentSlide(17)"></span>
-    <span class="dot" onclick="currentSlide(18)"></span>
-    <span class="dot" onclick="currentSlide(19)"></span>
-    <span class="dot" onclick="currentSlide(20)"></span>
-    <span class="dot" onclick="currentSlide(21)"></span>
-    <span class="dot" onclick="currentSlide(22)"></span>
-    <span class="dot" onclick="currentSlide(23)"></span>
-    <span class="dot" onclick="currentSlide(24)"></span>
-    <span class="dot" onclick="currentSlide(25)"></span>
-    <span class="dot" onclick="currentSlide(26)"></span>
-</div>
-
-<script>
-let slideIndex = 1;
-showSlide(slideIndex);
-
-function changeSlide(n) {
-    showSlide(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlide(slideIndex = n);
-}
-
-function showSlide(n) {
-    let slides = document.getElementsByClassName("slide");
-    let dots = document.getElementsByClassName("dot");
-    
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-}
-
-// Auto-advance slides every 5 seconds
-setInterval(function() {
-    changeSlide(1);
-}, 5000);
-</script>
