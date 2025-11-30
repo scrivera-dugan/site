@@ -5,13 +5,13 @@ title: Home
 <div style="display: flex; align-items: flex-start; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 300px;">
         <h1 style="margin-top: 0;">Sarah Dugan</h1>
-        <p style="font-size: 1.25rem; color: var(--color-text-secondary); font-style: italic; margin-bottom: 2rem;">Technical Content Lead · ML Writer · Collaborative by nature</p>
+        <p style="font-size: 1.25rem; color: var(--color-text-secondary); font-style: italic; margin-bottom: 2rem;">Technical Content Lead · Documentation Specialist · Collaborative by nature</p>
         
-        <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1.5rem;">I write documentation that helps developers understand AI.</p>
+        <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1.5rem;">I build documentation systems that scale.</p>
         
-        <p>For nearly a decade, I've worked with cutting-edge technology teams to create clear, useful documentation. I've documented Google's Gemini and PaLM 2, built complete learning centers, and created content for developer audiences worldwide.</p>
+        <p>For nearly a decade, I've created technical content for complex products—from machine learning platforms to enterprise security software. I've documented Google's Gemini and PaLM 2, architected complete learning centers from scratch, and developed content strategies that serve millions of users.</p>
         
-        <p><strong>My approach:</strong> I focus on making complex ML concepts accessible through the right language, relevant examples, and appropriate technical depth for each audience.</p>
+        <p><strong>My approach:</strong> I combine deep technical understanding with clear information architecture. Whether I'm explaining AI concepts, designing documentation portals, or establishing content processes for growing teams, I focus on making complex systems accessible and maintainable.</p>
     </div>
     
     <div style="flex-shrink: 0;">
@@ -19,3 +19,33 @@ title: Home
     </div>
 </div>
 <a href="mailto:sarahcdugan@gmail.com" style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; margin-top: 1rem;">Get in touch</a>
+
+---
+
+## Where I've done this
+
+**Google Cloud** — Led docs for Gemini, PaLM 2, Vertex AI Model Registry, Vector Search  
+**Stellic** — Built the entire [learning center](https://learn.stellic.com/) from scratch  
+**Amazon** — Developer content for Alexa and AWS  
+**IBM** — Enterprise documentation at scale
+
+[See my work →](/site/my-work.html)
+
+---
+
+## What drives me
+
+All five of my CliftonStrengths fall within Relationship Building:
+
+🤝 Relator · ⚖️ Harmony · 🌱 Developer · 💙 Empathy · ✨ Individualization
+
+The best documentation doesn't come from someone working alone—it emerges from real collaboration with the people building the technology and the people who need to use it.
+
+[More about my philosophy →](/site/friends&philosophy.html)
+
+---
+
+## Let's connect
+
+📧 [sarahcdugan@gmail.com](mailto:sarahcdugan@gmail.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/scdugan/)
