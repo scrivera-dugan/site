@@ -44,4 +44,47 @@ title: My Work
   text-decoration: none;
   font-weight: 600;
 }
-.carousel-item a:hov
+.carousel-item a:hover {
+  text-decoration: underline;
+}
+</style>
+<h1>My Work</h1>
+<p>Here's a selection of projects that showcase my approach to technical content.</p>
+<div class="carousel">
+  <div class="carousel-item">
+    <h3>Google Gemini Documentation</h3>
+    <p>Led the documentation strategy for Google's flagship LLM, creating developer guides, API references, and code samples for millions of users.</p>
+    <a href="#">View samples →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Stellic Learning Center</h3>
+    <p>Architected and built a complete documentation portal from scratch, migrating 500+ pages to GitBook with AI-powered search.</p>
+    <a href="https://learn.stellic.com/" target="_blank">Visit site →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>PaLM 2 Launch Content</h3>
+    <p>Created launch documentation and hand-crafted API reference for Google's PaLM 2 model release.</p>
+    <a href="#">View samples →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>AWS Training Content</h3>
+    <p>Edited 30+ technical courses across Game Tech, Security, and IoT, contributing to a satisfaction score increase from 4.0 to 4.8.</p>
+    <a href="#">Learn more →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Vertex AI Model Registry</h3>
+    <p>Developed comprehensive documentation for Google Cloud's ML model management system.</p>
+    <a href="#">View samples →</a>
+  </div>
+
+  <div class="carousel-item">
+    <h3>IBM Big Data Analytics</h3>
+    <p>Early career foundation in technical writing, learning to navigate large-scale documentation systems and cross-functional collaboration in an enterprise environment.</p>
+    <a href="#">Learn more →</a>
+  </div>
+</div>
+<p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share specific writing samples.</p>
