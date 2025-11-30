@@ -13,7 +13,7 @@ It was actually one of those guests who first suggested technical writing to Sar
 
 <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
     <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" style="max-width: 300px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Ben" style="max-width: 300px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Ben" style="max-width: 300px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
 </div>
 
 
