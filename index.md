@@ -16,7 +16,7 @@ title: Home
     </div>
     
     <div style="flex-shrink: 0;">
-        <img src="{{ '/images/headshot.png' | relative_url }}" alt="Sarah Dugan" style="width: 280px; height: auto; border-radius: 50%; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
+        <img src="{{ '/images/sdugan.png' | relative_url }}" alt="Sarah Dugan" style="width: 320px; height: 320px; border-radius: 50%; object-fit: cover; object-position: center 20%; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
     </div>
 </div>
 
@@ -24,4 +24,34 @@ title: Home
 
 ## Where I've done this
 
-**Google Cloud** — Led docs for Gemini, PaLM 2, Vertex AI Model R
+**Google Cloud** — Led docs for Gemini, PaLM 2, Vertex AI Model Registry, Vector Search  
+**Stellic** — Built the entire [learning center](https://learn.stellic.com/) from scratch  
+**Amazon** — Developer content for Alexa and AWS  
+**IBM** — Enterprise documentation at scale
+
+[See my work →](/site/my-work.html)
+
+---
+
+## What drives me
+
+All five of my CliftonStrengths fall within Relationship Building:
+
+🤝 Relator · ⚖️ Harmony · 🌱 Developer · 💙 Empathy · ✨ Individualization
+
+The best documentation doesn't come from someone working alone—it emerges from real collaboration with the people building the technology and the people who need to use it.
+
+[More about my philosophy →](/site/friends&philosophy.html)
+
+---
+
+## What I'm looking for
+
+A role where I can be a true collaborator, not just a contractor. Where the relationships matter as much as the work. Where I can help build something meaningful.
+
+---
+
+## Let's connect
+
+📧 [sarahcdugan@gmail.com](mailto:sarahcdugan@gmail.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/scdugan/)
