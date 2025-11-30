@@ -9,6 +9,11 @@ title: My Work
 
 ## Featured Work Samples
 
+### Stellic Learning Center
+Complete documentation site built with GitBook for a higher education technology platform. Covers everything from getting started guides to advanced configuration for university administrators.
+
+[View Stellic Learning Center →](https://learn.stellic.com/)
+
 ### Vertex AI Grounding with Gemini
 Comprehensive documentation for grounding prompt responses using Google's Gemini models. This work demonstrates how to guide developers through complex AI concepts with clear, practical examples.
 
@@ -30,6 +35,8 @@ Full documentation set for Google Cloud's Vector Search product, helping develop
 **Technical Content Lead** · Current
 
 Building content strategy for a platform that helps universities modernize degree planning and student success. This role combines my ML writing background with a new domain—translating complex academic requirements into clear, actionable documentation.
+
+**Key achievement:** Built the entire [Stellic Learning Center](https://learn.stellic.com/) from the ground up using GitBook.
 
 ---
 
