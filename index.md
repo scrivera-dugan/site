@@ -3,33 +3,25 @@ layout: default
 title: Home
 ---
 
-# Sarah Dugan
-
-*Technical Content Lead · ML Writer · Collaborative by nature*
-
-Welcome to my corner of the internet! I'm a specialized ML writer with nearly a decade of experience making complex AI concepts accessible and engaging.
-
-I'm a Technical Content Lead who transforms blank-slate challenges into polished technical narratives. I've worked with:
-
-- **Google Cloud** — Gemini & PaLM 2 documentation
-- **Amazon** — Alexa & AWS
-- **IBM** — Enterprise technology
-
-I combine deep technical knowledge with creative storytelling to make AI concepts accessible to everyone.
-
----
-
-## What drives me
-
-All five of my CliftonStrengths fall within Relationship Building:
-
-🤝 Relator · ⚖️ Harmony · 🌱 Developer · 💙 Empathy · ✨ Individualization
-
-I thrive in collaborative environments, bringing kind energy and solution-focused leadership to cross-functional teams.
+<div style="display: flex; align-items: flex-start; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px;">
+        <h1 style="margin-top: 0;">Sarah Dugan</h1>
+        <p style="font-size: 1.25rem; color: var(--color-text-secondary); font-style: italic; margin-bottom: 2rem;">Technical Content Lead · ML Writer · Collaborative by nature</p>
+        
+        <p style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1.5rem;">I make AI understandable.</p>
+        
+        <p>For nearly a decade, I've turned cutting-edge technology into documentation that developers actually want to read. I've documented Google's Gemini and PaLM 2, built complete learning centers, and created content for millions of developers worldwide.</p>
+        
+        <p><strong>What I do best:</strong> Take complex ML concepts and make them click. Not by dumbing them down—by finding the right language, the right examples, and the right level of detail for the audience.</p>
+    </div>
+    
+    <div style="flex-shrink: 0;">
+        <img src="{{ '/images/sdugan.png' | relative_url }}" alt="Sarah Dugan" style="width: 280px; height: 280px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
+    </div>
+</div>
 
 ---
 
-## Let's connect
+## Where I've done this
 
-📧 [sarahcdugan@gmail.com](mailto:sarahcdugan@gmail.com)  
-💼 [LinkedIn](https://linkedin.com)
+**Google Cloud** — Led docs for Gemini, PaLM 2, Vertex AI Model R
