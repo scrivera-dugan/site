@@ -5,9 +5,6 @@ title: Philosophy
 
 # Work Philosophy
 
-*How I approach technical writing—and why collaboration is at the center of everything I do.*
-
----
 
 ## I believe the best documentation is built together.
 
