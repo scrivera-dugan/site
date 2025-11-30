@@ -45,11 +45,6 @@ The best documentation doesn't come from someone working alone—it emerges from
 
 [More about my philosophy →](/site/friends&philosophy.html)
 
----
-
-## What I'm looking for
-
-A role where I can be a true collaborator, not just a contractor. Where the relationships matter as much as the work. Where I can help build something meaningful.
 
 ---
 
