@@ -23,24 +23,7 @@ title: Home
 
 ---
 
-## Where I've done this
-
-**Google Cloud** — Led docs for Gemini, PaLM 2, Vertex AI Model Registry, Vector Search  
-**Stellic** — Built the entire [learning center](https://learn.stellic.com/) from scratch  
-**Amazon** — Developer content for Alexa and AWS  
-**IBM** — Enterprise documentation at scale
-
 [See my work →](/site/my-work.html)
-
----
-
-## What drives me
-
-All five of my CliftonStrengths fall within Relationship Building:
-
-🤝 Relator · ⚖️ Harmony · 🌱 Developer · 💙 Empathy · ✨ Individualization
-
-The best documentation doesn't come from someone working alone—it emerges from real collaboration with the people building the technology and the people who need to use it.
 
 [More about my philosophy →](/site/friends&philosophy.html)
 
