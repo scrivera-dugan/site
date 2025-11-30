@@ -20,7 +20,7 @@ title: Home
     </div>
 </div>
 
-<a href="mailto:sarahcdugan@gmail.com" style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; margin-top: 1rem;">Let's work together</a>
+<a href="mailto:sarahcdugan@gmail.com" style="display: inline-block; background-color: var(--color-accent); color: white; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; margin-top: 1rem;">Drop me a line</a>
 
 ---
 
