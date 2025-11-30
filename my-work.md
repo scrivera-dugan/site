@@ -2,46 +2,99 @@
 layout: default
 title: My Work
 ---
-# My Work
-*A selection of projects where I've shaped how people understand complex technology.
 
-Detailed work samples and case studies are available upon request. Please contact me at sarahcdugan@gmail.com for access.*
+<style>
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
 
----
+.carousel::-webkit-scrollbar {
+  height: 8px;
+}
 
-## Stellic
-**Technical Content Lead** · Current
+.carousel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
 
-Building content strategy for a platform that helps universities modernize degree planning and student success. Combining ML writing expertise with higher education technology.
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
 
-**Portfolio:** [Stellic Learning Center](https://learn.stellic.com/) - Complete documentation site built with GitBook
+.carousel-item {
+  min-width: 300px;
+  scroll-snap-align: start;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
----
+.carousel-item h3 {
+  margin-top: 0;
+  color: var(--color-text-primary);
+}
 
-## Google Cloud
-**Technical Writer**
+.carousel-item p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
 
-Led documentation for Google's flagship AI/ML products, including Gemini, PaLM 2, Vertex AI Model Registry, and Vector Search. Translated cutting-edge research into practical developer guidance.
+.carousel-item a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
 
-**Documentation:**
-- [Vertex AI Grounding](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)
-- [Vertex AI Model Registry](https://cloud.google.com/vertex-ai/docs/model-registry/introduction)
-- [Gemini Embeddings](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings)
-- [Vector Search](https://cloud.google.com/vertex-ai/docs/vector-search/overview)
+.carousel-item a:hover {
+  text-decoration: underline;
+}
+</style>
 
-**Blog Posts:**
-- [Vertex AI Model Registry Launch](https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry)
-- [MLOps with BigQuery ML & Vertex AI](https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry)
-- [Why I'm Excited About Model Registry](https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b)
+<h1>My Work</h1>
 
----
+<p>Here's a selection of projects that showcase my approach to technical content.</p>
 
-## Amazon
-**Technical Writer**
+<div class="carousel">
+  <div class="carousel-item">
+    <h3>Google Gemini Documentation</h3>
+    <p>Led the documentation strategy for Google's flagship LLM, creating developer guides, API references, and code samples for millions of users.</p>
+    <a href="#">View samples →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Stellic Learning Center</h3>
+    <p>Architected and built a complete documentation portal from scratch, migrating 500+ pages to GitBook with AI-powered search.</p>
+    <a href="https://learn.stellic.com/" target="_blank">Visit site →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>PaLM 2 Launch Content</h3>
+    <p>Created launch documentation and hand-crafted API reference for Google's PaLM 2 model release.</p>
+    <a href="#">View samples →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>AWS Training Content</h3>
+    <p>Edited 30+ technical courses across Game Tech, Security, and IoT, contributing to a satisfaction score increase from 4.0 to 4.8.</p>
+    <a href="#">Learn more →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Vertex AI Model Registry</h3>
+    <p>Developed comprehensive documentation for Google Cloud's ML model management system.</p>
+    <a href="#">View samples →</a>
+  </div>
+</div>
 
-Created developer-facing content for voice AI (Alexa) and cloud services (AWS). Worked across teams to ensure consistency and clarity in documentation reaching millions of developers worldwide.
-
----
+<p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share specific writing samples.</p>
 
 ## IBM
 **Technical Writer**
