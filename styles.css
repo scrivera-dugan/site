@@ -289,3 +289,47 @@ strong {
         font-size: 2.5rem;
     }
 }
+/* ========================================
+   PDF Viewer
+   ======================================== */
+
+.pdf-container {
+    background-color: var(--color-bg-alt);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.08);
+    margin: var(--space-xl) 0;
+}
+
+.pdf-container embed {
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    display: block;
+    margin-bottom: var(--space-lg);
+}
+
+.pdf-download {
+    text-align: center;
+    margin: 0;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: white;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .pdf-container embed {
+        height: 600px;
+    }
+}
