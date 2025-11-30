@@ -7,7 +7,7 @@ title: My Work
 
 ---
 
-## Featured Work Samples
+## Featured Documentation
 
 ### Stellic Learning Center
 Complete documentation site built with GitBook for a higher education technology platform. Covers everything from getting started guides to advanced configuration for university administrators.
@@ -15,19 +15,34 @@ Complete documentation site built with GitBook for a higher education technology
 [View Stellic Learning Center →](https://learn.stellic.com/)
 
 ### Vertex AI Grounding with Gemini
-Comprehensive documentation for grounding prompt responses using Google's Gemini models. This work demonstrates how to guide developers through complex AI concepts with clear, practical examples.
+Comprehensive documentation for grounding prompt responses using Google's Gemini models. Clear, practical examples guiding developers through complex AI concepts.
 
-[View Vertex AI Grounding Documentation →](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)
+[View Documentation →](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview)
+
+### Vertex AI Model Registry
+Full documentation set for model versioning and management in Vertex AI, helping ML teams track and deploy models at scale.
+
+[View Documentation →](https://cloud.google.com/vertex-ai/docs/model-registry/introduction)
 
 ### Gemini Embeddings
 Complete documentation set covering embeddings functionality, including conceptual guides and practical implementation examples for AI/ML developers.
 
-[View Embeddings Documentation →](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings)
+[View Documentation →](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings)
 
 ### Vector Search
 Full documentation set for Google Cloud's Vector Search product, helping developers understand and implement similarity search at scale.
 
-[View Vector Search Documentation →](https://cloud.google.com/vertex-ai/docs/vector-search/overview)
+[View Documentation →](https://cloud.google.com/vertex-ai/docs/vector-search/overview)
+
+---
+
+## Blog Posts & Thought Leadership
+
+Beyond core documentation, I've written blog posts that make technical concepts accessible and engaging:
+
+- [Vertex AI Model Registry Launch Post](https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry) - Google Cloud Blog
+- [MLOps with BigQuery ML & Vertex AI](https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry) - Google Cloud Blog
+- [Why I'm Excited About Vertex AI Model Registry](https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b) - Medium
 
 ---
 
@@ -43,7 +58,10 @@ Building content strategy for a platform that helps universities modernize degre
 ## Google Cloud
 **Technical Writer**
 
-Led documentation efforts for Google's flagship large language models, including Gemini and PaLM 2. Created content that helped developers understand and implement cutting-edge AI capabilities, translating research-level concepts into practical, developer-friendly guidance.
+Led documentation efforts for Google's flagship large language models and ML infrastructure products, including Gemini, PaLM 2, Vertex AI Model Registry, and Vector Search. Created content that helped developers understand and implement cutting-edge AI capabilities, translating research-level concepts into practical, developer-friendly guidance.
+
+**Core documentation:** Model Registry, Vector Search, Grounding, Embeddings  
+**Additional content:** Technical blog posts and thought leadership on Google Cloud Blog and Medium
 
 ---
 
