@@ -11,12 +11,9 @@ Sarah grew up reading, writing, and watching all the movies she could get her ha
 
 It was actually one of those guests who first suggested technical writing to Sarah when she was in high school and connected her with an internship at IBM—and the rest is history. A Boston native, Sarah is a New Englander at heart and is grateful for how it shaped her.
 
-<div style="text-align: center; margin: 2rem 0;">
-    <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" style="max-width: 400px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-</div>
-
-<div style="text-align: center; margin: 2rem 0;">
-    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Ben" style="max-width: 400px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+<div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
+    <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" style="max-width: 300px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Ben" style="max-width: 300px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
 </div>
 
 
