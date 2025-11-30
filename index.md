@@ -16,7 +16,7 @@ title: Home
     </div>
     
     <div style="flex-shrink: 0;">
-        <img src="{{ '/images/sdugan.png' | relative_url }}" alt="Sarah Dugan" style="width: 280px; height: 280px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
+        <img src="{{ '/images/headshot.png' | relative_url }}" alt="Sarah Dugan" style="width: 280px; height: auto; border-radius: 50%; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);">
     </div>
 </div>
 
