@@ -23,13 +23,4 @@ title: Home
 
 ---
 
-[See my work →](/site/my-work.html)
-
-[More about my philosophy →](/site/friends&philosophy.html)
-
----
-
-## Let's connect
-
-📧 [sarahcdugan@gmail.com](mailto:sarahcdugan@gmail.com)  
-💼 [LinkedIn](https://www.linkedin.com/in/scdugan/)
+[See my work →](/site/my-work.html) · [My philosophy →](/site/philosophy.html) · [LinkedIn](https://www.linkedin.com/in/scdugan/)
