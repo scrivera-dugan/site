@@ -52,9 +52,39 @@ title: My Work
 <p>Here's a selection of projects that showcase my approach to technical content.</p>
 <div class="carousel">
   <div class="carousel-item">
-    <h3>Google Gemini Documentation</h3>
-    <p>Led the documentation strategy for Google's flagship LLM, creating developer guides, API references, and code samples for millions of users.</p>
-    <a href="#">View samples →</a>
+    <h3>Vertex AI Grounding</h3>
+    <p>Complete documentation set for grounding prompt responses using Gemini, demonstrating how to enhance LLM outputs with factual grounding.</p>
+    <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview" target="_blank">View docs →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Gemini Embeddings</h3>
+    <p>Comprehensive documentation covering embeddings fundamentals and implementation, telling the complete AI/ML embeddings story.</p>
+    <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank">View docs →</a>
+  </div>
+
+  <div class="carousel-item">
+    <h3>Vector Search</h3>
+    <p>Full documentation set for Google Cloud's Vector Search product, enabling similarity search at scale.</p>
+    <a href="https://cloud.google.com/vertex-ai/docs/vector-search/overview" target="_blank">View docs →</a>
+  </div>
+  
+  <div class="carousel-item">
+    <h3>Vertex AI Model Registry Launch</h3>
+    <p>Launch announcement blog post introducing Google Cloud's centralized model management system.</p>
+    <a href="https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry" target="_blank">Read post →</a>
+  </div>
+
+  <div class="carousel-item">
+    <h3>MLOps with BigQuery ML & Vertex AI</h3>
+    <p>Developer-focused blog demonstrating practical MLOps workflows across Google Cloud's ML platform.</p>
+    <a href="https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry" target="_blank">Read post →</a>
+  </div>
+
+  <div class="carousel-item">
+    <h3>Why I'm Excited About Model Registry</h3>
+    <p>Personal perspective on the value of centralized model management for ML teams, published on Medium.</p>
+    <a href="https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b" target="_blank">Read post →</a>
   </div>
   
   <div class="carousel-item">
@@ -62,29 +92,5 @@ title: My Work
     <p>Architected and built a complete documentation portal from scratch, migrating 500+ pages to GitBook with AI-powered search.</p>
     <a href="https://learn.stellic.com/" target="_blank">Visit site →</a>
   </div>
-  
-  <div class="carousel-item">
-    <h3>PaLM 2 Launch Content</h3>
-    <p>Created launch documentation and hand-crafted API reference for Google's PaLM 2 model release.</p>
-    <a href="#">View samples →</a>
-  </div>
-  
-  <div class="carousel-item">
-    <h3>AWS Training Content</h3>
-    <p>Edited 30+ technical courses across Game Tech, Security, and IoT, contributing to a satisfaction score increase from 4.0 to 4.8.</p>
-    <a href="#">Learn more →</a>
-  </div>
-  
-  <div class="carousel-item">
-    <h3>Vertex AI Model Registry</h3>
-    <p>Developed comprehensive documentation for Google Cloud's ML model management system.</p>
-    <a href="#">View samples →</a>
-  </div>
-
-  <div class="carousel-item">
-    <h3>IBM Big Data Analytics</h3>
-    <p>Early career foundation in technical writing, learning to navigate large-scale documentation systems and cross-functional collaboration in an enterprise environment.</p>
-    <a href="#">Learn more →</a>
-  </div>
 </div>
-<p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share specific writing samples.</p>
+<p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share additional writing samples.</p>
