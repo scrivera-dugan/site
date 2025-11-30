@@ -307,26 +307,7 @@ strong {
     border: 1px solid var(--color-border);
     display: block;
     margin-bottom: var(--space-lg);
-}
 
-.pdf-download {
-    text-align: center;
-    margin: 0;
-}
-
-.download-button {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: white;
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-}
-
-.download-button:hover {
-    background-color: var(--color-accent-hover);
-    color: white;
 }
 
 @media (max-width: 768px) {
@@ -352,7 +333,7 @@ strong {
 .carousel-track {
     display: flex;
     gap: var(--space-md);
-    animation: scroll 60s linear infinite;
+    animation: scroll 10s linear infinite;
 }
 
 .carousel-track:hover {
