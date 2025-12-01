@@ -68,7 +68,6 @@ title: My Work
     <p>Comprehensive documentation covering embeddings fundamentals and implementation, telling the complete AI/ML embeddings story.</p>
     <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings" target="_blank">View docs →</a>
   </div>
-
   <div class="carousel-item">
     <h3>Vector Search</h3>
     <p>Full documentation set for Google Cloud's Vector Search product, enabling similarity search at scale.</p>
@@ -80,13 +79,11 @@ title: My Work
     <p>Launch announcement blog post introducing Google Cloud's centralized model management system.</p>
     <a href="https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry" target="_blank">Read post →</a>
   </div>
-
   <div class="carousel-item">
     <h3>MLOps with BigQuery ML & Vertex AI</h3>
     <p>Developer-focused blog demonstrating practical MLOps workflows across Google Cloud's ML platform.</p>
     <a href="https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry" target="_blank">Read post →</a>
   </div>
-
   <div class="carousel-item">
     <h3>Why I'm Excited About Model Registry</h3>
     <p>Personal perspective on the value of centralized model management for ML teams, published on Medium.</p>
@@ -94,4 +91,7 @@ title: My Work
   </div>
   
 </div>
+
 <p style="margin-top: 2rem;">Want to see more? <a href="mailto:sarahcdugan@gmail.com">Get in touch</a> and I can share additional writing samples.</p>
+
+<img src="{{ '/images/office.jpg' | relative_url }}" alt="Office workspace" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-top: 3rem;">
