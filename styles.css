@@ -1,50 +1,56 @@
 /* ========================================
-   Sarah Dugan Portfolio
-   Clean, warm, refined design
+   sarahdocs.com
+   Cyanotype palette: blueprint blue on paper
    ======================================== */
 
 :root {
-    /* Warm color palette */
-    --color-bg: #FAF9F7;
-    --color-bg-alt: #FFFFFF;
-    --color-text: #1A1A1A;
-    --color-text-secondary: #5C5C5C;
-    --color-accent: #9ACD32;           
-    --color-accent-hover: #7BA428;     
-    --color-border: #E5E2DD;
-    --color-nav-bg: rgba(250, 249, 247, 0.95);
-    
-    /* Typography */
-    --font-display: 'Instrument Serif', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    
-    /* Spacing */
+    color-scheme: light dark;
+
+    --color-bg: #F4F5F2;              /* paper */
+    --color-bg-alt: #FBFBF9;          /* surface */
+    --color-text: #15202B;            /* ink */
+    --color-text-secondary: #57626C;
+    --color-text-primary: var(--color-text); /* alias used on the Work page */
+    --color-accent: #1C4A73;          /* cyanotype */
+    --color-accent-hover: #0F3354;
+    --color-on-accent: #FFFFFF;
+    --color-border: #D3D8DA;
+    --color-nav-bg: #F4F5F2;
+
+    --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-xxl: 6rem;
+
+    --measure: 42rem;                 /* reading column, ~70 characters */
+    --radius: 4px;
 }
-    
-    /* Typography */
-    --font-display: 'Instrument Serif', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    
-    /* Spacing */
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2.5rem;
-    --space-xl: 4rem;
-    --space-xxl: 6rem;
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #0E1823;
+        --color-bg-alt: #14212E;
+        --color-text: #E4E8EB;
+        --color-text-secondary: #9AA6B1;
+        --color-accent: #8FB9DE;
+        --color-accent-hover: #B7D3EC;
+        --color-on-accent: #0E1823;
+        --color-border: #253444;
+        --color-nav-bg: #0E1823;
+    }
 }
 
 /* ========================================
-   Base Styles
+   Base
    ======================================== */
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,11 +58,28 @@
 
 body {
     font-family: var(--font-body);
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 1.0625rem;
+    line-height: 1.65;
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
 }
 
 /* ========================================
@@ -66,20 +89,20 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: var(--space-md);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
     color: var(--color-text);
+    margin-bottom: var(--space-sm);
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: var(--space-lg);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    margin-bottom: var(--space-md);
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
 }
 
 h3 {
@@ -88,31 +111,66 @@ h3 {
 }
 
 p {
-    margin-bottom: var(--space-md);
-    color: var(--color-text);
+    margin-bottom: var(--space-sm);
 }
 
 a {
     color: var(--color-accent);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
     color: var(--color-accent-hover);
+    text-decoration-color: currentColor;
 }
 
 ul, ol {
-    margin-left: var(--space-lg);
-    margin-bottom: var(--space-md);
+    margin: 0 0 var(--space-sm) 1.25rem;
 }
 
 li {
-    margin-bottom: var(--space-xs);
+    margin-bottom: 0.35rem;
 }
 
 strong {
     font-weight: 600;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-lg) 0;
+}
+
+code, pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+code {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.1em 0.35em;
+}
+
+pre {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    overflow-x: auto;
+    margin-bottom: var(--space-sm);
+}
+
+pre code {
+    border: 0;
+    padding: 0;
+    background: none;
 }
 
 /* ========================================
@@ -122,27 +180,27 @@ strong {
 .nav {
     background-color: var(--color-nav-bg);
     border-bottom: 1px solid var(--color-border);
-    padding: var(--space-md) 0;
+    padding: var(--space-sm) 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(10px);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: calc(var(--measure) + 2 * var(--space-md));
     margin: 0 auto;
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-md);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+    gap: var(--space-md);
 }
 
 .nav-logo {
     font-family: var(--font-display);
     font-size: 1.5rem;
     color: var(--color-text);
-    font-weight: 400;
+    text-decoration: none;
 }
 
 .nav-logo:hover {
@@ -151,80 +209,129 @@ strong {
 
 .nav-links {
     display: flex;
-    gap: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
 }
 
 .nav-links a {
     color: var(--color-text-secondary);
-    font-size: 1rem;
-    font-weight: 400;
-    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    color: var(--color-text);
+}
+
 .nav-links a.active {
-    color: var(--color-accent);
+    color: var(--color-text);
+    border-bottom-color: var(--color-accent);
 }
 
 /* ========================================
-   Main Content
+   Main
    ======================================== */
 
 .main {
     min-height: calc(100vh - 200px);
-    padding: var(--space-xxl) 0;
+    padding: var(--space-xl) 0 var(--space-xxl);
 }
 
 .container {
-    max-width: 800px;
+    max-width: calc(var(--measure) + 2 * var(--space-md));
     margin: 0 auto;
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-md);
 }
 
 /* ========================================
-   Home Page Intro
+   Home
    ======================================== */
 
-.intro {
-    text-align: center;
-    margin-bottom: var(--space-xxl);
-}
-
-.intro h1 {
-    font-size: 3.5rem;
-    margin-bottom: var(--space-sm);
-}
-
-.intro .subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text-secondary);
+.hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-lg);
+    align-items: start;
     margin-bottom: var(--space-xl);
 }
 
+.hero h1 {
+    font-size: clamp(3.25rem, 9vw, 5.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-md);
+}
+
+.hero-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-lg);
+}
+
+.hero-lede {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: var(--space-md);
+}
+
+.hero-photo {
+    width: 12rem;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: var(--radius);
+    filter: grayscale(0.15);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+    padding: 0.7rem 1.4rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: var(--space-sm);
+}
+
+.button:hover {
+    background-color: var(--color-accent-hover);
+    color: var(--color-on-accent);
+}
+
+.home-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+/* Older intro styles, kept in case a page still uses them */
+.intro { margin-bottom: var(--space-xl); }
+.intro .subtitle { color: var(--color-text-secondary); }
+
 /* ========================================
-   Sections
+   Sections and cards
    ======================================== */
 
 .section {
-    margin-bottom: var(--space-xxl);
+    margin-bottom: var(--space-xl);
 }
 
 .section h2 {
     margin-top: 0;
-    padding-bottom: var(--space-sm);
-    border-bottom: 2px solid var(--color-border);
 }
-
-/* ========================================
-   Cards/Blocks
-   ======================================== */
 
 .card {
     background-color: var(--color-bg-alt);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
 }
 
 .card h3 {
@@ -236,31 +343,34 @@ strong {
    ======================================== */
 
 .footer {
-    background-color: var(--color-bg-alt);
     border-top: 1px solid var(--color-border);
-    padding: var(--space-xl) 0;
-    margin-top: var(--space-xxl);
+    padding: var(--space-lg) 0;
 }
 
 .footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
 }
 
 .footer p {
     color: var(--color-text-secondary);
+    font-size: 0.9rem;
     margin: 0;
 }
 
 .footer-links {
     display: flex;
-    gap: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
 }
 
 .footer-links a {
     color: var(--color-text-secondary);
-    font-size: 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
 }
 
 .footer-links a:hover {
@@ -268,124 +378,113 @@ strong {
 }
 
 /* ========================================
-   Responsive Design
-   ======================================== */
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 1.75rem;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-        gap: var(--space-md);
-        text-align: center;
-    }
-    
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: var(--space-md);
-    }
-    
-    .footer .container {
-        flex-direction: column;
-        gap: var(--space-md);
-        text-align: center;
-    }
-    
-    .intro h1 {
-        font-size: 2.5rem;
-    }
-}
-
-/* ========================================
-   PDF Viewer
+   Resume PDF viewer
    ======================================== */
 
 .pdf-container {
-    background-color: var(--color-bg-alt);
-    border-radius: 12px;
-    padding: var(--space-lg);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.08);
-    margin: var(--space-xl) 0;
+    margin: var(--space-lg) 0;
 }
 
 .pdf-container embed {
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
     display: block;
-    margin-bottom: var(--space-lg);
-
-}
-
-@media (max-width: 768px) {
-    .pdf-container embed {
-        height: 600px;
-    }
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-md);
 }
 
 /* ========================================
-   Infinite Carousel
+   Work and Philosophy page carousels
+   These pages have their own <style> blocks with
+   hardcoded light colors and shadows. The "main"
+   prefix gives these rules enough weight to win,
+   so the pages also work in dark mode.
    ======================================== */
 
+main .carousel-item {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: none;
+}
+
+main .carousel::-webkit-scrollbar-track,
+main .photo-carousel::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: var(--radius);
+}
+
+main .carousel::-webkit-scrollbar-thumb,
+main .photo-carousel::-webkit-scrollbar-thumb {
+    border-radius: var(--radius);
+}
+
+main .photo-carousel-item img {
+    border-radius: var(--radius);
+    box-shadow: none;
+}
+
+/* Inline photo styles on the About and Work pages add shadows */
+.container img {
+    box-shadow: none !important;
+}
+
+/* Older auto-scrolling carousel */
 .carousel-wrapper {
     overflow: hidden;
-    width: 100%;
-    background-color: var(--color-bg-alt);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.08);
-    padding: var(--space-lg) 0;
-    margin: var(--space-xl) 0;
+    margin: var(--space-lg) 0;
 }
 
 .carousel-track {
     display: flex;
-    gap: var(--space-md);
-    animation: scroll 10s linear infinite;
+    gap: var(--space-sm);
+    animation: scroll 40s linear infinite;
 }
 
 .carousel-track:hover {
     animation-play-state: paused;
 }
 
-.carousel-item {
-    flex-shrink: 0;
-    width: 350px;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.carousel-item img:hover {
-    transform: scale(1.05);
-}
-
 @keyframes scroll {
-    0% {
-        transform: translateX(0);
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ========================================
+   Responsive and motion
+   ======================================== */
+
+@media (max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+        gap: var(--space-xs);
     }
-    100% {
-        transform: translateX(-50%);
+
+    .nav-links {
+        gap: var(--space-sm);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-photo {
+        grid-row: 1;
+        width: 8rem;
+    }
+
+    .hero-lede {
+        font-size: 1.5rem;
+    }
+
+    .pdf-container embed {
+        height: 600px;
     }
 }
 
-@media (max-width: 768px) {
-    .carousel-item {
-        width: 250px;
-    }
-    
-    .carousel-item img {
-        height: 200px;
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
