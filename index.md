@@ -37,7 +37,7 @@ title: Home
         {% endfor %}
     </ul>
     {% endif %}
-    <a class="subscribe" href="{{ feed.link }}">Subscribe on Substack</a>
+    <a class="button" href="{{ feed.link }}">Subscribe on Substack</a>
 </section>
 
 <script>
