@@ -20,9 +20,17 @@
     --color-nav-bg: #F8F7F4;
     --color-thread: #C2A868;          /* gold */
 
-    --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    /* Type: one job per family */
+    --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;     /* headings, UI: modern voice */
+    --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;             /* reading text: old-book voice */
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; /* footer only: machine voice */
+
+    /* Five sizes on a 1.25 scale */
+    --size-15: 0.9375rem;
+    --size-19: 1.1875rem;
+    --size-24: 1.5rem;
+    --size-30: 1.875rem;
+    --size-58: 3.625rem;
 
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -31,7 +39,8 @@
     --space-xl: 4rem;
     --space-xxl: 6rem;
 
-    --measure: 42rem;                 /* reading column, ~70 characters */
+    --measure: 42rem;                 /* page width for lists and images */
+    --reading-measure: 30rem;         /* paragraphs: ~60 characters at 19px */
     --radius: 4px;
 }
 
@@ -63,8 +72,9 @@
 
 body {
     font-family: var(--font-body);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: var(--size-19);
+    line-height: 1.6;
+    font-optical-sizing: auto;
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
@@ -94,30 +104,38 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.15;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.015em;
     color: var(--color-text);
     margin-bottom: var(--space-sm);
 }
 
 h1 {
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: var(--size-30);
     margin-bottom: var(--space-md);
 }
 
 h2 {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: var(--size-24);
     margin-top: var(--space-xl);
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: var(--size-19);
     margin-top: var(--space-lg);
 }
 
 p {
     margin-bottom: var(--space-sm);
+}
+
+/* Paragraphs and lists on content pages keep a book-width line */
+.container > p,
+.container > ul:not(.index),
+.container > ol,
+.container > blockquote {
+    max-width: var(--reading-measure);
 }
 
 a {
@@ -223,7 +241,9 @@ pre code {
 
 .nav-links a {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
     text-decoration: none;
     padding-bottom: 2px;
     border-bottom: 1px solid transparent;
@@ -265,9 +285,9 @@ pre code {
    alternating sides, like weft threads on a loom. */
 .weave {
     position: relative;
-    font-size: clamp(3.5rem, 13vw, 6.5rem);
+    font-size: clamp(2.75rem, 11vw, var(--size-58));
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     white-space: nowrap;
     margin: 0;
 }
@@ -312,10 +332,8 @@ pre code {
 }
 
 .intro {
-    max-width: 34rem;
+    max-width: var(--reading-measure);
     margin-top: var(--space-md);
-    color: var(--color-text-secondary);
-    font-size: 1.125rem;
 }
 
 .intro p {
@@ -327,7 +345,9 @@ pre code {
     flex-wrap: wrap;
     gap: 1.25rem;
     margin-top: var(--space-md);
-    font-size: 0.95rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
 }
 
 /* Index lists: the section doors and the newsletter feed */
@@ -354,8 +374,10 @@ pre code {
 
 .index .name {
     font-family: var(--font-display);
-    font-size: 1.6rem;
-    line-height: 1.1;
+    font-weight: 500;
+    font-size: var(--size-24);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 .index .desc {
@@ -373,6 +395,7 @@ pre code {
 
 .feed h2 {
     margin: 0 0 0.35rem;
+    font-size: var(--size-30);
 }
 
 .feed .sub {
@@ -385,17 +408,33 @@ pre code {
 }
 
 .feed .index .name {
-    font-size: 1.3rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: var(--size-19);
+    letter-spacing: 0;
 }
 
 .feed .index .desc {
-    font-size: 0.9rem;
+    font-size: var(--size-15);
     white-space: nowrap;
 }
 
-.feed .subscribe {
+.button {
     display: inline-block;
     margin-top: var(--space-md);
+    padding: 0.7rem 1.2rem;
+    border-radius: 3px;
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
+    text-decoration: none;
+}
+
+.button:hover {
+    background: var(--color-rubric);
+    color: var(--color-on-accent);
 }
 
 /* Older intro styles, kept in case a page still uses them */
@@ -432,9 +471,9 @@ pre code {
 
 .initial {
     float: left;
-    width: 5.5rem;
+    width: 6.4rem;
     height: auto;
-    margin: 0.35rem 0.9rem 0.2rem 0;
+    margin: 0.4rem 0.9rem 0.1rem 0;
     border-radius: 2px;
 }
 
@@ -450,7 +489,7 @@ pre code {
 .credit {
     clear: both;
     margin-top: var(--space-xl);
-    font-size: 0.8rem;
+    font-size: var(--size-15);
     color: var(--color-text-secondary);
 }
 
@@ -473,7 +512,9 @@ pre code {
 
 .footer p {
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: var(--size-15);
+    letter-spacing: -0.02em;
     margin: 0;
 }
 
@@ -485,12 +526,14 @@ pre code {
 
 .footer-links a {
     color: var(--color-text-secondary);
-    font-size: 0.9rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
     text-decoration: none;
 }
 
 .footer-links a:hover {
-    color: var(--color-accent);
+    color: var(--color-rubric);
 }
 
 /* ========================================
