@@ -6,17 +6,19 @@
 :root {
     color-scheme: light dark;
 
-    --color-bg: #F4F5F2;              /* paper */
-    --color-bg-alt: #FBFBF9;          /* surface */
-    --color-text: #15202B;            /* ink */
-    --color-text-secondary: #57626C;
+    /* Pigments from Varro's De re rustica, Bodleian MS. Lat. class. d. 2 */
+    --color-bg: #F8F7F4;              /* paper */
+    --color-bg-alt: #FDFCFA;          /* surface */
+    --color-text: #2A2419;            /* iron-gall ink */
+    --color-text-secondary: #6B6152;
     --color-text-primary: var(--color-text); /* alias used on the Work page */
-    --color-accent: #1C4A73;          /* cyanotype */
-    --color-accent-hover: #0F3354;
+    --color-accent: #27407A;          /* lapis */
+    --color-accent-hover: #1B2F5C;
+    --color-rubric: #A3381F;          /* rubric red: hover and current page */
     --color-on-accent: #FFFFFF;
-    --color-border: #D3D8DA;
-    --color-nav-bg: #F4F5F2;
-    --color-thread: #9DB3C7;
+    --color-border: #E6E3DD;
+    --color-nav-bg: #F8F7F4;
+    --color-thread: #C2A868;          /* gold */
 
     --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
     --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -35,16 +37,17 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-bg: #0E1823;
-        --color-bg-alt: #14212E;
-        --color-text: #E4E8EB;
-        --color-text-secondary: #9AA6B1;
-        --color-accent: #8FB9DE;
-        --color-accent-hover: #B7D3EC;
-        --color-on-accent: #0E1823;
-        --color-border: #253444;
-        --color-nav-bg: #0E1823;
-        --color-thread: #34506B;
+        --color-bg: #131A2B;          /* night lapis */
+        --color-bg-alt: #1A2236;
+        --color-text: #EDE5D3;
+        --color-text-secondary: #A9A08E;
+        --color-accent: #9FB4E6;
+        --color-accent-hover: #C3D0F0;
+        --color-rubric: #E07A5F;
+        --color-on-accent: #131A2B;
+        --color-border: #2A3350;
+        --color-nav-bg: #131A2B;
+        --color-thread: #6E5F3A;
     }
 }
 
@@ -195,19 +198,21 @@ pre code {
     padding: 0 var(--space-md);
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: var(--space-md);
 }
 
 .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--color-text);
+    display: block;
+    line-height: 0;
     text-decoration: none;
 }
 
-.nav-logo:hover {
-    color: var(--color-accent);
+.nav-logo img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
 }
 
 .nav-links {
@@ -225,12 +230,12 @@ pre code {
 }
 
 .nav-links a:hover {
-    color: var(--color-text);
+    color: var(--color-rubric);
 }
 
 .nav-links a.active {
     color: var(--color-text);
-    border-bottom-color: var(--color-accent);
+    border-bottom-color: var(--color-rubric);
 }
 
 /* ========================================
@@ -359,7 +364,7 @@ pre code {
 
 .index a:hover .name,
 .index a:focus-visible .name {
-    color: var(--color-accent);
+    color: var(--color-rubric);
 }
 
 .feed {
@@ -419,6 +424,34 @@ pre code {
 
 .card h3 {
     margin-top: 0;
+}
+
+/* ========================================
+   Illuminated initial (About page)
+   ======================================== */
+
+.initial {
+    float: left;
+    width: 5.5rem;
+    height: auto;
+    margin: 0.35rem 0.9rem 0.2rem 0;
+    border-radius: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.credit {
+    clear: both;
+    margin-top: var(--space-xl);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
 }
 
 /* ========================================

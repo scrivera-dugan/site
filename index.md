@@ -10,7 +10,7 @@ title: Home
     </h1>
     <div class="intro">
         <p>I'm a technical and creative writer. I've written docs for over ten years and worked in AI for eight.</p>
-        <p>I also write {{ feed.title }}, about information, language, myth, and whatever else catches my interest.</p>
+        <p>I also write a newsletter, <em>{{ feed.title }}</em>, about information, language, myth, and whatever else catches my interest.</p>
     </div>
     <div class="home-links">
         <a href="mailto:sarahcdugan@gmail.com">Email</a>
