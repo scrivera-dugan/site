@@ -19,8 +19,8 @@
     <meta name="twitter:card" content="summary">
 
     <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-    <meta name="theme-color" content="#F4F5F2" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0E1823" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F8F7F4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#131A2B" media="(prefers-color-scheme: dark)">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 <body>
     <nav class="nav" aria-label="Main">
         <div class="nav-container">
-            <a href="{{ '/' | relative_url }}" class="nav-logo">Sarah Dugan</a>
+            <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home"><img src="{{ '/images/home-s.jpg' | relative_url }}" alt="" width="40" height="40"></a>
             <div class="nav-links">
                 <a href="{{ '/my-work.html' | relative_url }}" {% if page.url contains 'work' %}class="active" aria-current="page"{% endif %}>Portfolio</a>
                 <a href="{{ '/resume.html' | relative_url }}" {% if page.url contains 'resume' %}class="active" aria-current="page"{% endif %}>Resume</a>
