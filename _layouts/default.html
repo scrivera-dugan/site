@@ -15,7 +15,7 @@
     <meta property="og:title" content="{% if page.url == '/' %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/images/sdugan.jpg' | absolute_url }}">
+    <meta property="og:image" content="{{ '/images/sdugan.png' | absolute_url }}">
     <meta name="twitter:card" content="summary">
 
     <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
@@ -41,11 +41,10 @@
         <div class="nav-container">
             <a href="{{ '/' | relative_url }}" class="nav-logo">Sarah Dugan</a>
             <div class="nav-links">
-                <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active" aria-current="page"{% endif %}>Home</a>
-                <a href="{{ '/about-me.html' | relative_url }}" {% if page.url contains 'about' %}class="active" aria-current="page"{% endif %}>About</a>
-                <a href="{{ '/my-work.html' | relative_url }}" {% if page.url contains 'work' %}class="active" aria-current="page"{% endif %}>Work</a>
+                <a href="{{ '/my-work.html' | relative_url }}" {% if page.url contains 'work' %}class="active" aria-current="page"{% endif %}>Portfolio</a>
                 <a href="{{ '/resume.html' | relative_url }}" {% if page.url contains 'resume' %}class="active" aria-current="page"{% endif %}>Resume</a>
                 <a href="{{ '/friends&philosophy.html' | relative_url }}" {% if page.url contains 'philosophy' %}class="active" aria-current="page"{% endif %}>Philosophy</a>
+                <a href="{{ '/about-me.html' | relative_url }}" {% if page.url contains 'about' %}class="active" aria-current="page"{% endif %}>About</a>
             </div>
         </div>
     </nav>
