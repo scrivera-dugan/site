@@ -56,8 +56,18 @@ jobs:
               } for i in data["items"][:3]]
               return data["feed"]["title"].strip(), data["feed"]["link"].strip(), posts
 
+          def from_relay2():
+              url = "https://feed2json.org/convert?url=" + urllib.parse.quote(FEED, safe="")
+              data = json.loads(get(url))
+              posts = [{
+                  "title": i["title"].strip(),
+                  "link": i["url"].strip(),
+                  "date": i["date_published"][:10],
+              } for i in data.get("items", [])[:3]]
+              return data.get("title", "").strip(), data.get("home_page_url", "").strip(), posts
+
           errors = []
-          for name, fn in (("substack", from_substack), ("relay", from_relay)):
+          for name, fn in (("substack", from_substack), ("rss2json", from_relay), ("feed2json", from_relay2)):
               try:
                   title, link, posts = fn()
                   print("fetched via", name, "-", len(posts), "posts")
