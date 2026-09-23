@@ -20,29 +20,56 @@ jobs:
       - name: Fetch feed
         run: |
           python3 - <<'PY'
-          import json, urllib.request, xml.etree.ElementTree as ET
+          import json, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+          from datetime import datetime
           from email.utils import parsedate_to_datetime
 
           FEED = "https://sarahdocs.substack.com/feed"
-          # Substack answers 403 to anything that does not look like a browser.
-          req = urllib.request.Request(FEED, headers={
+          HEADERS = {
               "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36",
-              "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-          })
-          root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
-          channel = root.find("channel")
+              "Accept": "application/rss+xml, application/json, application/xml;q=0.9, */*;q=0.8",
+          }
 
-          posts = []
-          for item in channel.findall("item")[:3]:
-              posts.append({
-                  "title": item.findtext("title", "").strip(),
-                  "link": item.findtext("link", "").strip(),
-                  "date": parsedate_to_datetime(item.findtext("pubDate")).date().isoformat(),
-              })
+          def get(url):
+              return urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30).read()
+
+          def from_substack():
+              channel = ET.fromstring(get(FEED)).find("channel")
+              posts = [{
+                  "title": i.findtext("title", "").strip(),
+                  "link": i.findtext("link", "").strip(),
+                  "date": parsedate_to_datetime(i.findtext("pubDate")).date().isoformat(),
+              } for i in channel.findall("item")[:3]]
+              return channel.findtext("title", "").strip(), channel.findtext("link", "").strip(), posts
+
+          def from_relay():
+              # Substack's edge blocks GitHub's runners, so this reads the same
+              # feed through a public RSS-to-JSON relay instead.
+              url = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(FEED, safe="")
+              data = json.loads(get(url))
+              if data.get("status") != "ok":
+                  raise RuntimeError("relay: " + str(data.get("message")))
+              posts = [{
+                  "title": i["title"].strip(),
+                  "link": i["link"].strip(),
+                  "date": datetime.strptime(i["pubDate"][:10], "%Y-%m-%d").date().isoformat(),
+              } for i in data["items"][:3]]
+              return data["feed"]["title"].strip(), data["feed"]["link"].strip(), posts
+
+          errors = []
+          for name, fn in (("substack", from_substack), ("relay", from_relay)):
+              try:
+                  title, link, posts = fn()
+                  print("fetched via", name, "-", len(posts), "posts")
+                  break
+              except Exception as e:
+                  errors.append(f"{name}: {e}")
+          else:
+              raise SystemExit("all sources failed: " + "; ".join(errors))
 
           data = {
-              "title": channel.findtext("title", "Write this down").strip(),
-              "link": channel.findtext("link", "https://sarahdocs.substack.com/").strip(),
+              "title": title or "Write this down",
+              "link": (link or "https://sarahdocs.substack.com/").rstrip("/") + "/",
               "posts": posts,
           }
           with open("_data/substack.json", "w") as f:
