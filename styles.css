@@ -521,9 +521,10 @@ pre code {
     display: block;
 }
 
-/* The rotating title: same size as the line it sits in, just heavier. */
+/* The rotating title: same size and weight as the line it sits in, set in
+   italic, the same device as the closing line. */
 .rotator {
-    font-weight: 600;
+    font-style: italic;
 }
 
 .hero .sub {
