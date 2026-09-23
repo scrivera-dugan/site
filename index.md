@@ -4,30 +4,31 @@ title: Home
 ---
 {% assign work = site.data.work %}
 {% assign feed = site.data.substack %}
-{% assign featured = work.docs | where: "featured", true %}
+{% assign r = site.data.resume %}
 
-<section class="lede" aria-label="About me">
-<p>I write documentation for complex products, mostly machine learning platforms, for the developers who build on them. At Google I documented Gemini and PaLM 2 on Vertex AI. Before that I built the <a href="https://learn.stellic.com/" rel="noopener">Stellic Learning Center</a> from nothing, information architecture and all.</p>
-<p>I care about what makes an explanation stick. Living with a cognitive neuroscientist gives me a front-row seat to how people actually learn.</p>
-<p class="quiet">Off the clock I'm thrifting, crafting, or daydreaming about stories I haven't written yet.</p>
-</section>
-
-<section class="block" aria-labelledby="work-h">
-<h2 class="label" id="work-h">Selected work</h2>
-<ul class="entries">
-{% for item in featured %}{% include work-entry.html item=item %}{% endfor %}
-</ul>
-<a class="more" href="{{ '/my-work.html' | relative_url }}">Full portfolio →</a>
-</section>
-
-<section class="block" aria-labelledby="writing-h">
-<h2 class="label" id="writing-h">Writing</h2>
+<section class="block" id="work" aria-labelledby="work-h">
+<h2 class="label section-label" id="work-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>Selected work</h2>
+<div class="work-grid">
+{% for item in work.docs %}
+<article class="work-card">
+    <div class="img-placeholder">Image placeholder</div>
+    <div class="body">
+        <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true"> ↗</span></a></h3>
+        <p class="org">{{ item.org }} · {{ item.kind }}</p>
+        <p>{{ item.summary }}</p>
+    </div>
+</article>
+{% endfor %}
+</div>
+{% if work.writing and work.writing.size > 0 %}
+<h3 class="sub-label">Writing</h3>
 {% include writing-list.html items=work.writing %}
+{% endif %}
 </section>
 
-<section class="block newsletter" aria-labelledby="news-h">
-<h2 class="label" id="news-h">Newsletter</h2>
-<p><em>{{ feed.title }}</em> is where I write about information, language, and myth. It's free and it shows up occasionally.</p>
+<section class="block newsletter" id="substack" aria-labelledby="news-h">
+<h2 class="label section-label" id="news-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>{{ feed.title }}</h2>
+<p>My newsletter on Substack, about information, language, and myth. It's free and it shows up occasionally.</p>
 {% if feed.posts and feed.posts.size > 0 %}
 <ul class="writing">
     {% for post in feed.posts limit: 3 %}
@@ -43,4 +44,50 @@ title: Home
     </div>
     <p class="hint">Opens Substack to confirm.</p>
 </form>
+</section>
+
+<section class="block resume" id="resume" aria-labelledby="resume-h">
+<h2 class="label section-label" id="resume-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>Résumé</h2>
+<h1 class="print-only">Sarah C. Dugan</h1>
+<p class="contact print-only">sarahcdugan@gmail.com · linkedin.com/in/scdugan · sarahdocs.com</p>
+<p class="summary">{{ r.summary }}</p>
+
+<nav class="jump" aria-label="Jump to a role">
+{% for job in r.experience %}<a href="#{{ job.id }}">{{ job.company | split: "," | first }}</a>
+{% endfor %}</nav>
+
+<h3 class="resume-section">Experience</h3>
+{% for job in r.experience %}
+<section class="role" id="{{ job.id }}">
+<div class="role-head">
+<h3><a href="#{{ job.id }}">{{ job.title }}</a></h3>
+<span class="dates">{{ job.start }} – {{ job.end }}</span>
+</div>
+<p class="where">{{ job.company }} · {{ job.location }}</p>
+<ul>
+{% for bullet in job.bullets %}<li>{{ bullet }}</li>
+{% endfor %}</ul>
+</section>
+{% endfor %}
+
+<h3 class="resume-section">Education</h3>
+{% for school in r.education %}
+<section class="role">
+<div class="role-head">
+<h3>{{ school.school }}</h3>
+<span class="dates">{{ school.year }}</span>
+</div>
+<p class="where">{{ school.degree }}<br>{{ school.minor }}</p>
+</section>
+{% endfor %}
+
+<div class="meta">
+<button class="button" type="button" onclick="window.print()">Download PDF</button>
+<span>Updated {{ r.updated | date: "%B %Y" }}</span>
+</div>
+</section>
+
+<section class="block" id="about" aria-labelledby="about-h">
+<h2 class="label section-label" id="about-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>About</h2>
+<div class="about-placeholder">About text coming soon.</div>
 </section>

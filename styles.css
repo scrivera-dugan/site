@@ -189,7 +189,7 @@ pre code {
 }
 
 /* ========================================
-   Layout: sticky sidebar + reading column
+   Layout: single scrolling column
    ======================================== */
 
 .skip-link {
@@ -212,141 +212,115 @@ pre code {
 }
 
 .site {
-    --sidebar: 27.5rem;
-    --column: 41.5rem;
-    max-width: 75rem;
+    max-width: 46rem;
     margin: 0 auto;
     padding: 0 var(--space-md);
-    display: grid;
-    grid-template-columns: minmax(0, var(--sidebar)) minmax(0, var(--column));
-    justify-content: space-between;
-    column-gap: var(--space-xxl);
 }
 
 .content {
     min-width: 0;
-    padding: calc(var(--space-xxl) + var(--space-xs)) 0 var(--space-xl);
+    padding: var(--space-xl) 0;
 }
 
 /* ========================================
-   Sidebar
+   Top nav (sticky, anchors into the page)
    ======================================== */
 
-.sidebar {
-    align-self: start;
-    padding: var(--space-xxl) 0 var(--space-xl);
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-}
-
-/* Pin the sidebar only where it fits on screen */
-@media (min-width: 64rem) and (min-height: 50rem) {
-    .sidebar {
-        position: sticky;
-        top: 0;
-        min-height: 100vh;
-        box-sizing: border-box;
-    }
-}
-
-.owl {
-    align-self: flex-start;
-    display: block;
-    line-height: 0;
-    border-radius: var(--radius);
-}
-
-.owl img {
-    display: block;
-    height: 6.5rem;
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-.owl:hover img {
-    transform: rotate(-3deg);
-}
-
-.greeting {
-    margin: 0;
-    line-height: 0;
-}
-
-.greeting img {
-    display: block;
-    width: 100%;
-    max-width: var(--sidebar);
-    height: auto;
-    margin-left: -0.35rem;
-}
-
-.intro p {
-    margin: 0;
-}
-
-.intro .role {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--size-19);
-    letter-spacing: -0.005em;
-}
-
-.intro .blurb {
-    margin-top: var(--space-xs);
-    max-width: 21rem;
-    color: var(--color-text-secondary);
-}
-
-.sections ol {
-    list-style: none;
-    margin: 0;
-}
-
-.sections li {
-    margin: 0;
-}
-
-.sections a {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    min-height: 2.75rem;
-    color: var(--color-text-secondary);
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-border);
     font-family: var(--font-display);
     font-weight: 500;
     font-size: var(--size-15);
+}
+
+.top-nav a {
+    color: var(--color-text-secondary);
     text-decoration: none;
 }
 
-.sections .num {
-    width: 1.75rem;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 1.0625rem;
+.top-nav a:hover {
+    color: var(--color-accent);
 }
 
-.sections .rule {
-    width: 1.5rem;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-    transition: width 0.2s ease, opacity 0.2s ease;
+/* Minimal header for any page other than the homepage */
+.page-bar {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: var(--space-md);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
 }
 
-.sections a:hover,
-.sections a[aria-current="page"] {
-    color: var(--color-text);
+.page-bar a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
 }
 
-.sections a:hover .rule,
-.sections a[aria-current="page"] .rule {
-    width: 3rem;
-    opacity: 1;
+.page-bar a:hover {
+    color: var(--color-accent);
 }
 
-.sections a[aria-current="page"] .num {
-    color: var(--color-rubric);
+/* ========================================
+   Hero
+   ======================================== */
+
+.hero {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: var(--space-xxl) var(--space-md) var(--space-xl);
+    text-align: center;
+}
+
+.hero-icon {
+    width: 60px;
+    height: auto;
+    margin: 0 auto var(--space-md);
+    display: block;
+    transform-origin: 50% 85%;
+}
+
+.hero-icon:hover,
+.hero-icon:focus-visible {
+    animation: rustle 0.7s ease-in-out;
+}
+
+@keyframes rustle {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-1deg); }
+    40% { transform: rotate(0.8deg); }
+    60% { transform: rotate(-0.6deg); }
+    80% { transform: rotate(0.3deg); }
+}
+
+.hero h1 {
+    font-size: var(--size-58);
+    margin-bottom: var(--space-sm);
+}
+
+.hero .sub {
+    color: var(--color-text-secondary);
+    max-width: 34rem;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Footer (elsewhere links + colophon)
+   ======================================== */
+
+.site-footer {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-xl);
 }
 
 .elsewhere {
@@ -384,117 +358,92 @@ pre code {
 
 .block {
     margin-top: var(--space-xxl);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.lede p {
-    font-size: 1.3125rem;
-    line-height: 1.6;
-    margin: 0;
+.block.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.lede p + p {
-    margin-top: var(--space-md);
-}
-
-.lede .quiet {
-    color: var(--color-text-secondary);
-}
-
-.page-head h1 {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: clamp(2.25rem, 5vw, var(--size-58));
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin: 0;
-}
-
-.page-head p {
-    margin: var(--space-md) 0 0;
-    font-size: 1.3125rem;
-    color: var(--color-text-secondary);
-}
-
-.page-head + .block {
-    margin-top: var(--space-xl);
-}
-
-/* Work entries: where/what on the left, the work on the right */
-.entries,
-.writing {
-    list-style: none;
-    margin: 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.entry {
-    display: grid;
-    grid-template-columns: 9.5rem minmax(0, 1fr);
-    column-gap: var(--space-md);
-    margin: 0;
-    padding: var(--space-md) 0;
-    border-top: 1px solid var(--color-border);
-}
-
-.entry .meta {
-    margin: 0;
-    padding-top: 0.25rem;
+.section-label {
     display: flex;
-    flex-direction: column;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    line-height: 1.6;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.leaf-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-thread);
+    flex: none;
+}
+
+.sub-label {
+    margin-top: var(--space-lg);
+    font-size: var(--size-15);
+    font-weight: 500;
+}
+
+/* Work: cards with an image slot, or a placeholder until a real image is added */
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.work-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-bg-alt);
+}
+
+.work-card .img-placeholder {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(45deg, var(--color-border), var(--color-border) 8px, transparent 8px, transparent 16px);
     color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--size-15);
 }
 
-.entry h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    letter-spacing: -0.01em;
+.work-card .body {
+    padding: var(--space-sm) var(--space-md) var(--space-md);
 }
 
-.entry h3 a {
+.work-card h3 {
+    margin: 0 0 4px;
+    font-size: var(--size-19);
+}
+
+.work-card h3 a {
     color: var(--color-text);
     text-decoration: none;
 }
 
-.entry h3 a:hover {
+.work-card h3 a:hover {
     color: var(--color-rubric);
 }
 
-.entry h3 .ext {
-    font-size: 0.85em;
+.work-card .org {
     color: var(--color-text-secondary);
-}
-
-.entry .body p {
-    margin: var(--space-xs) 0 0;
-    font-size: 1.125rem;
-    line-height: 1.55;
-}
-
-.entry .detail {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem !important;
-    color: var(--color-text-secondary);
-}
-
-.entry .detail .k {
-    color: var(--color-rubric);
-    margin-right: 0.4em;
-}
-
-.entry .outcome {
-    color: var(--color-text);
-}
-
-.more {
-    display: inline-block;
-    margin-top: var(--space-sm);
-    padding: 0.75rem 0;
-    font-family: var(--font-display);
-    font-weight: 500;
     font-size: var(--size-15);
+    margin-bottom: var(--space-xs);
+}
+
+.work-card p {
+    font-size: var(--size-15);
+}
+
+.writing {
+    list-style: none;
+    margin: 0;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .writing li {
@@ -630,18 +579,6 @@ pre code {
     margin-top: 0;
 }
 
-/* ========================================
-   Illuminated initial (About page)
-   ======================================== */
-
-.initial {
-    float: left;
-    width: 6.4rem;
-    height: auto;
-    margin: 0.4rem 0.9rem 0.1rem 0;
-    border-radius: 2px;
-}
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -651,11 +588,14 @@ pre code {
     white-space: nowrap;
 }
 
-.credit {
-    clear: both;
-    margin-top: var(--space-xl);
-    font-size: var(--size-15);
+.about-placeholder {
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    text-align: center;
     color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--size-15);
 }
 
 /* ========================================
@@ -798,12 +738,16 @@ pre code {
         line-height: 1.45;
     }
 
-    .sidebar,
-    .colophon,
+    .top-nav,
+    .hero,
+    .site-footer,
     .skip-link,
     .jump,
     .screen-only,
-    .resume .meta {
+    .resume .meta,
+    #work,
+    #substack,
+    #about {
         display: none !important;
     }
 
@@ -894,42 +838,18 @@ pre code {
 }
 
 /* ========================================
-   Resume PDF viewer
+   Philosophy page's photo carousel
+   That page has its own <style> block with hardcoded
+   light colors and shadows. The "main" prefix gives
+   these rules enough weight to win, so it also works
+   in dark mode.
    ======================================== */
 
-.pdf-container {
-    margin: var(--space-lg) 0;
-}
-
-.pdf-container embed {
-    display: block;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    margin-bottom: var(--space-md);
-}
-
-/* ========================================
-   Work and Philosophy page carousels
-   These pages have their own <style> blocks with
-   hardcoded light colors and shadows. The "main"
-   prefix gives these rules enough weight to win,
-   so the pages also work in dark mode.
-   ======================================== */
-
-main .carousel-item {
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    box-shadow: none;
-}
-
-main .carousel::-webkit-scrollbar-track,
 main .photo-carousel::-webkit-scrollbar-track {
     background: var(--color-border);
     border-radius: var(--radius);
 }
 
-main .carousel::-webkit-scrollbar-thumb,
 main .photo-carousel::-webkit-scrollbar-thumb {
     border-radius: var(--radius);
 }
@@ -939,100 +859,33 @@ main .photo-carousel-item img {
     box-shadow: none;
 }
 
-/* Inline photo styles on the About and Work pages add shadows */
 .content img {
     box-shadow: none !important;
-}
-
-/* Older auto-scrolling carousel */
-.carousel-wrapper {
-    overflow: hidden;
-    margin: var(--space-lg) 0;
-}
-
-.carousel-track {
-    display: flex;
-    gap: var(--space-sm);
-    animation: scroll 40s linear infinite;
-}
-
-.carousel-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
 }
 
 /* ========================================
    Responsive and motion
    ======================================== */
 
-/* One column below laptop width: the sidebar becomes the page intro */
-@media (max-width: 63.99rem) {
-    .site {
-        grid-template-columns: minmax(0, 1fr);
-        max-width: calc(41.5rem + 2 * var(--space-md));
+@media (max-width: 40rem) {
+    .work-grid {
+        grid-template-columns: 1fr;
     }
 
-    .sidebar {
-        padding: var(--space-xl) 0 0;
-        gap: var(--space-md);
-    }
-
-    .owl img {
-        height: 4.5rem;
-    }
-
-    .greeting img {
-        max-width: 22rem;
-    }
-
-    .sections ol {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0 var(--space-md);
-    }
-
-    .sections .rule {
-        display: none;
-    }
-
-    .sections .num {
-        width: auto;
-    }
-
-    .sections a {
-        gap: 0.4rem;
-    }
-
-    .content {
-        padding-top: var(--space-lg);
-        border-top: 1px solid var(--color-border);
-        margin-top: var(--space-sm);
+    .top-nav {
+        gap: var(--space-sm);
+        font-size: var(--size-15);
     }
 }
 
 @media (max-width: 700px) {
-    .entry,
     .writing a {
         grid-template-columns: minmax(0, 1fr);
-    }
-
-    .entry .meta {
-        flex-direction: row;
-        gap: 0.75rem;
-        padding: 0 0 var(--space-xs);
     }
 
     .writing .where {
         display: block;
         margin-bottom: 0.125rem;
-    }
-
-    .pdf-container embed {
-        height: 600px;
     }
 }
 

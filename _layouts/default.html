@@ -42,47 +42,51 @@
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
 
-    <div class="site">
-        <header class="sidebar">
-            <a class="owl" href="{{ '/' | relative_url }}" aria-label="Sarah Dugan, home"{% if page.url == '/' %} aria-current="page"{% endif %}>
-                <img src="{{ '/images/owl.png' | relative_url }}" alt="" width="119" height="320">
-            </a>
+    {% if page.url == '/' %}
+    <nav class="top-nav" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#substack">Substack</a>
+        <a href="#resume">Résumé</a>
+        <a href="#about">About</a>
+    </nav>
 
-            {% capture greeting %}<picture>
-                    <source srcset="{{ '/images/hi-im-sarah-light.png' | relative_url }}" media="(prefers-color-scheme: dark)">
-                    <img src="{{ '/images/hi-im-sarah.png' | relative_url }}" alt="Hi, I'm Sarah" width="1320" height="239">
-                </picture>{% endcapture %}
-            {% if page.url == '/' %}<h1 class="greeting">{{ greeting }}</h1>{% else %}<p class="greeting">{{ greeting }}</p>{% endif %}
+    <header class="hero">
+        <img class="hero-icon" src="{{ '/images/owl.png' | relative_url }}" alt="" aria-hidden="true">
+        <h1>Hi, I'm Sarah.</h1>
+        <p class="sub">Intro copy coming soon.</p>
+    </header>
+    {% else %}
+    <header class="page-bar">
+        <a href="{{ '/' | relative_url }}">← Sarah Dugan</a>
+    </header>
+    {% endif %}
 
-            <div class="intro">
-                <p class="role">Sarah Dugan · Technical writer for AI products</p>
-                <p class="blurb">Ten years writing docs, eight of them in AI. Currently in Minneapolis.</p>
-            </div>
+    <main class="site content" id="content">
+        {{ content }}
+    </main>
 
-            <nav class="sections" aria-label="Main">
-                <ol>
-                    <li><a href="{{ '/my-work.html' | relative_url }}"{% if page.url contains 'work' %} aria-current="page"{% endif %}><span class="num">I.</span><span class="rule" aria-hidden="true"></span>Portfolio</a></li>
-                    <li><a href="{{ '/resume.html' | relative_url }}"{% if page.url contains 'resume' %} aria-current="page"{% endif %}><span class="num">II.</span><span class="rule" aria-hidden="true"></span>Resume</a></li>
-                    <li><a href="{{ '/friends&philosophy.html' | relative_url }}"{% if page.url contains 'philosophy' %} aria-current="page"{% endif %}><span class="num">III.</span><span class="rule" aria-hidden="true"></span>Philosophy</a></li>
-                    <li><a href="{{ '/about-me.html' | relative_url }}"{% if page.url contains 'about' %} aria-current="page"{% endif %}><span class="num">IV.</span><span class="rule" aria-hidden="true"></span>About</a></li>
-                </ol>
-            </nav>
+    <footer class="site-footer">
+        <ul class="elsewhere" aria-label="Elsewhere">
+            <li><a href="mailto:sarahcdugan@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/scdugan/" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/scrivera-dugan" rel="noopener">GitHub</a></li>
+            <li><a href="{{ site.data.substack.link }}" rel="noopener">Substack</a></li>
+        </ul>
+        <div class="colophon">
+            <p>© {{ 'now' | date: "%Y" }} Sarah Dugan. Set in Newsreader and Space Grotesk. Colors after the pigments of a medieval Varro manuscript, Bodleian MS. Lat. class. d. 2.</p>
+        </div>
+    </footer>
 
-            <ul class="elsewhere" aria-label="Elsewhere">
-                <li><a href="mailto:sarahcdugan@gmail.com">Email</a></li>
-                <li><a href="https://www.linkedin.com/in/scdugan/" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://github.com/scrivera-dugan" rel="noopener">GitHub</a></li>
-                <li><a href="{{ site.data.substack.link }}" rel="noopener">Substack</a></li>
-            </ul>
-        </header>
-
-        <main class="content" id="content">
-            {{ content }}
-
-            <footer class="colophon">
-                <p>© {{ 'now' | date: "%Y" }} Sarah Dugan. Set in Newsreader and Space Grotesk. Colors after the pigments of a medieval Varro manuscript, Bodleian MS. Lat. class. d. 2.</p>
-            </footer>
-        </main>
-    </div>
+    {% if page.url == '/' %}
+    <script>
+      var blocks = document.querySelectorAll('.block');
+      if (blocks.length && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+        }, { threshold: 0.15 });
+        blocks.forEach(function (s) { io.observe(s); });
+      }
+    </script>
+    {% endif %}
 </body>
 </html>
