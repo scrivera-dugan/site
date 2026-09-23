@@ -1,0 +1,16 @@
+name: Feed probe (temporary)
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in \
+            "https://sarahdocs.substack.com/feed" \
+            "https://sarahdocs.substack.com/api/v1/archive?sort=new&limit=3" \
+            "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fsarahdocs.substack.com%2Ffeed" \
+            "https://feed2json.org/convert?url=https%3A%2F%2Fsarahdocs.substack.com%2Ffeed" \
+            "https://r.jina.ai/https://sarahdocs.substack.com/feed"; do
+            code=$(curl -s -o /tmp/out -w '%{http_code}' --max-time 30 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36" "$u")
+            echo "PROBE $code $(head -c 120 /tmp/out | tr '\n' ' ') :: $u"
+          done
