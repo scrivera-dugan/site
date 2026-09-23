@@ -49,7 +49,7 @@
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-xxl: 6rem;
-    --space-section: 6rem;
+    --space-section: 9.5rem;
 
     --measure: 34rem;
     --measure-prose: 34rem;
@@ -462,7 +462,7 @@ pre code {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--space-sm);
+    gap: var(--space-lg);
 }
 
 .hero-lockup > picture {
@@ -470,7 +470,7 @@ pre code {
     /* Sized so the owl's height matches the text beside it. Too narrow and
        it floats in the middle of the column; too wide and it becomes the
        tallest thing in the hero and pads it from inside. */
-    width: 6.25rem;
+    width: 6.9rem;
     align-self: stretch;
     display: block;
 }
@@ -545,7 +545,7 @@ pre code {
 @media (max-width: 40rem) {
     :root {
         --gutter: 1.5rem;
-        --space-section: 3.5rem;
+        --space-section: 5rem;
     }
 
     /* On a phone the owl beside the text leaves it barely 230px, which
