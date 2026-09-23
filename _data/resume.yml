@@ -12,12 +12,20 @@ summary: >-
   that elevates product understanding and user experience.
 
 experience:
+  - id: gitbook
+    title: Founding Tech Docs Lead
+    company: GitBook
+    industry: Content Infrastructure
+    start: March 2026
+    end: Current
+
   - id: stellic
-    title: Technical Content Lead
+    title: Founding Tech Docs Lead
     company: Stellic
+    industry: Education Tech
     location: Remote, USA
     start: "2025"
-    end: Current
+    end: "2026"
     bullets:
       - Built technical documentation as a core product function, establishing the company's first dedicated content strategy and documentation processes for a 70-person organization.
       - Architected and maintained the company documentation portal, independently researching, executing, and launching a complete migration from Intercom to GitBook in under 3 months, enabling AI-powered insights and analytics across all user documentation.
@@ -25,8 +33,9 @@ experience:
       - Establish operational excellence through building Linear project management workflows, documentation governance processes, and scalable content systems that position the company for best-in-class standards.
 
   - id: google
-    title: Technical Writer
+    title: Senior Technical Writer
     company: Google Cloud
+    industry: Machine Learning, LLMs
     location: Remote, USA
     start: "2021"
     end: "2025"
@@ -38,8 +47,9 @@ experience:
       - Recognized as a top 5% leader at Google based on annual review rankings for job profile and organizational impact.
 
   - id: amazon
-    title: Technical Writer and Editor
+    title: Technical Writer and Technical Editor
     company: Amazon Alexa, Amazon Web Services
+    industry: Machine Learning
     location: Boston, MA
     start: "2019"
     end: "2021"
@@ -52,8 +62,9 @@ experience:
       - Drove successful monthly team business reviews by aggregating and reporting metrics and KPIs from 5 sub-teams.
 
   - id: onapsis
-    title: Product Documentation Lead
+    title: Technical Writer
     company: Onapsis
+    industry: Cybersecurity
     location: Boston, MA
     start: "2017"
     end: "2019"
@@ -66,6 +77,7 @@ experience:
   - id: nanthealth
     title: Technical Writer
     company: NantHealth
+    industry: Health Tech
     location: Boston, MA
     start: "2016"
     end: "2017"
@@ -76,10 +88,11 @@ experience:
       - Championed agile practices and collaboration within the documentation team (6-week sprints, daily stand-ups)
 
   - id: ibm
-    title: Co-op Technical Writer
+    title: Information Designer
     company: IBM Big Data Analytics
+    industry: Data Analytics
     location: Boston, MA
-    start: "2015"
+    start: "2013"
     end: "2016"
     bullets:
       - Developed customer-centric technical content in DITA XML to IBM products as a full time student

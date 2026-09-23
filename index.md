@@ -70,16 +70,16 @@ title: Home
     <li id="{{ job.id }}">
         <span class="index-row">
             <span class="what">{{ job.title }}</span>
-            <span class="where">{{ job.company }}<span class="loc"> · {{ job.location }}</span></span>
+            <span class="where"><span class="co">{{ job.company }}</span>{% if job.industry %}<span class="industry">{{ job.industry }}</span>{% endif %}{% if job.location %}<span class="loc">{{ job.location }}</span>{% endif %}</span>
             <span class="when">{{ job.start }} – {{ job.end }}</span>
         </span>
         {%- comment -%}
         The bullets stay in the markup but are hidden on screen: the section
         is a glance, while the printed PDF is still a full resume.
         {%- endcomment -%}
-        <ul class="role-detail print-only">
+        {% if job.bullets %}<ul class="role-detail print-only">
         {% for bullet in job.bullets %}<li>{{ bullet }}</li>
-        {% endfor %}</ul>
+        {% endfor %}</ul>{% endif %}
     </li>
 {% endfor %}
 </ul>

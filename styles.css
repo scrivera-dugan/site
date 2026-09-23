@@ -446,9 +446,15 @@ pre code {
     margin: 0;
 }
 
-/* The opening sentence carries the weight; the rest settles back. */
-.hero .sub .lead-in {
-    color: var(--color-text);
+/* The job title cycles; it crossfades so the sentence never jumps while
+   a word is legible. */
+.rotator {
+    color: var(--color-rubric);
+    transition: opacity 0.35s ease;
+}
+
+.rotator.is-swapping {
+    opacity: 0;
 }
 
 @media (max-width: 40rem) {
@@ -1000,7 +1006,10 @@ pre code {
 
 .index-row {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) auto;
+    /* A fixed final column, not auto: each row is its own grid, so an auto
+       track would size to that row's own date and the columns would not
+       line up from row to row or list to list. */
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 13rem;
     column-gap: var(--space-md);
     align-items: baseline;
     padding: var(--space-md) 0;
@@ -1008,15 +1017,21 @@ pre code {
     text-decoration: none;
 }
 
-.index-row .what {
-    font-family: var(--font-body);
+/* All three columns share a size and a line height so the row reads as one
+   line of type and multi-line cells stay on the same rhythm. */
+.index-row .what,
+.index-row .where,
+.index-row .when {
     font-size: var(--size-19);
     line-height: 1.3;
 }
 
+.index-row .what {
+    font-family: var(--font-body);
+}
+
 .index-row .where {
     font-family: var(--font-body);
-    font-size: var(--size-15);
     color: var(--color-text-secondary);
 }
 
@@ -1027,10 +1042,19 @@ pre code {
     color: var(--color-text-secondary);
 }
 
+/* The employer carries the row; the industry sits on the line beneath it. */
+.index-row .co {
+    display: block;
+    color: var(--color-rubric);
+}
+
+.index-row .industry {
+    display: block;
+    font-style: italic;
+}
+
 .index-row .when {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.02em;
+    font-family: var(--font-body);
     color: var(--color-text-secondary);
     text-align: right;
     white-space: nowrap;
@@ -1121,8 +1145,16 @@ a.index-row:hover .what {
         display: block;
     }
 
+    .index-row .co,
+    .index-row .industry,
     .loc {
         display: inline;
+        font-style: normal;
+    }
+
+    .index-row .industry::before,
+    .loc::before {
+        content: " \00b7 ";
     }
 
     .section-head {
