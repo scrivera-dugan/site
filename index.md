@@ -8,14 +8,28 @@ title: Home
 
 <section class="block" id="work" aria-labelledby="work-h">
 {% include section-head.html id="work-h" label="Selected" title="work" %}
+
+<p class="section-intro">A note on what&rsquo;s here: much of my strongest work lives behind NDAs and internal docs, so this is a partial, public-facing slice &mdash; including early testing on Gemini (back when it was Bard) at Google, across a range of tech-writing tools and stacks. For now these are just links. I&rsquo;ll build them into proper case studies down the line.</p>
+
+{% if work.featured %}
+<article class="work-card work-card--lead">
+    <div class="body">
+        <h3><a href="{{ work.featured.url }}" rel="noopener">{{ work.featured.title }}<span class="ext" aria-hidden="true"> &#8599;</span></a></h3>
+        <p class="org">{{ work.featured.org }} &middot; {{ work.featured.kind }}</p>
+        <p>{{ work.featured.summary }}</p>
+        {% if work.featured.meta %}<p class="card-meta">{{ work.featured.meta }}</p>{% endif %}
+    </div>
+</article>
+{% endif %}
+
 <div class="work-grid">
 {% for item in work.docs %}
 <article class="work-card">
-    <div class="img-placeholder">Image placeholder</div>
     <div class="body">
-        <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true"> ↗</span></a></h3>
-        <p class="org">{{ item.org }} · {{ item.kind }}</p>
+        <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true"> &#8599;</span></a></h3>
+        <p class="org">{{ item.org }} &middot; {{ item.kind }}</p>
         <p>{{ item.summary }}</p>
+        {% if item.gated %}<p class="card-gated">Access-gated &mdash; links to stellic.com</p>{% endif %}
     </div>
 </article>
 {% endfor %}
@@ -27,7 +41,7 @@ title: Home
     <li><a class="index-row" href="{{ item.url }}" rel="noopener">
         <span class="what">{{ item.title }}</span>
         <span class="where">{{ item.where }}</span>
-        <span class="when">↗</span>
+        <span class="when">&#8599;</span>
     </a></li>
 {% endfor %}
 </ul>

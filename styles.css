@@ -375,7 +375,7 @@ pre code {
     padding: 0.35rem;
     list-style: none;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: 14px;
     background: var(--color-bg-alt);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
 }
@@ -675,9 +675,13 @@ pre code {
 }
 
 @media (max-width: 40rem) {
+    .boxed,
+    .work-card {
+        border-radius: 14px;
+    }
+
     .boxed {
         padding: 1.75rem 1.5rem;
-        border-radius: 14px;
     }
 }
 
@@ -727,33 +731,91 @@ pre code {
 }
 
 /* Work: cards with an image slot, or a placeholder until a real image is added */
+/* The overview spans the full width of the cards, set in two columns so
+   it stays inside a readable measure instead of running 110 characters.
+   Scoped through .block to outrank the .block > p measure rule. */
+.block > .section-intro {
+    max-width: 68ch;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-secondary);
+}
+
+/* Only wide enough to split once each column still holds ~46 characters.
+   Below this the two columns get narrower than they are readable. */
+@media (min-width: 78rem) {
+    .block > .section-intro {
+        max-width: none;
+        columns: 2;
+        column-gap: var(--space-xl);
+    }
+}
+
 .work-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-md);
 }
 
+/* Same panel language as .boxed: soft corners, a hairline tinted with the
+   ink rather than a hard border, and a warm shadow. At 4px against the
+   999px pills and the 20px panel, these read as a different system. */
 .work-card {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(var(--shadow-tint), 0.05);
+    border-radius: var(--radius-box);
     background: var(--color-bg-alt);
+    transition: border-color 0.2s ease;
 }
 
-.work-card .img-placeholder {
-    aspect-ratio: 16 / 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: repeating-linear-gradient(45deg, var(--color-border), var(--color-border) 8px, transparent 8px, transparent 16px);
-    color: var(--color-text-secondary);
+/* The whole card is the target; the title stays the single link. */
+.work-card h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+
+.work-card:hover {
+    border-color: rgba(var(--shadow-tint), 0.16);
+}
+
+.work-card:focus-within {
+    border-color: var(--accent);
+}
+
+.work-card p.card-meta,
+.work-card p.card-gated {
+    margin: var(--space-sm) 0 0;
     font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--step-small);
+    font-size: var(--step-label);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+/* Featured lead card: full width, with room to breathe. */
+.work-card--lead {
+    margin-bottom: var(--space-md);
+}
+
+.work-card--lead .body {
+    padding: var(--space-lg);
+}
+
+/* Scoped through .body so this outranks the .work-card h3 rule that
+   follows it in the file. */
+.work-card--lead .body h3 {
+    font-size: var(--step-h2);
+}
+
+.work-card--lead .body > p:not([class]) {
+    max-width: 65ch;
+    font-size: var(--step-body);
 }
 
 .work-card .body {
-    padding: var(--space-sm) var(--space-md) var(--space-md);
+    padding: var(--space-md);
 }
 
 .work-card h3 {
@@ -849,9 +911,9 @@ pre code {
     flex: 1 1 16rem;
     max-width: 22.5rem;
     height: 3rem;
-    padding: 0 var(--space-sm);
-    border: 1px solid var(--color-text-secondary);
-    border-radius: var(--radius);
+    padding: 0 var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
     background: var(--color-bg-alt);
     color: var(--color-text);
     font: inherit;
@@ -889,7 +951,7 @@ pre code {
     display: inline-block;
     margin-top: var(--space-md);
     padding: 0.75rem 1.25rem;
-    border-radius: var(--radius);
+    border-radius: 999px;
     background: var(--color-accent);
     color: var(--color-on-accent);
     font-family: var(--font-ui);

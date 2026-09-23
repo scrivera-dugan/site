@@ -4,41 +4,44 @@
 # and a concrete outcome ("cut support tickets by X%") is the most
 # persuasive line on the whole site.
 
+featured:
+  title: GitBook Docs Site
+  org: GitBook
+  kind: Full docs rebuild
+  url: https://gitbook.com/docs
+  summary: >-
+    A ground-up rebuild of GitBook's entire documentation — consolidated into a single repo and
+    restructured around real user journeys, with hundreds of pages migrated using GitBook's own AI tooling.
+  meta: Docs Lead · shipped 2026
+
 docs:
   - title: Vertex AI Grounding
     org: Google Cloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview
     summary: A complete documentation set for grounding Gemini responses in factual sources.
-    featured: true
-    # role:
-    # outcome:
 
   - title: Stellic Learning Center
     org: Stellic
-    kind: Portal, IA
-    url: https://learn.stellic.com/
-    summary: A documentation portal built from scratch, with 500+ pages migrated to GitBook and AI-powered search.
-    featured: true
-    # role:
-    # outcome:
+    kind: Full docs site, GitBook
+    url: https://www.stellic.com/
+    # The docs themselves sit behind auth, so this points at the public site.
+    gated: true
+    summary: >-
+      Built Stellic's entire documentation site from scratch on GitBook — a ground-up information
+      architecture and 500+ pages of technical content.
 
   - title: Gemini Embeddings
     org: Google Cloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
     summary: The embeddings story end to end, from fundamentals to implementation.
-    featured: true
-    # role:
-    # outcome:
 
   - title: Vector Search
     org: Google Cloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
     summary: Documentation for Google Cloud's Vector Search, which runs similarity search at scale.
-    # role:
-    # outcome:
 
 writing:
   - title: Vertex AI Model Registry launch
