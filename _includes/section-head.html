@@ -1,16 +1,8 @@
 {%- comment -%}
-Section separator: a left-aligned pill holding the ivy and the section name,
-roman then italic.
-  include.label  - first words, e.g. "Where I've"
-  include.title  - the italic word(s), e.g. "been"
-  include.id     - id for aria-labelledby
+Section heading: one plain line in the display serif. No pill, no device.
+  include.label + include.title  - joined into the heading text
+  include.id                     - id for aria-labelledby
 {%- endcomment -%}
 <header class="section-head">
-    <h2 id="{{ include.id }}" class="sh-pill">
-        <picture>
-            <source srcset="{{ '/images/ivy.webp' | relative_url }}" type="image/webp">
-            <img class="sprig" src="{{ '/images/ivy.png' | relative_url }}" alt="" aria-hidden="true" width="144" height="145">
-        </picture>
-        <span class="sh-label">{{ include.label }}</span> <span class="sh-title">{{ include.title }}</span>
-    </h2>
+    <h2 id="{{ include.id }}">{{ include.label }} {{ include.title }}</h2>
 </header>

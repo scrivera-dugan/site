@@ -170,7 +170,6 @@ p {
 
 /* Headings balance across their lines instead of leaving a short last one */
 h1, h2, h3, h4, h5, h6,
-.sh-pill,
 .hero-title {
     text-wrap: balance;
 }
@@ -1220,76 +1219,34 @@ pre code {
 
 
 /* ========================================
-   Section headers
-   A quiet display line, an expressive italic line, and the ivy sprig.
-   These are the wayfinding device for the whole page: big enough that
-   you always know which section you have landed in.
+   Section headings and the hedera
+   A heading is one plain line in the display serif. The ivy is the
+   site's hedera, the printer's leaf: it divides sections and closes
+   the last text, and does nothing else.
    ======================================== */
 
 .section-head {
     margin-bottom: var(--space-lg);
-    text-align: left;
 }
 
-/* The section name sits in a left-aligned pill, with the ivy inside it. */
-.sh-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
+.section-head h2 {
     margin: 0;
-    padding: 0.625rem 1.5rem 0.625rem 1.1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 0;
-    white-space: nowrap;
 }
 
-.sh-pill > picture {
+/* Every section ends with the leaf, the way a hedera closes a text. It
+   sits at the end of the block rather than the start of the next, so a
+   jump from the corner menu lands on the heading, not on the ornament. */
+.block::after {
+    content: "";
     display: block;
-    flex: none;
     width: 28px;
+    height: 28px;
+    margin: var(--space-xl) auto 0;
+    background: url('/images/ivy.webp') center / contain no-repeat;
 }
 
-.section-head .sprig {
-    display: block;
-    width: 100%;
-    height: auto;
-    transform: rotate(-10deg);
-}
-
-.sh-label {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: var(--step-h3);
-    letter-spacing: var(--track-display);
-    color: var(--color-text-secondary);
-}
-
-.sh-title {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 300;
-    font-size: var(--step-h3);
-    letter-spacing: var(--track-display);
-    color: var(--color-text);
-}
-
-@media (max-width: 40rem) {
-    .sh-pill {
-        padding: 0.5rem 1.1rem 0.5rem 0.8rem;
-        white-space: normal;
-    }
-
-    .sh-pill > picture {
-        width: 22px;
-    }
-
-    .sh-label,
-    .sh-title {
-        font-size: var(--step-body);
-    }
+.block + .block {
+    margin-top: var(--space-xl);
 }
 
 /* ========================================
@@ -1455,29 +1412,17 @@ a.index-row:hover .what {
     }
 
     .section-head {
-        text-align: left;
         margin-bottom: 10pt;
     }
 
-    /* On paper the pill outline and the leaf are noise. */
-    .sh-pill {
-        display: block;
-        padding: 0;
-        border: none;
-        border-bottom: 1pt solid var(--color-border);
-        padding-bottom: 4pt;
-    }
-
-    .sh-pill > picture {
-        display: none;
-    }
-
-    .sh-label {
-        font-size: 11pt;
-    }
-
-    .sh-title {
+    .section-head h2 {
         font-size: 15pt;
+        padding-bottom: 4pt;
+        border-bottom: 1pt solid var(--color-border);
+    }
+
+    .block::after {
+        display: none;
     }
 
     .index-list > li {
