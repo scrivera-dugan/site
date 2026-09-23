@@ -60,6 +60,7 @@
     --radius: 4px;
     --radius-box: 20px;
     --shadow-tint: 42, 36, 25;      /* iron-gall ink, for warm shadows */
+    --edge-tint: 42, 36, 25;        /* hairline borders: ink on paper */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,8 +75,9 @@
         --color-on-accent: #131A2B;
         --color-border: #2A3350;
         --color-nav-bg: #131A2B;
-        --color-thread: #6E5F3A;
+        --color-thread: #C2A868;      /* same gold; the dark olive failed AA on the panel */
         --shadow-tint: 0, 0, 0;
+        --edge-tint: 237, 229, 211;   /* a black hairline vanishes on navy; edges go pale */
     }
 }
 
@@ -163,6 +165,15 @@ h3 {
 /* Reading measure for running text */
 p {
     max-width: 65ch;
+    /* Let the browser avoid leaving a single word alone on the last line */
+    text-wrap: pretty;
+}
+
+/* Headings balance across their lines instead of leaving a short last one */
+h1, h2, h3, h4, h5, h6,
+.sh-pill,
+.hero-title {
+    text-wrap: balance;
 }
 
 .lead {
@@ -619,7 +630,7 @@ pre code {
 /* The first section follows the hero, which already carries its own
    padding, so it does not need the full between-sections gap. */
 .block:first-child {
-    margin-top: 3.5rem;
+    margin-top: 1rem;
 }
 
 .js .block {
@@ -639,6 +650,16 @@ pre code {
     gap: 0.5rem;
 }
 
+/* Link lists carry the arrow in the title, like the cards, and have no
+   third column to hold a lone glyph. */
+.index-list--links .index-row {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+}
+
+.index-list--links .what .ext {
+    color: var(--color-text-secondary);
+}
+
 /* Lists, grids and section headers use the full column; paragraphs of
    running text do not, or the lines get too long to track. */
 .block > p,
@@ -651,7 +672,7 @@ pre code {
    two-layer shadow rather than a black one. */
 .boxed {
     background: var(--color-bg-alt);
-    border: 1px solid rgba(var(--shadow-tint), 0.05);
+    border: 1px solid rgba(var(--edge-tint), 0.12);
     border-radius: var(--radius-box);
     padding: var(--space-lg) 2.75rem;
     margin: var(--space-lg) 0;
@@ -688,10 +709,10 @@ pre code {
 /* Longer explanations run in two columns, so the measure stays readable
    while the text still uses the width of the page. */
 .prose-columns {
-    font-family: var(--font-mono);
-    font-weight: 300;
-    font-size: var(--step-small);
-    line-height: 1.8;
+    font-family: var(--font-ui);
+    font-weight: 400;
+    font-size: var(--step-body);
+    line-height: 1.6;
     columns: 2;
     column-gap: var(--space-xl);
     margin-bottom: var(--space-lg);
@@ -740,16 +761,6 @@ pre code {
     color: var(--color-text-secondary);
 }
 
-/* Only wide enough to split once each column still holds ~46 characters.
-   Below this the two columns get narrower than they are readable. */
-@media (min-width: 78rem) {
-    .block > .section-intro {
-        max-width: none;
-        columns: 2;
-        column-gap: var(--space-xl);
-    }
-}
-
 .work-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -761,7 +772,7 @@ pre code {
    999px pills and the 20px panel, these read as a different system. */
 .work-card {
     position: relative;
-    border: 1px solid rgba(var(--shadow-tint), 0.05);
+    border: 1px solid rgba(var(--edge-tint), 0.12);
     border-radius: var(--radius-box);
     background: var(--color-bg-alt);
     transition: border-color 0.2s ease;
@@ -776,21 +787,35 @@ pre code {
 }
 
 .work-card:hover {
-    border-color: rgba(var(--shadow-tint), 0.16);
+    border-color: rgba(var(--edge-tint), 0.22);
 }
 
 .work-card:focus-within {
     border-color: var(--accent);
 }
 
-.work-card p.card-meta,
-.work-card p.card-gated {
-    margin: var(--space-sm) 0 0;
+.gated-tag {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
     font-family: var(--font-ui);
     font-weight: 500;
     font-size: var(--step-label);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    /* Kept off the line box so the chip never makes its row taller than
+       the cards beside it. */
+    line-height: 1;
+    vertical-align: 0.08em;
+}
+
+/* Same grammar as the tag line above it: sentence case, grey, small. */
+.work-card p.card-meta {
+    margin: var(--space-sm) 0 0;
+    font-size: var(--step-small);
     color: var(--color-text-secondary);
 }
 
@@ -799,8 +824,8 @@ pre code {
     margin-bottom: var(--space-md);
 }
 
-.work-card--lead .body {
-    padding: var(--space-lg);
+.work-card.work-card--lead .body {
+    padding: var(--space-lg) var(--space-md);
 }
 
 /* Scoped through .body so this outranks the .work-card h3 rule that
@@ -815,7 +840,7 @@ pre code {
 }
 
 .work-card .body {
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-sm);
 }
 
 .work-card h3 {
@@ -1293,13 +1318,22 @@ a.index-row:hover .what {
 @media (max-width: 40rem) {
     .index-row {
         grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "what when"
+            "where where"
+            "note note";
         row-gap: 2px;
         padding: var(--space-sm) 0;
     }
 
-    .index-row .what,
-    .index-row .note {
-        grid-column: 1 / -1;
+    .index-row .what  { grid-area: what; }
+    .index-row .when  { grid-area: when; }
+    .index-row .where { grid-area: where; }
+    .index-row .note  { grid-area: note; }
+
+    .index-list--links .index-row {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "what" "where";
     }
 }
 

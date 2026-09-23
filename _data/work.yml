@@ -10,16 +10,16 @@ featured:
   kind: Full docs rebuild
   url: https://gitbook.com/docs
   summary: >-
-    A ground-up rebuild of GitBook's entire documentation — consolidated into a single repo and
+    A ground-up rebuild of GitBook's entire docs — consolidated into a single repo and
     restructured around real user journeys, with hundreds of pages migrated using GitBook's own AI tooling.
-  meta: Docs Lead · shipped 2026
+  meta: Founding Tech Docs Lead · shipped 2026
 
 docs:
   - title: Vertex AI Grounding
     org: Google Cloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview
-    summary: A complete documentation set for grounding Gemini responses in factual sources.
+    summary: A complete docs set for grounding Gemini responses in factual sources.
 
   - title: Stellic Learning Center
     org: Stellic
@@ -27,9 +27,7 @@ docs:
     url: https://www.stellic.com/
     # The docs themselves sit behind auth, so this points at the public site.
     gated: true
-    summary: >-
-      Built Stellic's entire documentation site from scratch on GitBook — a ground-up information
-      architecture and 500+ pages of technical content.
+    summary: An entire docs site built from scratch on GitBook, with 500+ pages of content.
 
   - title: Gemini Embeddings
     org: Google Cloud
@@ -41,7 +39,7 @@ docs:
     org: Google Cloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
-    summary: Documentation for Google Cloud's Vector Search, which runs similarity search at scale.
+    summary: Docs for Google Cloud's Vector Search, which runs similarity search at scale.
 
 writing:
   - title: Vertex AI Model Registry launch

@@ -27,21 +27,19 @@ title: Home
 <article class="work-card">
     <div class="body">
         <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true"> &#8599;</span></a></h3>
-        <p class="org">{{ item.org }} &middot; {{ item.kind }}</p>
+        <p class="org">{{ item.org }} &middot; {{ item.kind }}{% if item.gated %} <span class="gated-tag">Access-gated<span class="visually-hidden"> &mdash; this link opens the public site, not the documentation</span></span>{% endif %}</p>
         <p>{{ item.summary }}</p>
-        {% if item.gated %}<p class="card-gated">Access-gated &mdash; links to stellic.com</p>{% endif %}
     </div>
 </article>
 {% endfor %}
 </div>
 {% if work.writing and work.writing.size > 0 %}
 <h3 class="sub-label">Writing elsewhere</h3>
-<ul class="index-list">
+<ul class="index-list index-list--links">
 {% for item in work.writing %}
     <li><a class="index-row" href="{{ item.url }}" rel="noopener">
-        <span class="what">{{ item.title }}</span>
+        <span class="what">{{ item.title }}<span class="ext" aria-hidden="true"> &#8599;</span></span>
         <span class="where">{{ item.where }}</span>
-        <span class="when">&#8599;</span>
     </a></li>
 {% endfor %}
 </ul>
@@ -79,7 +77,7 @@ title: Home
 {% include section-head.html id="resume-h" label="Where I've" title="been" %}
 <h1 class="print-only">Sarah C. Dugan</h1>
 <p class="contact print-only">sarahcdugan@gmail.com · linkedin.com/in/scdugan · sarahdocs.com</p>
-<p class="summary">{{ r.summary }}</p>
+<p class="summary print-only">{{ r.summary }}</p>
 
 <h3 class="sub-label">Experience</h3>
 <ul class="index-list">
@@ -120,17 +118,17 @@ title: Home
 {% include section-head.html id="about-h" label="A little" title="about me" %}
 
 <div class="prose-columns">
-<p><img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>arah grew up reading, writing, and watching all the movies she could get her hands on. As the middle child of five, she spent years working at her parents' bed and breakfast, where she met countless fascinating guests and made an equal number of beds.</p>
+<p><img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>o much of my childhood was reading, writing, and watching every movie I could get my hands on. As the middle child of five, I spent years working at my parents' bed and breakfast, where I met countless fascinating guests and made an equal number of beds.</p>
 
-<p>It was actually one of those guests who first suggested technical writing to Sarah when she was in high school and connected her with an internship at IBM, and the rest is history. A Boston native, Sarah is a New Englander at heart and is grateful for how it shaped her.</p>
+<p>It was actually one of those guests who first suggested technical writing to me in high school and connected me with an internship at IBM &mdash; and the rest is history. I&rsquo;m a Boston native and a New Englander at heart, and grateful for how it shaped me.</p>
 
 <h3>Today</h3>
 
-<p>Sarah lives in Minneapolis and has become an academic nomad&mdash;she and her husband (a cognitive neuroscience professor) have moved four times since 2020. Living with someone who studies attention, memory, and learning has given her a front-row seat to understanding how the brain actually processes information. She's always connecting those insights back to her work: how do people absorb new concepts? What makes technical explanations stick?</p>
+<p>I live in Minneapolis and have become something of an academic nomad &mdash; my husband (a cognitive neuroscience professor) and I have moved four times since 2020. Living with someone who studies attention, memory, and learning has given me a front-row seat to how the brain actually processes information, and I&rsquo;m always connecting those insights back to my work: how do people absorb new concepts? What makes technical explanations stick?</p>
 
 <h3>Interests</h3>
 
-<p>When she's not working, you'll find her puttering, thrifting, crafting, and daydreaming story ideas.</p>
+<p>When I&rsquo;m not working, you&rsquo;ll find me puttering, thrifting, crafting, and daydreaming story ideas.</p>
 </div>
 
 <p class="credit">Initial S from Varro, <em>De re rustica</em>, <a href="https://digital.bodleian.ox.ac.uk/objects/e2c7b068-4180-48a9-95a9-d0fa21109bdb/">MS. Lat. class. d. 2</a>, fol. 1r. Image: Bodleian Libraries, University of Oxford. <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
