@@ -24,7 +24,11 @@ jobs:
           from email.utils import parsedate_to_datetime
 
           FEED = "https://sarahdocs.substack.com/feed"
-          req = urllib.request.Request(FEED, headers={"User-Agent": "sarahdocs.com feed updater"})
+          # Substack answers 403 to anything that does not look like a browser.
+          req = urllib.request.Request(FEED, headers={
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36",
+              "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+          })
           root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
           channel = root.find("channel")
 
