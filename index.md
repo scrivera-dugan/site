@@ -36,6 +36,8 @@ title: Home
 
 <section class="block newsletter" id="substack" aria-labelledby="news-h">
 {% include section-head.html id="news-h" label="Write this" title="down" %}
+<div class="boxed">
+<span class="eyebrow">Newsletter</span>
 <p>My newsletter on Substack, about information, language, and myth. It's free and it shows up occasionally.</p>
 {% if feed.posts and feed.posts.size > 0 %}
 <ul class="index-list">
@@ -56,6 +58,7 @@ title: Home
     </div>
     <p class="hint">Opens Substack to confirm.</p>
 </form>
+</div>
 </section>
 
 <section class="block resume" id="resume" aria-labelledby="resume-h">

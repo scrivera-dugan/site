@@ -58,6 +58,8 @@
     --content-max: 76rem;
     --gutter: 4rem;                 /* one column for everything: ~66 characters of body text */
     --radius: 4px;
+    --radius-box: 20px;
+    --shadow-tint: 42, 36, 25;      /* iron-gall ink, for warm shadows */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,6 +75,7 @@
         --color-border: #2A3350;
         --color-nav-bg: #131A2B;
         --color-thread: #6E5F3A;
+        --shadow-tint: 0, 0, 0;
     }
 }
 
@@ -327,12 +330,12 @@ pre code {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.55rem 1rem;
-    border: 1px solid var(--color-border);
+    padding: 0.625rem 1.25rem;
+    border: 1px solid transparent;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--color-bg) 88%, transparent);
-    backdrop-filter: blur(8px);
-    color: var(--color-text);
+    /* Inverted against the page: ink in light, paper in dark. */
+    background: var(--color-text);
+    color: var(--color-bg);
     white-space: nowrap;
 }
 
@@ -341,7 +344,7 @@ pre code {
 }
 
 .section-menu details > summary:hover {
-    border-color: var(--color-text-secondary);
+    background: var(--color-text-secondary);
 }
 
 .section-menu details > summary:focus-visible {
@@ -352,8 +355,8 @@ pre code {
 .sm-caret {
     width: 0.45rem;
     height: 0.45rem;
-    border-right: 1.5px solid var(--color-text-secondary);
-    border-bottom: 1.5px solid var(--color-text-secondary);
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
     transform: rotate(45deg) translate(-1px, -1px);
     transition: transform 0.2s ease;
     flex: none;
@@ -455,9 +458,10 @@ pre code {
 
 .hero-lockup > picture {
     flex: none;
-    /* Sized so the owl's height matches the text beside it. Wider, and the
-       owl becomes the tallest thing in the hero and pads it from inside. */
-    width: 4.5rem;
+    /* Sized so the owl's height matches the text beside it. Too narrow and
+       it floats in the middle of the column; too wide and it becomes the
+       tallest thing in the hero and pads it from inside. */
+    width: 6.25rem;
     align-self: stretch;
     display: block;
 }
@@ -498,9 +502,15 @@ pre code {
     color: var(--color-text);
 }
 
-/* The name carries the accent; everything else in the line stays ink. */
-.hero-name {
-    color: var(--accent);
+/* Each line of the hero sits on its own row, so a longer job title only
+   reflows its own line instead of the whole paragraph. */
+.hero-title .hl {
+    display: block;
+}
+
+/* The rotating title: same size as the line it sits in, just heavier. */
+.rotator {
+    font-weight: 600;
 }
 
 .hero .sub {
@@ -525,14 +535,24 @@ pre code {
         --space-section: 3.5rem;
     }
 
+    /* On a phone the owl beside the text leaves it barely 230px, which
+       wraps the hero to six lines. Stack instead: owl above, text full
+       width, and stop stretching the owl so it does not float in a tall
+       empty box. */
     .hero-lockup {
-        gap: var(--space-md);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
     }
 
     .hero-lockup > picture {
-        /* Wider here so the owl still fills most of the column's height
-           rather than floating in the middle of it. */
-        width: 4.5rem;
+        width: auto;
+        align-self: flex-start;
+    }
+
+    .hero-icon {
+        width: auto;
+        height: 7rem;
     }
 
     .hero .sub,
@@ -623,7 +643,40 @@ pre code {
     max-width: var(--measure-prose);
 }
 
-/* Quiet metadata label, a clear step below the section pill. */
+/* Gently boxed: a panel a shade lighter than the page, on a warm
+   two-layer shadow rather than a black one. */
+.boxed {
+    background: var(--color-bg-alt);
+    border: 1px solid rgba(var(--shadow-tint), 0.05);
+    border-radius: var(--radius-box);
+    padding: var(--space-lg) 2.75rem;
+    margin: var(--space-lg) 0;
+    box-shadow: 0 10px 30px rgba(var(--shadow-tint), 0.08),
+                0 2px 6px rgba(var(--shadow-tint), 0.05);
+}
+
+.boxed > :first-child {
+    margin-top: 0;
+}
+
+.boxed > :last-child {
+    margin-bottom: 0;
+}
+
+/* The gold eyebrow, the one place --color-thread earns its keep */
+.eyebrow {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--color-thread);
+}
+
+@media (max-width: 40rem) {
+    .boxed {
+        padding: 1.75rem 1.5rem;
+        border-radius: 14px;
+    }
+}
+
 /* Longer explanations run in two columns, so the measure stays readable
    while the text still uses the width of the page. */
 .prose-columns {
@@ -662,6 +715,7 @@ pre code {
     }
 }
 
+/* Quiet metadata label, a clear step below the section pill. */
 .sub-label {
     margin-top: var(--space-xl);
     margin-bottom: var(--space-sm);
@@ -756,7 +810,7 @@ pre code {
 
 /* Newsletter */
 /* Section lead: the paragraph directly under a section header. */
-.newsletter > p,
+.newsletter .boxed > p,
 .resume .summary,
 .hero .sub {
     font-family: var(--font-ui);
