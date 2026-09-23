@@ -737,8 +737,76 @@ pre code {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
 }
 
-.index-list--links .what .ext {
+/* Title and mark sit on one line; the mark is vertically centred on the
+   first line of the title rather than on the row's baseline. */
+.index-list--links .what {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.index-list--links .logo-tile {
+    flex: none;
+}
+
+/* One heading per company carries the logo; the rows under it stay plain. */
+.index-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: var(--space-md) 0 var(--space-xs);
+    font-family: var(--font-ui);
+    font-size: var(--step-body);
+    font-weight: 500;
+}
+
+.sub-label + .index-group {
+    margin-top: 0;
+}
+
+.index-list--links {
+    margin-bottom: 0;
+}
+
+/* The writing list is long, so its rows are set tighter than the résumé's. */
+.index-list--links .index-row {
+    padding: var(--space-xs) 0;
+    align-items: center;
+}
+
+.index-list--links .what,
+.index-list--links .where {
+    font-size: var(--step-body);
+}
+
+/* Past the first few rows the list folds; JavaScript adds the toggle and
+   hides the rest, and without it everything simply shows. */
+.js .index-list--collapsible:not(.is-expanded) .index-more {
+    display: none;
+}
+
+.index-toggle {
+    display: none;
+    margin: var(--space-xs) 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: var(--font-ui);
+    font-size: var(--step-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.js .index-toggle {
+    display: inline-block;
+}
+
+.index-toggle:hover,
+.index-toggle:focus-visible {
+    color: var(--accent);
 }
 
 /* Lists, grids and section headers use the full column; paragraphs of
@@ -848,7 +916,7 @@ pre code {
     border: 1px solid rgba(var(--edge-tint), 0.12);
     border-radius: var(--radius-box);
     background: var(--color-bg-alt);
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* The whole card is the target; the title stays the single link. */
@@ -859,8 +927,59 @@ pre code {
     border-radius: inherit;
 }
 
+/* A small lift on hover so the cards answer the cursor without an arrow. */
 .work-card:hover {
     border-color: rgba(var(--edge-tint), 0.22);
+    transform: translateY(-2px);
+    box-shadow:
+        0 1px 2px rgba(var(--shadow-tint), 0.06),
+        0 10px 24px -12px rgba(var(--shadow-tint), 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .work-card,
+    .work-card:hover {
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Product mark in a tile: every logo gets the same footprint so the G, the
+   cloud and the two stars read as one set. Mono marks take the text colour. */
+.logo-tile {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(var(--edge-tint), 0.12);
+    border-radius: 12px;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.logo-mark {
+    display: block;
+    width: 1.375rem;
+    height: 1.375rem;
+}
+
+.logo-mark--mask {
+    background: currentColor;
+    -webkit-mask: url("images/logos/stellic.png") center / contain no-repeat;
+    mask: url("images/logos/stellic.png") center / contain no-repeat;
+}
+
+/* Mark on the left, text on the right. */
+.work-card .body {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.work-card .text {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .work-card:focus-within {
@@ -898,7 +1017,33 @@ pre code {
 }
 
 .work-card.work-card--lead .body {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md);
+}
+
+/* The lead card is full width, so its text would leave the right half
+   empty. The meta line moves over there as a short right-aligned column. */
+.work-card--lead .text {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-lg);
+    align-items: start;
+}
+
+.work-card--lead .text > * {
+    grid-column: 1;
+}
+
+.work-card--lead .text p.card-meta {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin: 0;
+    padding-top: 0.5rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.work-card--lead .card-meta span {
+    display: block;
 }
 
 /* Scoped through .body so this outranks the .work-card h3 rule that
@@ -914,6 +1059,12 @@ pre code {
 
 .work-card .body {
     padding: var(--space-md) var(--space-sm);
+}
+
+/* The bare mark in the row list sits on the page, so it takes the panel
+   tint instead. */
+.index-list .logo-tile {
+    background: var(--color-bg-alt);
 }
 
 .work-card h3 {
@@ -1350,6 +1501,24 @@ a.index-row:hover .what {
     .index-list--links .index-row {
         grid-template-columns: minmax(0, 1fr);
         grid-template-areas: "what" "where";
+    }
+
+    /* Beside the text the tile leaves the paragraph a narrow column, so on
+       phones it sits above the title instead. */
+    .work-card .body {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .work-card--lead .text {
+        display: block;
+    }
+
+    .work-card--lead .text p.card-meta {
+        margin-top: var(--space-sm);
+        padding-top: 0;
+        text-align: left;
+        white-space: normal;
     }
 }
 

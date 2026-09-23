@@ -1,5 +1,6 @@
 # Single source for the Portfolio page and the home page's "Selected work".
 # featured: true puts a project on the home page (keep it to three or four).
+# logo picks the mark in _includes/logos (gitbook, gcloud, gemini, google, stellic).
 # role and outcome are optional. They only show up once you fill them in,
 # and a concrete outcome ("cut support tickets by X%") is the most
 # persuasive line on the whole site.
@@ -7,22 +8,25 @@
 featured:
   title: GitBook Docs Site
   org: GitBook
+  logo: gitbook
   kind: Full docs rebuild
   url: https://gitbook.com/docs
   summary: >-
     A ground-up rebuild of GitBook's entire docs — consolidated into a single repo and
     restructured around real user journeys, with hundreds of pages migrated using GitBook's own AI tooling.
-  meta: Founding Tech Docs Lead · shipped 2026
+  meta: Founding Tech Docs Lead · Shipped 2026
 
 docs:
   - title: Vertex AI Grounding
     org: Google Cloud
+    logo: gcloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview
     summary: A complete docs set for grounding Gemini responses in factual sources.
 
   - title: Stellic Learning Center
     org: Stellic
+    logo: stellic
     kind: Full docs site, GitBook
     url: https://www.stellic.com/
     # The docs themselves sit behind auth, so this points at the public site.
@@ -31,28 +35,74 @@ docs:
 
   - title: Gemini Embeddings
     org: Google Cloud
+    logo: gemini
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
     summary: The embeddings story end to end, from fundamentals to implementation.
 
   - title: Vector Search
     org: Google Cloud
+    logo: gcloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
     summary: Docs for Google Cloud's Vector Search, which runs similarity search at scale.
 
+# writing is grouped by company on the page, in the order the companies first appear.
 writing:
   - title: Vertex AI Model Registry launch
+    company: Google
     where: Google Cloud Blog
+    logo: gcloud
     url: https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry
     summary: The launch post introducing Google Cloud's centralized model management.
 
   - title: MLOps with BigQuery ML and Vertex AI
+    company: Google
     where: Google Cloud Blog
+    logo: gcloud
     url: https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry
     summary: Practical MLOps workflows across Google Cloud's ML platform, written for developers.
 
   - title: Three reasons I'm excited about Model Registry
+    company: Google
     where: Medium
+    logo: google
     url: https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b
     summary: A personal take on why centralized model management matters for ML teams.
+
+  - title: How we rebuilt GitBook's docs
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/how-we-rebuilt-gitbooks-docs
+    summary: One repo, a structure built around user journeys, and GitBook's own AI doing the heavy lifting.
+
+  - title: 5 ways to improve your technical writer skills for 2026
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/technical-writer-skills-2026
+
+  - title: Humans are still the real readers of your documentation
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/humans-are-still-your-doc-readers
+
+  - title: Documentation teams already have the data leadership wants
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/documentation-business-impact-metrics
+
+  - title: 5 things we're still thinking about after Write the Docs Portland
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/write-the-docs-portland-2026
+
+  - title: "My first 30 days at GitBook: from customer to colleague"
+    company: GitBook
+    where: GitBook Blog
+    logo: gitbook
+    url: https://www.gitbook.com/blog/sarah-dugan-first-30

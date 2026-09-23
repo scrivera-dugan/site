@@ -1,0 +1,11 @@
+{%- comment -%}
+A small tile holding a product mark. Usage: {% include logo.html name="gcloud" %}
+Marks live in _includes/logos/*.svg; Stellic is a masked PNG so it can take
+the text colour like the GitBook mark does.
+{%- endcomment -%}
+<span class="logo-tile logo-tile--{{ include.name }}" aria-hidden="true">
+{%- case include.name -%}
+{%- when "stellic" -%}<span class="logo-mark logo-mark--mask"></span>
+{%- else -%}{%- capture logo_file -%}logos/{{ include.name }}.svg{%- endcapture -%}{%- include {{ logo_file }} -%}
+{%- endcase -%}
+</span>

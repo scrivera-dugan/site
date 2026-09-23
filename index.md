@@ -14,10 +14,13 @@ title: Home
 {% if work.featured %}
 <article class="work-card work-card--lead">
     <div class="body">
-        <h3><a href="{{ work.featured.url }}" rel="noopener">{{ work.featured.title }}<span class="ext" aria-hidden="true"> &#8599;</span></a></h3>
+        {% include logo.html name=work.featured.logo %}
+        <div class="text">
+        <h3><a href="{{ work.featured.url }}" rel="noopener">{{ work.featured.title }}</a></h3>
         <p class="org">{{ work.featured.org }} &middot; {{ work.featured.kind }}</p>
         <p>{{ work.featured.summary }}</p>
-        {% if work.featured.meta %}<p class="card-meta">{{ work.featured.meta }}</p>{% endif %}
+        {% if work.featured.meta %}{% assign meta_parts = work.featured.meta | split: " · " %}<p class="card-meta">{% for part in meta_parts %}<span>{{ part }}</span>{% endfor %}</p>{% endif %}
+        </div>
     </div>
 </article>
 {% endif %}
@@ -26,23 +29,36 @@ title: Home
 {% for item in work.docs %}
 <article class="work-card">
     <div class="body">
-        <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}<span class="ext" aria-hidden="true"> &#8599;</span></a></h3>
+        {% include logo.html name=item.logo %}
+        <div class="text">
+        <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}</a></h3>
         <p class="org">{{ item.org }} &middot; {{ item.kind }}{% if item.gated %} <span class="gated-tag">Access-gated<span class="visually-hidden"> &mdash; this link opens the public site, not the documentation</span></span>{% endif %}</p>
         <p>{{ item.summary }}</p>
+        </div>
     </div>
 </article>
 {% endfor %}
 </div>
 {% if work.writing and work.writing.size > 0 %}
 <h3 class="sub-label">Writing elsewhere</h3>
-<ul class="index-list index-list--links">
-{% for item in work.writing %}
-    <li><a class="index-row" href="{{ item.url }}" rel="noopener">
-        <span class="what">{{ item.title }}<span class="ext" aria-hidden="true"> &#8599;</span></span>
+{% assign shown = 3 %}
+{% assign groups = work.writing | group_by: "company" %}
+{% for group in groups %}
+{% assign first = group.items | first %}
+<h4 class="index-group">{% include logo.html name=first.logo %}{{ group.name }}</h4>
+<ul class="index-list index-list--links index-list--collapsible" id="writing-{{ group.name | slugify }}">
+{% for item in group.items %}
+    <li{% if forloop.index > shown %} class="index-more"{% endif %}><a class="index-row" href="{{ item.url }}" rel="noopener">
+        <span class="what">{{ item.title }}</span>
         <span class="where">{{ item.where }}</span>
     </a></li>
 {% endfor %}
 </ul>
+{% assign extra = group.items.size | minus: shown %}
+{% if extra > 1 %}
+<button class="index-toggle" type="button" aria-controls="writing-{{ group.name | slugify }}" aria-expanded="false" data-more-toggle data-more="Show {{ extra }} more" data-less="Show fewer">Show {{ extra }} more</button>
+{% endif %}
+{% endfor %}
 {% endif %}
 </section>
 

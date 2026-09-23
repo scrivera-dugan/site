@@ -196,6 +196,20 @@
       } else {
         blocks.forEach(function (s) { s.classList.add('is-visible'); });
       }
+
+      // "Show N more" under a folded list. Without JS the CSS never hides
+      // the extra rows, so the button only appears once this has run.
+      (function () {
+        var toggles = document.querySelectorAll('[data-more-toggle]');
+        for (var i = 0; i < toggles.length; i++) {
+          toggles[i].addEventListener('click', function () {
+            var list = document.getElementById(this.getAttribute('aria-controls'));
+            var open = list.classList.toggle('is-expanded');
+            this.setAttribute('aria-expanded', open ? 'true' : 'false');
+            this.textContent = open ? this.getAttribute('data-less') : this.getAttribute('data-more');
+          });
+        }
+      })();
     </script>
     {% endif %}
 </body>
