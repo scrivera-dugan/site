@@ -32,7 +32,7 @@
     --track-ui: -0.02em;
 
     /* Type scale */
-    --step-display: clamp(2.5rem, 5vw, 3.75rem);
+    --step-display: clamp(2.5rem, 5.2vw, 4.5rem);
     --step-h2: clamp(1.75rem, 3vw, 2.25rem);
     --step-h3: 1.5rem;
     --step-lead: 1.25rem;
@@ -588,9 +588,9 @@ pre code {
     /* The closing line sizes itself to this box, so the sentence fills the
        width and the centred pill below it reads as centred. */
     container-type: inline-size;
-    /* 100 / the sentence's width in em (9.27em for this one), shaved a
+    /* 100 / the sentence's width in em (8.28em for this one), shaved a
        little so rounding never wraps it. Retune if the sentence changes. */
-    --closing-fit: 10.6;
+    --closing-fit: 11.8;
 }
 
 /* One closing line, set large in the display face with the last word in
