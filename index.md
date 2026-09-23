@@ -71,7 +71,7 @@ title: Home
         <span class="index-row">
             <span class="what">{{ job.title }}</span>
             <span class="where"><span class="co">{{ job.company }}</span>{% if job.industry %}<span class="industry">{{ job.industry }}</span>{% endif %}{% if job.location %}<span class="loc">{{ job.location }}</span>{% endif %}</span>
-            <span class="when">{{ job.start }} – {{ job.end }}</span>
+            <span class="when">{{ job.start }}{% if job.end %} &ndash; {{ job.end }}{% endif %}</span>
         </span>
         {%- comment -%}
         The bullets stay in the markup but are hidden on screen: the section
@@ -97,33 +97,24 @@ title: Home
     </li>
 {% endfor %}
 </ul>
-
-<div class="meta">
-<button class="button" type="button" onclick="window.print()">Download PDF</button>
-<span>Updated {{ r.updated | date: "%B %Y" }}</span>
-</div>
 </section>
 
 <section class="block" id="about" aria-labelledby="about-h">
 {% include section-head.html id="about-h" label="A little" title="about me" %}
-<h3>Background</h3>
 
-<img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>arah grew up reading, writing, and watching all the movies she could get her hands on. As the middle child of five, she spent years working at her parents' bed and breakfast, where she met countless fascinating guests and made an equal number of beds.
+<div class="prose-columns">
+<p><img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>arah grew up reading, writing, and watching all the movies she could get her hands on. As the middle child of five, she spent years working at her parents' bed and breakfast, where she met countless fascinating guests and made an equal number of beds.</p>
 
 <p>It was actually one of those guests who first suggested technical writing to Sarah when she was in high school and connected her with an internship at IBM, and the rest is history. A Boston native, Sarah is a New Englander at heart and is grateful for how it shaped her.</p>
 
-<div class="photo-pair">
-    <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" width="300" height="300" loading="lazy" decoding="async">
-    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Brian" width="300" height="300" loading="lazy" decoding="async">
-</div>
-
 <h3>Today</h3>
 
-<p>Sarah lives in Minneapolis and has become an academic nomad—she and her husband (a cognitive neuroscience professor) have moved four times since 2020. Living with someone who studies attention, memory, and learning has given her a front-row seat to understanding how the brain actually processes information. She's always connecting those insights back to her work: how do people absorb new concepts? What makes technical explanations stick?</p>
+<p>Sarah lives in Minneapolis and has become an academic nomad&mdash;she and her husband (a cognitive neuroscience professor) have moved four times since 2020. Living with someone who studies attention, memory, and learning has given her a front-row seat to understanding how the brain actually processes information. She's always connecting those insights back to her work: how do people absorb new concepts? What makes technical explanations stick?</p>
 
 <h3>Interests</h3>
 
 <p>When she's not working, you'll find her puttering, thrifting, crafting, and daydreaming story ideas.</p>
+</div>
 
 <p class="credit">Initial S from Varro, <em>De re rustica</em>, <a href="https://digital.bodleian.ox.ac.uk/objects/e2c7b068-4180-48a9-95a9-d0fa21109bdb/">MS. Lat. class. d. 2</a>, fol. 1r. Image: Bodleian Libraries, University of Oxford. <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
 </section>

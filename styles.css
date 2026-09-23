@@ -20,18 +20,30 @@
     --color-nav-bg: #F8F7F4;
     --color-thread: #C2A868;          /* gold */
 
-    /* Type: one job per family */
-    --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;     /* headings, UI: modern voice */
-    --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;             /* reading text: old-book voice */
-    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; /* footer only: machine voice */
+    /* Type: one job per family.
+       display = headings and section titles, a light serif set tight
+       ui      = the workhorse: body, leads, nav, labels, lists, buttons
+       mono    = long-form prose set in columns */
+    --font-display: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-text: var(--font-ui);
 
-    /* Five sizes on a 1.25 scale */
-    --size-15: 0.9375rem;
-    --size-19: 1.1875rem;
-    --size-21: 1.3125rem;
-    --size-24: 1.5rem;
-    --size-30: 1.875rem;
-    --size-58: 3.625rem;
+    /* Tracking: the light serif needs pulling in, the sans slightly */
+    --track-display: -0.05em;
+    --track-ui: -0.02em;
+
+    /* Type scale */
+    --step-display: clamp(2.5rem, 5vw, 3.75rem);
+    --step-h2: clamp(1.75rem, 3vw, 2.25rem);
+    --step-h3: 1.5rem;
+    --step-lead: 1.25rem;
+    --step-body: 1rem;
+    --step-small: 0.875rem;
+    --step-label: 0.8125rem;
+
+    /* The single accent: emphasis and links. Flips with the colour scheme. */
+    --accent: var(--color-rubric);
 
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -39,7 +51,7 @@
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-xxl: 6rem;
-    --space-section: 9.5rem;
+    --space-section: 6rem;
 
     --measure: 34rem;
     --measure-prose: 34rem;
@@ -80,8 +92,9 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
-    font-size: var(--size-19);
+    font-family: var(--font-ui);
+    font-size: var(--step-body);
+    letter-spacing: var(--track-ui);
     line-height: 1.6;
     font-optical-sizing: auto;
     color: var(--color-text);
@@ -111,31 +124,78 @@ img {
    Typography
    ======================================== */
 
-/* Headings are content, so they take the serif. Space Grotesk is reserved
-   for interface: the corner pill, buttons and form labels. JetBrains Mono
-   is reserved for metadata: small labels, dates, the colophon. */
+/* Headings take the light display serif. The sans is the workhorse for
+   body, leads, lists and interface. Mono is reserved for the long-form
+   prose columns. */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-body);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0;
+    font-family: var(--font-display);
     color: var(--color-text);
     margin-bottom: var(--space-sm);
 }
 
 h1 {
-    font-size: var(--size-30);
+    font-weight: 300;
+    font-size: var(--step-display);
+    line-height: 1.09;
+    letter-spacing: var(--track-display);
     margin-bottom: var(--space-md);
 }
 
 h2 {
-    font-size: var(--size-24);
+    font-weight: 300;
+    font-size: var(--step-h2);
+    line-height: 1.09;
+    letter-spacing: var(--track-display);
     margin-top: var(--space-xl);
 }
 
 h3 {
-    font-size: var(--size-19);
+    font-weight: 300;
+    font-size: var(--step-h3);
+    line-height: 1.09;
+    letter-spacing: var(--track-display);
     margin-top: var(--space-lg);
+}
+
+/* Reading measure for running text */
+p {
+    max-width: 65ch;
+}
+
+.lead {
+    font-family: var(--font-text);
+    font-size: var(--step-lead);
+    line-height: 1.5;
+}
+
+/* Structure voice: uppercase, spaced, never a headline */
+.eyebrow,
+.label,
+.sub-label,
+.caption,
+.meta,
+.credit,
+button,
+.button,
+nav {
+    font-family: var(--font-ui);
+    font-weight: 500;
+}
+
+.eyebrow,
+.label,
+.sub-label {
+    font-size: var(--step-label);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.caption,
+.meta,
+.credit {
+    font-size: var(--step-small);
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 p {
@@ -143,7 +203,7 @@ p {
 }
 
 a {
-    color: var(--color-accent);
+    color: var(--accent);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
@@ -175,8 +235,8 @@ hr {
 }
 
 code, pre {
-    font-family: var(--font-mono);
-    font-size: 0.9em;
+    font-family: var(--font-ui);
+    font-size: var(--step-small);
 }
 
 code {
@@ -213,9 +273,9 @@ pre code {
     padding: var(--space-xs) var(--space-sm);
     background: var(--color-text);
     color: var(--color-bg);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     border-radius: var(--radius);
 }
 
@@ -256,9 +316,9 @@ pre code {
     top: var(--space-md);
     right: var(--space-md);
     z-index: 50;
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
 }
 
 .section-menu details > summary {
@@ -333,14 +393,14 @@ pre code {
 .section-menu ul a:hover,
 .section-menu ul a:focus-visible {
     background: var(--color-bg);
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 @media (max-width: 40rem) {
     .section-menu {
         top: var(--space-sm);
         right: var(--space-sm);
-        font-size: 0.8125rem;
+        font-size: var(--step-label);
     }
 
     .section-menu details > summary {
@@ -352,9 +412,9 @@ pre code {
     max-width: 46rem;
     margin: 0 auto;
     padding: var(--space-md);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
 }
 
 .page-bar a {
@@ -395,7 +455,9 @@ pre code {
 
 .hero-lockup > picture {
     flex: none;
-    width: 6rem;
+    /* Sized so the owl's height matches the text beside it. Wider, and the
+       owl becomes the tallest thing in the hero and pads it from inside. */
+    width: 4.5rem;
     align-self: stretch;
     display: block;
 }
@@ -428,17 +490,17 @@ pre code {
 .hero-title {
     margin: 0;
     min-width: 0;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--step-display);
+    line-height: 1.09;
+    letter-spacing: var(--track-display);
+    color: var(--color-text);
 }
 
-.hero-title em {
-    font-style: italic;
-    color: var(--color-text);
+/* The name carries the accent; everything else in the line stays ink. */
+.hero-name {
+    color: var(--accent);
 }
 
 .hero .sub {
@@ -449,7 +511,7 @@ pre code {
 /* The job title cycles; it crossfades so the sentence never jumps while
    a word is legible. */
 .rotator {
-    color: var(--color-rubric);
+    color: var(--accent);
     transition: opacity 0.35s ease;
 }
 
@@ -460,7 +522,7 @@ pre code {
 @media (max-width: 40rem) {
     :root {
         --gutter: 1.5rem;
-        --space-section: 5rem;
+        --space-section: 3.5rem;
     }
 
     .hero-lockup {
@@ -476,7 +538,7 @@ pre code {
     .hero .sub,
     .newsletter > p,
     .resume .summary {
-        font-size: var(--size-19);
+        font-size: var(--step-body);
     }
 }
 
@@ -496,8 +558,9 @@ pre code {
     display: flex;
     flex-wrap: wrap;
     gap: 0 var(--space-md);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: var(--step-small);
 }
 
 .elsewhere li {
@@ -515,8 +578,8 @@ pre code {
 
 .label {
     margin: 0 0 var(--space-md);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-family: var(--font-ui);
+    font-size: var(--step-label);
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -529,6 +592,12 @@ pre code {
 
 /* The reveal only applies when JS can undo it, so the page is never
    left invisible if the script fails to run. */
+/* The first section follows the hero, which already carries its own
+   padding, so it does not need the full between-sections gap. */
+.block:first-child {
+    margin-top: 3.5rem;
+}
+
 .js .block {
     opacity: 0;
     transform: translateY(24px);
@@ -555,14 +624,47 @@ pre code {
 }
 
 /* Quiet metadata label, a clear step below the section pill. */
+/* Longer explanations run in two columns, so the measure stays readable
+   while the text still uses the width of the page. */
+.prose-columns {
+    font-family: var(--font-mono);
+    font-weight: 300;
+    font-size: var(--step-small);
+    line-height: 1.8;
+    columns: 2;
+    column-gap: var(--space-xl);
+    margin-bottom: var(--space-lg);
+}
+
+.prose-columns > * {
+    max-width: none;
+}
+
+.prose-columns p {
+    margin-bottom: var(--space-md);
+}
+
+/* Keep a subhead attached to the paragraph it introduces rather than
+   letting the column break between them. */
+.prose-columns h3 {
+    break-after: avoid;
+    break-inside: avoid;
+    margin-top: var(--space-md);
+}
+
+.prose-columns p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 52rem) {
+    .prose-columns {
+        columns: 1;
+    }
+}
+
 .sub-label {
     margin-top: var(--space-xl);
     margin-bottom: var(--space-sm);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--color-text-secondary);
 }
 
@@ -587,8 +689,9 @@ pre code {
     justify-content: center;
     background: repeating-linear-gradient(45deg, var(--color-border), var(--color-border) 8px, transparent 8px, transparent 16px);
     color: var(--color-text-secondary);
-    font-family: var(--font-mono);
-    font-size: var(--size-15);
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: var(--step-small);
 }
 
 .work-card .body {
@@ -597,8 +700,8 @@ pre code {
 
 .work-card h3 {
     margin: 0 0 4px;
-    font-size: var(--size-21);
-    font-weight: 600;
+    font-size: var(--step-h3);
+    font-weight: 300;
 }
 
 .work-card h3 a {
@@ -607,17 +710,17 @@ pre code {
 }
 
 .work-card h3 a:hover {
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 .work-card .org {
     color: var(--color-text-secondary);
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     margin-bottom: var(--space-xs);
 }
 
 .work-card p {
-    font-size: var(--size-15);
+    font-size: var(--step-small);
 }
 
 .writing {
@@ -642,13 +745,13 @@ pre code {
 }
 
 .writing .where {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: var(--step-label);
     color: var(--color-text-secondary);
 }
 
 .writing a:hover .title {
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 /* Newsletter */
@@ -656,9 +759,10 @@ pre code {
 .newsletter > p,
 .resume .summary,
 .hero .sub {
-    font-size: var(--size-21);
-    line-height: 1.55;
-    max-width: var(--measure-prose);
+    font-family: var(--font-ui);
+    font-size: var(--step-lead);
+    line-height: 1.6;
+    max-width: 62ch;
 }
 
 .newsletter .writing {
@@ -672,9 +776,9 @@ pre code {
 .subscribe label {
     display: block;
     margin-bottom: var(--space-xs);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
 }
 
 .subscribe .row {
@@ -705,20 +809,22 @@ pre code {
 }
 
 .subscribe .button:hover {
-    background: var(--color-rubric);
+    background: var(--accent);
     color: var(--color-on-accent);
 }
 
 .subscribe .hint {
+    font-family: var(--font-ui);
+    font-weight: 500;
     margin: var(--space-xs) 0 0;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    font-size: var(--step-label);
     color: var(--color-text-secondary);
 }
 
 .closing {
     margin-top: var(--space-xl);
-    font-size: 1.3125rem;
+    font-size: var(--step-lead);
 }
 
 .button {
@@ -728,14 +834,14 @@ pre code {
     border-radius: var(--radius);
     background: var(--color-accent);
     color: var(--color-on-accent);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     text-decoration: none;
 }
 
 .button:hover {
-    background: var(--color-rubric);
+    background: var(--accent);
     color: var(--color-on-accent);
 }
 
@@ -778,8 +884,8 @@ pre code {
     padding: var(--space-lg);
     text-align: center;
     color: var(--color-text-secondary);
-    font-family: var(--font-mono);
-    font-size: var(--size-15);
+    font-family: var(--font-ui);
+    font-size: var(--step-small);
 }
 
 .initial {
@@ -793,7 +899,7 @@ pre code {
 .credit {
     clear: both;
     margin-top: var(--space-xl);
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     color: var(--color-text-secondary);
 }
 
@@ -814,13 +920,13 @@ pre code {
     flex-wrap: wrap;
     gap: var(--space-xs) var(--space-md);
     margin-top: var(--space-md);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
 }
 
 .jump a:hover {
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 .resume-section {
@@ -842,7 +948,7 @@ pre code {
 
 .role h3 {
     margin: 0;
-    font-size: var(--size-19);
+    font-size: var(--step-body);
 }
 
 .role h3 a {
@@ -851,13 +957,13 @@ pre code {
 }
 
 .role h3 a:hover {
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 .dates {
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     color: var(--color-text-secondary);
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
@@ -892,16 +998,10 @@ pre code {
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-weight: 500;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     color: var(--color-text-secondary);
-}
-
-.resume .meta .button {
-    margin-top: 0;
-    border: 0;
-    cursor: pointer;
 }
 
 .print-only {
@@ -956,17 +1056,19 @@ pre code {
 }
 
 .sh-label {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: var(--size-24);
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--step-h3);
+    letter-spacing: var(--track-display);
     color: var(--color-text-secondary);
 }
 
 .sh-title {
-    font-family: var(--font-body);
+    font-family: var(--font-display);
     font-style: italic;
-    font-weight: 400;
-    font-size: var(--size-24);
+    font-weight: 300;
+    font-size: var(--step-h3);
+    letter-spacing: var(--track-display);
     color: var(--color-text);
 }
 
@@ -982,7 +1084,7 @@ pre code {
 
     .sh-label,
     .sh-title {
-        font-size: var(--size-19);
+        font-size: var(--step-body);
     }
 }
 
@@ -1009,7 +1111,7 @@ pre code {
     /* A fixed final column, not auto: each row is its own grid, so an auto
        track would size to that row's own date and the columns would not
        line up from row to row or list to list. */
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 13rem;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 8.5rem;
     column-gap: var(--space-md);
     align-items: baseline;
     padding: var(--space-md) 0;
@@ -1022,30 +1124,30 @@ pre code {
 .index-row .what,
 .index-row .where,
 .index-row .when {
-    font-size: var(--size-19);
-    line-height: 1.3;
+    font-size: var(--step-lead);
+    line-height: 1.25;
 }
 
 .index-row .what {
-    font-family: var(--font-body);
+    font-family: var(--font-ui);
 }
 
 .index-row .where {
-    font-family: var(--font-body);
+    font-family: var(--font-ui);
     color: var(--color-text-secondary);
 }
 
 /* A second line under the first column, e.g. a minor under a degree */
 .index-row .note {
     grid-column: 1;
-    font-size: var(--size-15);
+    font-size: var(--step-small);
     color: var(--color-text-secondary);
 }
 
 /* The employer carries the row; the industry sits on the line beneath it. */
 .index-row .co {
     display: block;
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 .index-row .industry {
@@ -1054,36 +1156,18 @@ pre code {
 }
 
 .index-row .when {
-    font-family: var(--font-body);
+    font-family: var(--font-ui);
     color: var(--color-text-secondary);
     text-align: right;
     white-space: nowrap;
 }
 
 a.index-row:hover .what {
-    color: var(--color-rubric);
+    color: var(--accent);
 }
 
 .index-list + .meta {
     border-top: none;
-}
-
-/* About: the two round photos */
-.photo-pair {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-lg);
-    margin: var(--space-lg) 0;
-    flex-wrap: wrap;
-}
-
-.photo-pair img {
-    width: 300px;
-    height: 300px;
-    max-width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 40rem) {
@@ -1229,7 +1313,7 @@ a.index-row:hover .what {
 
     .resume .contact {
         margin: 4pt 0 0;
-        font-family: var(--font-display);
+        font-family: var(--font-ui);
         font-size: 9.5pt;
         color: var(--color-text-secondary);
     }
@@ -1289,8 +1373,10 @@ a.index-row:hover .what {
 
 .colophon p {
     margin: 0;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    max-width: 65ch;
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: var(--step-small);
     line-height: 1.7;
     color: var(--color-text-secondary);
 }
