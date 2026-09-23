@@ -189,198 +189,410 @@ pre code {
 }
 
 /* ========================================
-   Navigation
+   Layout: sticky sidebar + reading column
    ======================================== */
 
-.nav {
-    background-color: var(--color-nav-bg);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-sm) 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-container {
-    max-width: calc(var(--measure) + 2 * var(--space-md));
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-md);
-}
-
-.nav-logo {
-    display: block;
-    line-height: 0;
-    text-decoration: none;
-}
-
-.nav-logo img {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
-}
-
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-}
-
-.nav-links a {
-    color: var(--color-text-secondary);
+.skip-link {
+    position: absolute;
+    left: var(--space-sm);
+    top: -3rem;
+    z-index: 200;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-text);
+    color: var(--color-bg);
     font-family: var(--font-display);
     font-weight: 500;
     font-size: var(--size-15);
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
+    border-radius: var(--radius);
 }
 
-.nav-links a:hover {
-    color: var(--color-rubric);
+.skip-link:focus {
+    top: var(--space-sm);
+    color: var(--color-bg);
 }
 
-.nav-links a.active {
-    color: var(--color-text);
-    border-bottom-color: var(--color-rubric);
-}
-
-/* ========================================
-   Main
-   ======================================== */
-
-.main {
-    min-height: calc(100vh - 200px);
-    padding: var(--space-xl) 0 var(--space-xxl);
-}
-
-.container {
-    max-width: calc(var(--measure) + 2 * var(--space-md));
+.site {
+    --sidebar: 27.5rem;
+    --column: 41.5rem;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 var(--space-md);
+    display: grid;
+    grid-template-columns: minmax(0, var(--sidebar)) minmax(0, var(--column));
+    justify-content: space-between;
+    column-gap: var(--space-xxl);
+}
+
+.content {
+    min-width: 0;
+    padding: calc(var(--space-xxl) + var(--space-xs)) 0 var(--space-xl);
 }
 
 /* ========================================
-   Home
+   Sidebar
    ======================================== */
 
-.hero {
-    padding-top: var(--space-md);
+.sidebar {
+    align-self: start;
+    padding: var(--space-xxl) 0 var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
 }
 
-.weave {
-    font-size: clamp(2.75rem, 11vw, var(--size-58));
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+/* Pin the sidebar only where it fits on screen */
+@media (min-width: 64rem) and (min-height: 50rem) {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+}
+
+.owl {
+    align-self: flex-start;
+    display: block;
+    line-height: 0;
+    border-radius: var(--radius);
+}
+
+.owl img {
+    display: block;
+    height: 6.5rem;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.owl:hover img {
+    transform: rotate(-3deg);
+}
+
+.greeting {
     margin: 0;
+    line-height: 0;
 }
 
-.intro {
-    margin-top: var(--space-md);
+.greeting img {
+    display: block;
+    width: 100%;
+    max-width: var(--sidebar);
+    height: auto;
+    margin-left: -0.35rem;
 }
 
 .intro p {
     margin: 0;
 }
 
-.intro p + p {
-    margin-top: var(--space-sm);
+.intro .role {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-19);
+    letter-spacing: -0.005em;
 }
 
-.home-links {
+.intro .blurb {
+    margin-top: var(--space-xs);
+    max-width: 21rem;
+    color: var(--color-text-secondary);
+}
+
+.sections ol {
+    list-style: none;
+    margin: 0;
+}
+
+.sections li {
+    margin: 0;
+}
+
+.sections a {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
+    align-items: center;
+    gap: var(--space-sm);
+    min-height: 2.75rem;
+    color: var(--color-text-secondary);
     font-family: var(--font-display);
     font-weight: 500;
     font-size: var(--size-15);
+    text-decoration: none;
 }
 
-/* Index lists: the section doors and the newsletter feed */
-.index {
+.sections .num {
+    width: 1.75rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.0625rem;
+}
+
+.sections .rule {
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+    transition: width 0.2s ease, opacity 0.2s ease;
+}
+
+.sections a:hover,
+.sections a[aria-current="page"] {
+    color: var(--color-text);
+}
+
+.sections a:hover .rule,
+.sections a[aria-current="page"] .rule {
+    width: 3rem;
+    opacity: 1;
+}
+
+.sections a[aria-current="page"] .num {
+    color: var(--color-rubric);
+}
+
+.elsewhere {
     list-style: none;
-    margin: var(--space-xl) 0 0;
-    border-top: 1px solid var(--color-border);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
 }
 
-.index li {
+.elsewhere li {
+    margin: 0;
+}
+
+.elsewhere a {
+    display: inline-block;
+    padding: 0.75rem 0;
+}
+
+/* ========================================
+   Reading column: shared pieces
+   ======================================== */
+
+.label {
+    margin: 0 0 var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+.block {
+    margin-top: var(--space-xxl);
+}
+
+.lede p {
+    font-size: 1.3125rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.lede p + p {
+    margin-top: var(--space-md);
+}
+
+.lede .quiet {
+    color: var(--color-text-secondary);
+}
+
+.page-head h1 {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 5vw, var(--size-58));
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+.page-head p {
+    margin: var(--space-md) 0 0;
+    font-size: 1.3125rem;
+    color: var(--color-text-secondary);
+}
+
+.page-head + .block {
+    margin-top: var(--space-xl);
+}
+
+/* Work entries: where/what on the left, the work on the right */
+.entries,
+.writing {
+    list-style: none;
     margin: 0;
     border-bottom: 1px solid var(--color-border);
 }
 
-.index a {
+.entry {
     display: grid;
-    grid-template-columns: 11rem 1fr;
-    gap: var(--space-md);
-    align-items: baseline;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    column-gap: var(--space-md);
+    margin: 0;
     padding: var(--space-md) 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.entry .meta {
+    margin: 0;
+    padding-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+.entry h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.entry h3 a {
     color: var(--color-text);
     text-decoration: none;
 }
 
-.index .name {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--size-24);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-}
-
-.index .desc {
-    color: var(--color-text-secondary);
-}
-
-.index a:hover .name,
-.index a:focus-visible .name {
+.entry h3 a:hover {
     color: var(--color-rubric);
 }
 
-/* Newsletter: only rendered once the feed has posts */
-.feed {
-    margin-top: var(--space-xl);
-}
-
-.feed h2 {
-    margin: 0;
-    font-size: var(--size-30);
-}
-
-.feed .sub {
-    margin: var(--space-xs) 0 0;
+.entry h3 .ext {
+    font-size: 0.85em;
     color: var(--color-text-secondary);
 }
 
-.feed .index {
+.entry .body p {
+    margin: var(--space-xs) 0 0;
+    font-size: 1.125rem;
+    line-height: 1.55;
+}
+
+.entry .detail {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem !important;
+    color: var(--color-text-secondary);
+}
+
+.entry .detail .k {
+    color: var(--color-rubric);
+    margin-right: 0.4em;
+}
+
+.entry .outcome {
+    color: var(--color-text);
+}
+
+.more {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    padding: 0.75rem 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--size-15);
+}
+
+.writing li {
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.writing a {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    column-gap: var(--space-md);
+    align-items: baseline;
+    padding: var(--space-sm) 0;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.writing .where {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.writing a:hover .title {
+    color: var(--color-rubric);
+}
+
+/* Newsletter */
+.newsletter > p {
+    font-size: 1.3125rem;
+    line-height: 1.6;
+}
+
+.newsletter .writing {
+    margin-bottom: var(--space-md);
+}
+
+.subscribe {
     margin-top: var(--space-md);
 }
 
-.feed .index a {
-    grid-template-columns: 1fr auto;
-    padding: var(--space-sm) 0;
-}
-
-.feed .index .name {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: var(--size-19);
-    letter-spacing: 0;
-}
-
-.feed .index .desc {
+.subscribe label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+    font-weight: 500;
     font-size: var(--size-15);
-    white-space: nowrap;
+}
+
+.subscribe .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.subscribe input {
+    flex: 1 1 16rem;
+    max-width: 22.5rem;
+    height: 3rem;
+    padding: 0 var(--space-sm);
+    border: 1px solid var(--color-text-secondary);
+    border-radius: var(--radius);
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    font: inherit;
+}
+
+.subscribe .button {
+    margin: 0;
+    height: 3rem;
+    border: 0;
+    cursor: pointer;
+    background: var(--color-text);
+    color: var(--color-bg);
+}
+
+.subscribe .button:hover {
+    background: var(--color-rubric);
+    color: var(--color-on-accent);
+}
+
+.subscribe .hint {
+    margin: var(--space-xs) 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.closing {
+    margin-top: var(--space-xl);
+    font-size: 1.3125rem;
 }
 
 .button {
     display: inline-block;
     margin-top: var(--space-md);
     padding: 0.75rem 1.25rem;
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: var(--color-accent);
     color: var(--color-on-accent);
     font-family: var(--font-display);
@@ -586,8 +798,9 @@ pre code {
         line-height: 1.45;
     }
 
-    .nav,
-    .footer,
+    .sidebar,
+    .colophon,
+    .skip-link,
     .jump,
     .screen-only,
     .resume .meta {
@@ -598,13 +811,13 @@ pre code {
         display: block;
     }
 
-    .main {
+    .site {
+        display: block;
+        max-width: none;
         padding: 0;
-        min-height: 0;
     }
 
-    .container {
-        max-width: none;
+    .content {
         padding: 0;
     }
 
@@ -663,46 +876,21 @@ pre code {
 }
 
 /* ========================================
-   Footer
+   Colophon
    ======================================== */
 
-.footer {
+.colophon {
+    margin-top: var(--space-xxl);
+    padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
-    padding: var(--space-lg) 0;
 }
 
-.footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-}
-
-.footer p {
-    color: var(--color-text-secondary);
-    font-family: var(--font-mono);
-    font-size: var(--size-15);
-    letter-spacing: -0.02em;
+.colophon p {
     margin: 0;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-}
-
-.footer-links a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.7;
     color: var(--color-text-secondary);
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: var(--size-15);
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: var(--color-rubric);
 }
 
 /* ========================================
@@ -752,7 +940,7 @@ main .photo-carousel-item img {
 }
 
 /* Inline photo styles on the About and Work pages add shadows */
-.container img {
+.content img {
     box-shadow: none !important;
 }
 
@@ -781,24 +969,66 @@ main .photo-carousel-item img {
    Responsive and motion
    ======================================== */
 
+/* One column below laptop width: the sidebar becomes the page intro */
+@media (max-width: 63.99rem) {
+    .site {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: calc(41.5rem + 2 * var(--space-md));
+    }
+
+    .sidebar {
+        padding: var(--space-xl) 0 0;
+        gap: var(--space-md);
+    }
+
+    .owl img {
+        height: 4.5rem;
+    }
+
+    .greeting img {
+        max-width: 22rem;
+    }
+
+    .sections ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 var(--space-md);
+    }
+
+    .sections .rule {
+        display: none;
+    }
+
+    .sections .num {
+        width: auto;
+    }
+
+    .sections a {
+        gap: 0.4rem;
+    }
+
+    .content {
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-border);
+        margin-top: var(--space-sm);
+    }
+}
+
 @media (max-width: 700px) {
-    .nav-container {
-        gap: var(--space-sm);
+    .entry,
+    .writing a {
+        grid-template-columns: minmax(0, 1fr);
     }
 
-    .nav-links {
-        gap: var(--space-sm);
+    .entry .meta {
+        flex-direction: row;
+        gap: 0.75rem;
+        padding: 0 0 var(--space-xs);
     }
 
-    .index a,
-    .feed .index a {
-        grid-template-columns: 1fr;
-        gap: 0.125rem;
-    }
-
-    .footer .container {
-        flex-direction: column;
-        align-items: flex-start;
+    .writing .where {
+        display: block;
+        margin-bottom: 0.125rem;
     }
 
     .pdf-container embed {
