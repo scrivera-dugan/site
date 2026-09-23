@@ -40,7 +40,7 @@
       gtag('config', 'G-WDG5FNNXKN');
     </script>
 </head>
-<body>
+<body id="top">
     <a class="skip-link" href="#content">Skip to content</a>
 
     {% if page.url == '/' %}
@@ -89,14 +89,18 @@
     </main>
 
     <footer class="site-footer">
-        <ul class="elsewhere" aria-label="Elsewhere">
-            <li><a href="mailto:sarahcdugan@gmail.com">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/scdugan/" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://github.com/scrivera-dugan" rel="noopener">GitHub</a></li>
-            <li><a href="{{ site.data.substack.link }}" rel="noopener">Substack</a></li>
-        </ul>
-        <div class="colophon">
-            <p>© {{ 'now' | date: "%Y" }} Sarah Dugan. Set in Crimson Pro and Plus Jakarta Sans. Colors after the pigments of a medieval Varro manuscript, Bodleian MS. Lat. class. d. 2.</p>
+        <p class="closing-line">Good docs are <em>infrastructure</em></p>
+        <a class="back-to-top" href="#top"><span aria-hidden="true">&uarr;</span> Back to top</a>
+        <div class="footer-row">
+            <ul class="elsewhere" aria-label="Elsewhere">
+                <li><a href="mailto:sarahcdugan@gmail.com">Email</a></li>
+                <li><a href="https://www.linkedin.com/in/scdugan/" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/scrivera-dugan" rel="noopener">GitHub</a></li>
+                <li><a href="{{ site.data.substack.link }}" rel="noopener">Substack</a></li>
+            </ul>
+            <div class="colophon">
+                <p>© {{ 'now' | date: "%Y" }} Sarah Dugan. Set in Crimson Pro and Plus Jakarta Sans. Colors after the pigments of a medieval Varro manuscript, Bodleian MS. Lat. class. d. 2.</p>
+            </div>
         </div>
     </footer>
 

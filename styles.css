@@ -84,6 +84,7 @@
    ======================================== */
 
 html {
+    scroll-behavior: smooth;
     /* a little breathing room above an anchored section header */
     scroll-padding-top: 3rem;
 }
@@ -582,14 +583,74 @@ pre code {
 .site-footer {
     width: min(100% - 2 * var(--gutter), var(--content-max));
     margin-inline: auto;
+    margin-top: var(--space-section);
+    padding: var(--space-xl) 0 var(--space-lg);
+    border-top: 1px dashed var(--color-text-secondary);
+    /* The closing line sizes itself to this box, so the sentence fills the
+       width and the centred pill below it reads as centred. */
+    container-type: inline-size;
+    /* 100 / the sentence's width in em (9.27em for this one), shaved a
+       little so rounding never wraps it. Retune if the sentence changes. */
+    --closing-fit: 10.6;
+}
+
+/* One closing line, set large in the display face with the last word in
+   italic: the section-pill device at the scale of a sign-off. */
+.closing-line {
+    margin: 0;
+    max-width: none;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, calc(var(--closing-fit) * 1cqw), 8.5rem);
+    line-height: 1.02;
+    letter-spacing: var(--track-display);
+    text-wrap: balance;
+    color: var(--color-text);
+}
+
+@supports not (font-size: 1cqw) {
+    .closing-line {
+        font-size: clamp(2.5rem, 8.6vw, 8.5rem);
+    }
+}
+
+.closing-line em {
+    font-style: italic;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: var(--space-md) auto 0;
+    padding: 0.7rem 1.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--step-h3);
+    letter-spacing: var(--track-display);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+}
+
+.back-to-top:hover {
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
+}
+
+/* Centred between the line and the link row */
+.site-footer > .back-to-top {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Links on one line with wide, even gaps; the colophon sits quietly under
+   them instead of competing from the right. */
+.footer-row {
     margin-top: var(--space-lg);
-    padding: var(--space-md) 0 var(--space-xl);
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-sm) var(--space-lg);
 }
 
 .elsewhere {
@@ -597,7 +658,7 @@ pre code {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0 var(--space-md);
+    gap: 0 var(--space-xxl);
     font-family: var(--font-ui);
     font-weight: 500;
     font-size: var(--step-small);
@@ -610,6 +671,22 @@ pre code {
 .elsewhere a {
     display: inline-block;
     padding: 0.75rem 0;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.elsewhere a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 40rem) {
+    .site-footer {
+        padding-top: var(--space-lg);
+    }
+
+    .elsewhere {
+        gap: 0 var(--space-md);
+    }
 }
 
 /* ========================================
@@ -1502,8 +1579,8 @@ a.index-row:hover .what {
    ======================================== */
 
 .colophon {
-    margin: 0;
-    max-width: 44ch;
+    margin: var(--space-md) 0 0;
+    max-width: 60ch;
 }
 
 .colophon p {
