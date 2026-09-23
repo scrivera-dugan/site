@@ -1049,7 +1049,8 @@ pre code {
 /* Scoped through .body so this outranks the .work-card h3 rule that
    follows it in the file. */
 .work-card--lead .body h3 {
-    font-size: var(--step-h2);
+    /* A step above the grid cards, but clearly under the section heading. */
+    font-size: 1.75rem;
 }
 
 .work-card--lead .body > p:not([class]) {
