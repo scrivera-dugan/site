@@ -145,14 +145,23 @@
         });
 
         var queued = false;
+        var currentIndex = -1;
         function update() {
           queued = false;
           var line = window.scrollY + window.innerHeight * 0.3;
-          var current = home;
+          var index = -1;
           for (var i = 0; i < sections.length; i++) {
-            if (sections[i].offsetTop <= line) current = titles[i];
+            if (sections[i].offsetTop <= line) index = i;
           }
-          if (label.textContent !== current) label.textContent = current;
+          if (index === currentIndex) return;
+          currentIndex = index;
+          label.textContent = index < 0 ? home : titles[index];
+          // Keep the address bar in step. replaceState rather than setting
+          // location.hash: no history entry per section, and no scroll-to-
+          // anchor fighting the reader's own scrolling. Above the first
+          // section the hash comes off entirely.
+          var base = location.pathname + location.search;
+          history.replaceState(null, '', index < 0 ? base : base + '#' + sections[index].id);
         }
         function onScroll() {
           if (!queued) { queued = true; requestAnimationFrame(update); }
