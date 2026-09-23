@@ -470,6 +470,10 @@ pre code {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* Anchored to the top of its box. The box stretches to the text, so a
+       longer job title makes it taller; centred, the owl would slide down
+       as the heading wraps to another line. */
+    object-position: 50% 0;
     margin: 0;
     display: block;
     transform-origin: 50% 85%;
