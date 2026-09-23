@@ -303,8 +303,16 @@ pre code {
 }
 
 .hero h1 {
-    font-size: var(--size-58);
-    margin-bottom: var(--space-sm);
+    margin: 0 auto var(--space-sm);
+    line-height: 0;
+}
+
+.hero h1 img {
+    display: block;
+    width: 100%;
+    max-width: 26rem;
+    height: auto;
+    margin: 0 auto;
 }
 
 .hero .sub {

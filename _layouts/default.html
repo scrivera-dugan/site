@@ -52,7 +52,10 @@
 
     <header class="hero">
         <img class="hero-icon" src="{{ '/images/owl.png' | relative_url }}" alt="" aria-hidden="true">
-        <h1>Hi, I'm Sarah.</h1>
+        <h1><picture>
+            <source srcset="{{ '/images/hi-im-sarah-light.png' | relative_url }}" media="(prefers-color-scheme: dark)">
+            <img src="{{ '/images/hi-im-sarah.png' | relative_url }}" alt="Hi, I'm Sarah" width="640" height="231">
+        </picture></h1>
         <p class="sub">Intro copy coming soon.</p>
     </header>
     {% else %}
