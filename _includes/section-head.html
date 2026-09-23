@@ -1,0 +1,20 @@
+{%- comment -%}
+Section header lockup: a quiet first line, an expressive italic second line,
+and the ivy sprig. This is the wayfinding device for the homepage.
+  include.label  - first line, e.g. "Selected"
+  include.title  - second line, e.g. "work"
+  include.id     - id for aria-labelledby
+{%- endcomment -%}
+<header class="section-head">
+    <div class="sh-lockup">
+        <svg class="sprig" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M24 44c0-14 8-22 18-26-4 16-8 26-18 26Z"/>
+            <path d="M24 44c0-14-8-22-18-26 4 16 8 26 18 26Z"/>
+            <path d="M24 44V18"/>
+        </svg>
+        <h2 id="{{ include.id }}">
+            <span class="sh-label">{{ include.label }}</span>
+            <span class="sh-title">{{ include.title }}</span>
+        </h2>
+    </div>
+</header>

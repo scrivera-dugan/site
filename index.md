@@ -7,7 +7,7 @@ title: Home
 {% assign r = site.data.resume %}
 
 <section class="block" id="work" aria-labelledby="work-h">
-<h2 class="label section-label" id="work-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>Selected work</h2>
+{% include section-head.html id="work-h" label="Selected" title="work" %}
 <div class="work-grid">
 {% for item in work.docs %}
 <article class="work-card">
@@ -21,18 +21,30 @@ title: Home
 {% endfor %}
 </div>
 {% if work.writing and work.writing.size > 0 %}
-<h3 class="sub-label">Writing</h3>
-{% include writing-list.html items=work.writing %}
+<h3 class="sub-label">Writing elsewhere</h3>
+<ul class="index-list">
+{% for item in work.writing %}
+    <li><a class="index-row" href="{{ item.url }}" rel="noopener">
+        <span class="what">{{ item.title }}</span>
+        <span class="where">{{ item.where }}</span>
+        <span class="when">↗</span>
+    </a></li>
+{% endfor %}
+</ul>
 {% endif %}
 </section>
 
 <section class="block newsletter" id="substack" aria-labelledby="news-h">
-<h2 class="label section-label" id="news-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>{{ feed.title }}</h2>
+{% include section-head.html id="news-h" label="Write this" title="down" %}
 <p>My newsletter on Substack, about information, language, and myth. It's free and it shows up occasionally.</p>
 {% if feed.posts and feed.posts.size > 0 %}
-<ul class="writing">
+<ul class="index-list">
     {% for post in feed.posts limit: 3 %}
-    <li><a href="{{ post.link }}"><span class="where">{{ post.date | date: "%b %-d, %Y" }}</span><span class="title">{{ post.title }}</span></a></li>
+    <li><a class="index-row" href="{{ post.link }}" rel="noopener">
+        <span class="what">{{ post.title }}</span>
+        <span class="where">Substack</span>
+        <span class="when">{{ post.date | date: "%b %-d, %Y" }}</span>
+    </a></li>
     {% endfor %}
 </ul>
 {% endif %}
@@ -47,39 +59,44 @@ title: Home
 </section>
 
 <section class="block resume" id="resume" aria-labelledby="resume-h">
-<h2 class="label section-label" id="resume-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>Résumé</h2>
+{% include section-head.html id="resume-h" label="Where I've" title="been" %}
 <h1 class="print-only">Sarah C. Dugan</h1>
 <p class="contact print-only">sarahcdugan@gmail.com · linkedin.com/in/scdugan · sarahdocs.com</p>
 <p class="summary">{{ r.summary }}</p>
 
-<nav class="jump" aria-label="Jump to a role">
-{% for job in r.experience %}<a href="#{{ job.id }}">{{ job.company | split: "," | first }}</a>
-{% endfor %}</nav>
-
-<h3 class="resume-section">Experience</h3>
+<h3 class="sub-label">Experience</h3>
+<ul class="index-list">
 {% for job in r.experience %}
-<section class="role" id="{{ job.id }}">
-<div class="role-head">
-<h3><a href="#{{ job.id }}">{{ job.title }}</a></h3>
-<span class="dates">{{ job.start }} – {{ job.end }}</span>
-</div>
-<p class="where">{{ job.company }} · {{ job.location }}</p>
-<ul>
-{% for bullet in job.bullets %}<li>{{ bullet }}</li>
-{% endfor %}</ul>
-</section>
+    <li id="{{ job.id }}">
+        <span class="index-row">
+            <span class="what">{{ job.title }}</span>
+            <span class="where">{{ job.company }}<span class="loc"> · {{ job.location }}</span></span>
+            <span class="when">{{ job.start }} – {{ job.end }}</span>
+        </span>
+        {%- comment -%}
+        The bullets stay in the markup but are hidden on screen: the section
+        is a glance, while the printed PDF is still a full resume.
+        {%- endcomment -%}
+        <ul class="role-detail print-only">
+        {% for bullet in job.bullets %}<li>{{ bullet }}</li>
+        {% endfor %}</ul>
+    </li>
 {% endfor %}
+</ul>
 
-<h3 class="resume-section">Education</h3>
+<h3 class="sub-label">Education</h3>
+<ul class="index-list">
 {% for school in r.education %}
-<section class="role">
-<div class="role-head">
-<h3>{{ school.school }}</h3>
-<span class="dates">{{ school.year }}</span>
-</div>
-<p class="where">{{ school.degree }}<br>{{ school.minor }}</p>
-</section>
+    <li>
+        <span class="index-row">
+            <span class="what">{{ school.degree }}</span>
+            <span class="where">{{ school.school }}</span>
+            <span class="when">{{ school.year }}</span>
+            {% if school.minor %}<span class="note">{{ school.minor }}</span>{% endif %}
+        </span>
+    </li>
 {% endfor %}
+</ul>
 
 <div class="meta">
 <button class="button" type="button" onclick="window.print()">Download PDF</button>
@@ -88,16 +105,16 @@ title: Home
 </section>
 
 <section class="block" id="about" aria-labelledby="about-h">
-<h2 class="label section-label" id="about-h"><svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-7 4-11 9-13-2 8-4 13-9 13Z"/><path d="M12 21c0-7-4-11-9-13 2 8 4 13 9 13Z"/><path d="M12 21V9"/></svg>About</h2>
+{% include section-head.html id="about-h" label="A little" title="about me" %}
 <h3>Background</h3>
 
 <img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>arah grew up reading, writing, and watching all the movies she could get her hands on. As the middle child of five, she spent years working at her parents' bed and breakfast, where she met countless fascinating guests and made an equal number of beds.
 
 <p>It was actually one of those guests who first suggested technical writing to Sarah when she was in high school and connected her with an internship at IBM, and the rest is history. A Boston native, Sarah is a New Englander at heart and is grateful for how it shaped her.</p>
 
-<div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
-    <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" style="max-width: 300px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Brian" style="max-width: 300px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+<div class="photo-pair">
+    <img src="{{ '/images/family.png' | relative_url }}" alt="Family photo" width="300" height="300" loading="lazy" decoding="async">
+    <img src="{{ '/images/s&b.png' | relative_url }}" alt="Sarah and Brian" width="300" height="300" loading="lazy" decoding="async">
 </div>
 
 <h3>Today</h3>

@@ -1,0 +1,10 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Resolved locally against Ruby 4.0.7; the hosted builds have always
+# resolved their own gems, so don't hand them a lock file from this machine.
+Gemfile.lock
+
+.DS_Store

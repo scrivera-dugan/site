@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.className += ' js';</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.url == '/' %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
 
@@ -51,12 +52,20 @@
     </nav>
 
     <header class="hero">
-        <img class="hero-icon" src="{{ '/images/owl.png' | relative_url }}" alt="" aria-hidden="true">
-        <h1><picture>
-            <source srcset="{{ '/images/hi-im-sarah-light.png' | relative_url }}" media="(prefers-color-scheme: dark)">
-            <img src="{{ '/images/hi-im-sarah.png' | relative_url }}" alt="Hi, I'm Sarah" width="640" height="231">
-        </picture></h1>
-        <p class="sub">Intro copy coming soon.</p>
+        <div class="hero-lockup">
+            <picture>
+                <source srcset="{{ '/images/owl.webp' | relative_url }}" type="image/webp">
+                <img class="hero-icon" src="{{ '/images/owl.png' | relative_url }}" alt="" aria-hidden="true" width="300" height="810">
+            </picture>
+            <div class="hero-text">
+                <h1><picture>
+                    <source srcset="{{ '/images/hi-im-sarah-light.png' | relative_url }}" media="(prefers-color-scheme: dark)">
+                    <img src="{{ '/images/hi-im-sarah.png' | relative_url }}" alt="Hi, I'm Sarah" width="640" height="231">
+                </picture></h1>
+                <p class="sub"><span class="lead-in">Intro copy coming soon.</span> This is where a short, warm line or two about who you are and what you make will live — kept tight so the owl and your name stay the star.</p>
+            </div>
+        </div>
+        <a class="button button-pill" href="#substack">Read my writing</a>
     </header>
     {% else %}
     <header class="page-bar">
@@ -85,9 +94,13 @@
       var blocks = document.querySelectorAll('.block');
       if (blocks.length && 'IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-        }, { threshold: 0.15 });
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
         blocks.forEach(function (s) { io.observe(s); });
+      } else {
+        blocks.forEach(function (s) { s.classList.add('is-visible'); });
       }
     </script>
     {% endif %}

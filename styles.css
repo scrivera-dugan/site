@@ -63,6 +63,11 @@
    Base
    ======================================== */
 
+html {
+    /* the sticky nav is 57px; keep anchored section headers clear of it */
+    scroll-padding-top: 6rem;
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -219,7 +224,11 @@ pre code {
 
 .content {
     min-width: 0;
-    padding: var(--space-xl) 0;
+    /* Only the vertical padding: the shorthand here would cancel the side
+       gutters .site sets, which is invisible on desktop (the column is
+       centred) but runs text to both screen edges on a phone. */
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
 }
 
 /* ========================================
@@ -231,9 +240,13 @@ pre code {
     top: 0;
     z-index: 40;
     display: flex;
-    justify-content: center;
-    gap: var(--space-md);
+    justify-content: flex-start;
+    gap: var(--space-lg);
+    /* The bar itself spans the window; the padding pushes its links onto the
+       same left edge as the content column below. */
     padding: var(--space-sm) var(--space-md);
+    padding-left: max(var(--space-md), calc((100% - 46rem) / 2 + var(--space-md)));
+    padding-right: max(var(--space-md), calc((100% - 46rem) / 2 + var(--space-md)));
     background: color-mix(in srgb, var(--color-bg) 88%, transparent);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--color-border);
@@ -277,14 +290,38 @@ pre code {
 .hero {
     max-width: 46rem;
     margin: 0 auto;
-    padding: var(--space-xxl) var(--space-md) var(--space-xl);
-    text-align: center;
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
+    text-align: left;
+}
+
+/* The owl runs the full height of the name and the intro beside it, so the
+   two columns read as one mark. */
+.hero-lockup {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-lg);
+}
+
+.hero-text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.hero-lockup > picture {
+    flex: none;
+    width: 6rem;
+    align-self: stretch;
+    display: block;
 }
 
 .hero-icon {
-    width: 60px;
-    height: auto;
-    margin: 0 auto var(--space-md);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
     display: block;
     transform-origin: 50% 85%;
 }
@@ -303,22 +340,46 @@ pre code {
 }
 
 .hero h1 {
-    margin: 0 auto var(--space-sm);
+    margin: 0;
+    min-width: 0;
     line-height: 0;
 }
 
 .hero h1 img {
     display: block;
     width: 100%;
-    max-width: 26rem;
+    max-width: 24rem;
     height: auto;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .hero .sub {
     color: var(--color-text-secondary);
-    max-width: 34rem;
-    margin: 0 auto;
+    max-width: var(--measure);
+    margin: 0;
+    font-size: var(--size-24);
+    line-height: 1.45;
+}
+
+/* The opening sentence carries the weight; the rest settles back. */
+.hero .sub .lead-in {
+    color: var(--color-text);
+}
+
+@media (max-width: 40rem) {
+    .hero-lockup {
+        gap: var(--space-md);
+    }
+
+    .hero-lockup > picture {
+        /* Wider here so the owl still fills most of the column's height
+           rather than floating in the middle of it. */
+        width: 4.5rem;
+    }
+
+    .hero .sub {
+        font-size: var(--size-19);
+    }
 }
 
 /* ========================================
@@ -366,12 +427,17 @@ pre code {
 
 .block {
     margin-top: var(--space-xxl);
+}
+
+/* The reveal only applies when JS can undo it, so the page is never
+   left invisible if the script fails to run. */
+.js .block {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.block.is-visible {
+.js .block.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -390,9 +456,14 @@ pre code {
 }
 
 .sub-label {
-    margin-top: var(--space-lg);
-    font-size: var(--size-15);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
     font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
 }
 
 /* Work: cards with an image slot, or a placeholder until a real image is added */
@@ -556,6 +627,22 @@ pre code {
     font-weight: 500;
     font-size: var(--size-15);
     text-decoration: none;
+}
+
+/* Outline pill, for a quiet call to action next to body copy */
+.button-pill {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-text);
+    border-radius: 999px;
+    padding: 0.7rem 1.5rem;
+    margin-top: var(--space-lg);
+}
+
+.button-pill:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
 }
 
 .button:hover {
@@ -732,6 +819,182 @@ pre code {
     display: none;
 }
 
+/* The company alone keeps every row to one line on screen. The location
+   still belongs on the printed resume. */
+.loc {
+    display: none;
+}
+
+
+/* ========================================
+   Section headers
+   A quiet display line, an expressive italic line, and the ivy sprig.
+   These are the wayfinding device for the whole page: big enough that
+   you always know which section you have landed in.
+   ======================================== */
+
+.section-head {
+    position: relative;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    text-align: right;
+}
+
+.section-head h2 {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.sh-label {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: var(--color-text-secondary);
+    padding-right: 0.08em;
+}
+
+.sh-title {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.75rem, 9vw, 4.75rem);
+    color: var(--color-text);
+    /* tuck the italic line up under the label, as a signature would sit */
+    margin-top: -0.12em;
+    line-height: 0.95;
+}
+
+/* The lockup shrinks to the width of its two lines, so the sprig can be
+   pinned just off its left shoulder instead of drifting to the page edge. */
+.sh-lockup {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+}
+
+.section-head .sprig {
+    position: absolute;
+    right: 100%;
+    top: 0.2em;
+    width: 44px;
+    height: 44px;
+    margin-right: 0.65rem;
+    color: var(--color-thread);
+    transform: rotate(-24deg);
+}
+
+/* On narrow screens the sprig would crowd the type. Sit it above instead. */
+@media (max-width: 40rem) {
+    .section-head .sprig {
+        position: static;
+        display: block;
+        margin: 0 0 var(--space-xs) auto;
+        width: 32px;
+        height: 32px;
+        transform: rotate(-16deg);
+    }
+}
+
+/* ========================================
+   Index list
+   Ruled rows: what it was, where, when. Used for writing credits and
+   for the resume, so both read as an index rather than a wall of text.
+   ======================================== */
+
+.index-list {
+    list-style: none;
+    margin: 0 0 var(--space-md);
+    padding: 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.index-list > li {
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.index-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) auto;
+    column-gap: var(--space-md);
+    align-items: baseline;
+    padding: var(--space-md) 0;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.index-row .what {
+    font-family: var(--font-body);
+    font-size: var(--size-19);
+    line-height: 1.3;
+}
+
+.index-row .where {
+    font-family: var(--font-body);
+    font-size: var(--size-15);
+    color: var(--color-text-secondary);
+}
+
+/* A second line under the first column, e.g. a minor under a degree */
+.index-row .note {
+    grid-column: 1;
+    font-size: var(--size-15);
+    color: var(--color-text-secondary);
+}
+
+.index-row .when {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
+    text-align: right;
+    white-space: nowrap;
+}
+
+a.index-row:hover .what {
+    color: var(--color-rubric);
+}
+
+.index-list + .meta {
+    border-top: none;
+}
+
+/* About: the two round photos */
+.photo-pair {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+    flex-wrap: wrap;
+}
+
+.photo-pair img {
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 40rem) {
+    .index-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        row-gap: 2px;
+        padding: var(--space-sm) 0;
+    }
+
+    .index-row .what,
+    .index-row .note {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (max-width: 700px) {
     .role-head {
         flex-direction: column;
@@ -776,6 +1039,62 @@ pre code {
 
     .print-only {
         display: block;
+    }
+
+    .loc {
+        display: inline;
+    }
+
+    .section-head {
+        text-align: left;
+        border-bottom: 1pt solid var(--color-border);
+        margin-bottom: 10pt;
+    }
+
+    .section-head .sprig {
+        display: none;
+    }
+
+    .section-head h2 {
+        display: block;
+    }
+
+    .sh-label {
+        font-size: 11pt;
+    }
+
+    .sh-title {
+        font-size: 15pt;
+    }
+
+    .index-list > li {
+        break-inside: avoid;
+    }
+
+    .index-row .what {
+        font-weight: 600;
+    }
+
+    .index-row {
+        padding: 7pt 0 2pt;
+    }
+
+    /* The bullets are hidden on screen; the printed resume needs them. */
+    .role-detail {
+        display: block;
+        margin: 0 0 6pt;
+        padding-left: 14pt;
+        max-width: none;
+    }
+
+    .role-detail li {
+        font-size: 9.5pt;
+        line-height: 1.4;
+        color: var(--color-text);
+    }
+
+    .role-detail li + li {
+        margin-top: 2pt;
     }
 
     .site {
