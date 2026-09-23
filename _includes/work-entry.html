@@ -1,0 +1,9 @@
+<li class="entry">
+    <p class="meta"><span>{{ include.item.org }}</span><span>{{ include.item.kind }}</span></p>
+    <div class="body">
+        <h3><a href="{{ include.item.url }}" rel="noopener">{{ include.item.title }}<span class="ext" aria-hidden="true"> ↗</span></a></h3>
+        <p>{{ include.item.summary }}</p>
+        {% if include.item.role %}<p class="detail"><span class="k">Role</span> {{ include.item.role }}</p>{% endif %}
+        {% if include.item.outcome %}<p class="detail outcome"><span class="k">Outcome</span> {{ include.item.outcome }}</p>{% endif %}
+    </div>
+</li>
