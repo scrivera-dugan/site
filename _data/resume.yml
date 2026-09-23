@@ -1,0 +1,93 @@
+# Single source for the resume page and its printed PDF.
+# Edit this file; the page (resume.md) is generated from it.
+
+updated: 2026-09-22
+
+summary: >-
+  Specialized ML writer with nearly a decade of experience crafting content for machine learning products.
+  Combines deep technical knowledge with creative storytelling to make complex AI concepts accessible.
+  Thrives in collaborative environments, bringing kind energy and solution-focused leadership to cross-functional teams.
+  Excels in navigating ambiguity, transforming blank-slate challenges into polished technical narratives,
+  and building strong partnerships with stakeholders and customers. Consistently delivers clear, impactful content
+  that elevates product understanding and user experience.
+
+experience:
+  - id: stellic
+    title: Technical Content Lead
+    company: Stellic
+    location: Remote, USA
+    start: "2025"
+    end: Current
+    bullets:
+      - Built technical documentation as a core product function, establishing the company's first dedicated content strategy and documentation processes for a 70-person organization.
+      - Architected and maintained the company documentation portal, independently researching, executing, and launching a complete migration from Intercom to GitBook in under 3 months, enabling AI-powered insights and analytics across all user documentation.
+      - Own end-to-end product launch communications, managing all documentation deliverables from conception to publication across 500+ pages of technical content.
+      - Establish operational excellence through building Linear project management workflows, documentation governance processes, and scalable content systems that position the company for best-in-class standards.
+
+  - id: google
+    title: Technical Writer
+    company: Google Cloud
+    location: Remote, USA
+    start: "2021"
+    end: "2025"
+    bullets:
+      - Owned the development and publication lifecycles for 3 enterprise products, delivering hundreds of public-facing documents annually for Google's Large Language Model (LLM), Gemini.
+      - Spearheaded the creation of launch documentation and code samples for Google's cutting-edge LLM, PaLM 2, including hand-crafting the API reference.
+      - Developed engaging creative content for official Google blogs, GitHub notebook samples, and collaborated with the sales engineering team as a content partner.
+      - Demonstrated leadership as the team's health and wellness liaison, managing a $20,000 budget.
+      - Recognized as a top 5% leader at Google based on annual review rankings for job profile and organizational impact.
+
+  - id: amazon
+    title: Technical Writer and Editor
+    company: Amazon Alexa, Amazon Web Services
+    location: Boston, MA
+    start: "2019"
+    end: "2021"
+    bullets:
+      - Led technical editing efforts across a wide range of AWS training content, including Game Tech, End User Computing, Security, Media Services, and IoT, supporting 20+ curriculum developers.
+      - Delivered significant quality improvements by editing over 30 technical courses in 6 months and contributing to a customer satisfaction score increase from 4.0 to 4.8 (out of 5).
+      - Empowered colleagues by mentoring, training, and leading sessions on effective technical writing practices.
+      - As a Technical Writer, provided comprehensive writing and editing support to 200+ Amazonians working on Alexa AI
+      - Developed a robust internal learning portal with a well-defined information architecture to assist new and experienced scientists in the Alexa AI team.
+      - Drove successful monthly team business reviews by aggregating and reporting metrics and KPIs from 5 sub-teams.
+
+  - id: onapsis
+    title: Product Documentation Lead
+    company: Onapsis
+    location: Boston, MA
+    start: "2017"
+    end: "2019"
+    bullets:
+      - Led the development of comprehensive user documentation, including user guides, release notes, and in-product walkthroughs, reporting directly to the Chief Product Officer.
+      - Streamlined user onboarding and learning by converting 500 pages of Word documentation into a user-friendly, searchable portal built with MadCap Flare.
+      - Optimized review processes for agility, establishing efficient review schedules to align with bi-weekly sprints.
+      - Provided ongoing documentation support to Fortune 500 companies through bi-weekly contributions in Salesforce.
+
+  - id: nanthealth
+    title: Technical Writer
+    company: NantHealth
+    location: Boston, MA
+    start: "2016"
+    end: "2017"
+    bullets:
+      - Contributed to the development and management of comprehensive documentation for NaviNet
+      - Empowered user adoption for over 50 health plans (technical User Guides, FAQs, and new features)
+      - Authored compelling release notes for marketing teams
+      - Championed agile practices and collaboration within the documentation team (6-week sprints, daily stand-ups)
+
+  - id: ibm
+    title: Co-op Technical Writer
+    company: IBM Big Data Analytics
+    location: Boston, MA
+    start: "2015"
+    end: "2016"
+    bullets:
+      - Developed customer-centric technical content in DITA XML to IBM products as a full time student
+      - Enhanced user experience through design contributions, video tutorials, and end-to-end samples
+      - Created and delivered training programming and documentation for the global IBM Design Camp
+
+education:
+  - school: University of Massachusetts, Amherst
+    year: "2016"
+    degree: BA in English Literature and Professional Writing and Technical Communications
+    minor: Minor in Information Technology and Portuguese
