@@ -39,8 +39,7 @@
     --space-xl: 4rem;
     --space-xxl: 6rem;
 
-    --measure: 42rem;                 /* page width for lists and images */
-    --reading-measure: 30rem;         /* paragraphs: ~60 characters at 19px */
+    --measure: 34rem;                 /* one column for everything: ~66 characters of body text */
     --radius: 4px;
 }
 
@@ -128,14 +127,6 @@ h3 {
 
 p {
     margin-bottom: var(--space-sm);
-}
-
-/* Paragraphs and lists on content pages keep a book-width line */
-.container > p,
-.container > ul:not(.index),
-.container > ol,
-.container > blockquote {
-    max-width: var(--reading-measure);
 }
 
 a {
@@ -278,72 +269,32 @@ pre code {
    ======================================== */
 
 .hero {
-    padding: var(--space-lg) 0 var(--space-lg);
+    padding-top: var(--space-md);
 }
 
-/* The woven name: strips of the headline slide in from
-   alternating sides, like weft threads on a loom. */
 .weave {
-    position: relative;
     font-size: clamp(2.75rem, 11vw, var(--size-58));
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: -0.03em;
-    white-space: nowrap;
     margin: 0;
 }
 
-.weave .ghost {
-    visibility: hidden;
-    display: block;
-}
-
-.weave .band {
-    position: absolute;
-    inset: 0;
-    display: block;
-    clip-path: inset(var(--top) 0 calc(100% - var(--top) - var(--h)) 0);
-    animation: weft 1.1s cubic-bezier(.2, .7, .1, 1) both;
-    animation-delay: var(--delay);
-}
-
-.weave .band:nth-of-type(odd) { --from: -60%; }
-.weave .band:nth-of-type(even) { --from: 60%; }
-
-@keyframes weft {
-    from { transform: translateX(var(--from)); opacity: 0; }
-    30% { opacity: 1; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-.weave .warp {
-    position: absolute;
-    inset: -0.15em -0.5rem;
-    background: repeating-linear-gradient(90deg, var(--color-thread) 0 1px, transparent 1px 14px);
-    opacity: 0;
-    animation: warp 2.2s ease both;
-    pointer-events: none;
-}
-
-@keyframes warp {
-    0% { opacity: 0; }
-    15% { opacity: .55; }
-    70% { opacity: .55; }
-    100% { opacity: 0; }
-}
-
 .intro {
-    max-width: var(--reading-measure);
     margin-top: var(--space-md);
 }
 
 .intro p {
-    margin-bottom: var(--space-xs);
+    margin: 0;
+}
+
+.intro p + p {
+    margin-top: var(--space-sm);
 }
 
 .home-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: var(--space-md);
     margin-top: var(--space-md);
     font-family: var(--font-display);
     font-weight: 500;
@@ -353,7 +304,7 @@ pre code {
 /* Index lists: the section doors and the newsletter feed */
 .index {
     list-style: none;
-    margin: 0;
+    margin: var(--space-xl) 0 0;
     border-top: 1px solid var(--color-border);
 }
 
@@ -364,10 +315,10 @@ pre code {
 
 .index a {
     display: grid;
-    grid-template-columns: minmax(8rem, 14rem) 1fr;
-    gap: var(--space-sm);
+    grid-template-columns: 11rem 1fr;
+    gap: var(--space-md);
     align-items: baseline;
-    padding: var(--space-sm) 0;
+    padding: var(--space-md) 0;
     color: var(--color-text);
     text-decoration: none;
 }
@@ -389,22 +340,28 @@ pre code {
     color: var(--color-rubric);
 }
 
+/* Newsletter: only rendered once the feed has posts */
 .feed {
     margin-top: var(--space-xl);
 }
 
 .feed h2 {
-    margin: 0 0 0.35rem;
+    margin: 0;
     font-size: var(--size-30);
 }
 
 .feed .sub {
+    margin: var(--space-xs) 0 0;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
+}
+
+.feed .index {
+    margin-top: var(--space-md);
 }
 
 .feed .index a {
     grid-template-columns: 1fr auto;
+    padding: var(--space-sm) 0;
 }
 
 .feed .index .name {
@@ -422,8 +379,8 @@ pre code {
 .button {
     display: inline-block;
     margin-top: var(--space-md);
-    padding: 0.7rem 1.2rem;
-    border-radius: 3px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
     background: var(--color-accent);
     color: var(--color-on-accent);
     font-family: var(--font-display);
@@ -436,10 +393,6 @@ pre code {
     background: var(--color-rubric);
     color: var(--color-on-accent);
 }
-
-/* Older intro styles, kept in case a page still uses them */
-.intro { margin-bottom: var(--space-xl); }
-.intro .subtitle { color: var(--color-text-secondary); }
 
 /* ========================================
    Sections and cards
@@ -614,8 +567,7 @@ main .photo-carousel-item img {
 
 @media (max-width: 700px) {
     .nav-container {
-        flex-direction: column;
-        gap: var(--space-xs);
+        gap: var(--space-sm);
     }
 
     .nav-links {
@@ -625,7 +577,12 @@ main .photo-carousel-item img {
     .index a,
     .feed .index a {
         grid-template-columns: 1fr;
-        gap: 0.1rem;
+        gap: 0.125rem;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .pdf-container embed {
@@ -634,7 +591,6 @@ main .photo-carousel-item img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .weave .warp { display: none; }
 
     *, *::before, *::after {
         animation: none !important;
