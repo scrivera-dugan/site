@@ -44,11 +44,22 @@
     <a class="skip-link" href="#content">Skip to content</a>
 
     {% if page.url == '/' %}
-    <nav class="top-nav" aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#substack">Substack</a>
-        <a href="#resume">Résumé</a>
-        <a href="#about">About</a>
+    <!-- Persistent section marker. The label tracks the section you are in;
+         clicking it opens the list. Section names here should match the
+         headers set in index.md. -->
+    <nav class="section-menu" aria-label="Sections">
+        <details>
+            <summary>
+                <span class="sm-current" data-section-label>Sarah Dugan</span>
+                <span class="sm-caret" aria-hidden="true"></span>
+            </summary>
+            <ul>
+                <li><a href="#work">Selected work</a></li>
+                <li><a href="#substack">Write this down</a></li>
+                <li><a href="#resume">Where I've been</a></li>
+                <li><a href="#about">A little about me</a></li>
+            </ul>
+        </details>
     </nav>
 
     <header class="hero">
@@ -58,14 +69,10 @@
                 <img class="hero-icon" src="{{ '/images/owl.png' | relative_url }}" alt="" aria-hidden="true" width="300" height="810">
             </picture>
             <div class="hero-text">
-                <h1><picture>
-                    <source srcset="{{ '/images/hi-im-sarah-light.png' | relative_url }}" media="(prefers-color-scheme: dark)">
-                    <img src="{{ '/images/hi-im-sarah.png' | relative_url }}" alt="Hi, I'm Sarah" width="640" height="231">
-                </picture></h1>
+                <h1 class="hero-title">Hi, I&rsquo;m <em>Sarah</em></h1>
                 <p class="sub"><span class="lead-in">Intro copy coming soon.</span> This is where a short, warm line or two about who you are and what you make will live — kept tight so the owl and your name stay the star.</p>
             </div>
         </div>
-        <a class="button button-pill" href="#substack">Read my writing</a>
     </header>
     {% else %}
     <header class="page-bar">
@@ -91,6 +98,51 @@
 
     {% if page.url == '/' %}
     <script>
+      // Keep the corner label in step with the section you are reading.
+      (function () {
+        var menu = document.querySelector('.section-menu');
+        if (!menu) return;
+        var details = menu.querySelector('details');
+        var label = menu.querySelector('[data-section-label]');
+        var home = label.textContent;
+        var sections = [].slice.call(document.querySelectorAll('main .block'));
+        var titles = sections.map(function (s) {
+          var h = s.querySelector('.section-head h2');
+          return h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+        });
+
+        var queued = false;
+        function update() {
+          queued = false;
+          var line = window.scrollY + window.innerHeight * 0.3;
+          var current = home;
+          for (var i = 0; i < sections.length; i++) {
+            if (sections[i].offsetTop <= line) current = titles[i];
+          }
+          if (label.textContent !== current) label.textContent = current;
+        }
+        function onScroll() {
+          if (!queued) { queued = true; requestAnimationFrame(update); }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        update();
+
+        // Close the menu after choosing, on Escape, or on a click outside.
+        menu.addEventListener('click', function (e) {
+          if (e.target.closest('a')) details.open = false;
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && details.open) {
+            details.open = false;
+            details.querySelector('summary').focus();
+          }
+        });
+        document.addEventListener('click', function (e) {
+          if (details.open && !menu.contains(e.target)) details.open = false;
+        });
+      })();
+
       var blocks = document.querySelectorAll('.block');
       if (blocks.length && 'IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
