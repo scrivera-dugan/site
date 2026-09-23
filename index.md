@@ -118,18 +118,12 @@ title: Home
 {% include section-head.html id="about-h" label="A little" title="about me" %}
 
 <div class="prose-columns">
-<p><img class="initial" src="{{ '/images/initial-s.jpg' | relative_url }}" alt="" aria-hidden="true"><span class="visually-hidden">S</span>o much of my childhood was reading, writing, and watching every movie I could get my hands on. As the middle child of five, I spent years working at my parents' bed and breakfast, where I met countless fascinating guests and made an equal number of beds.</p>
+<p>I grew up reading, writing, and watching every movie I could get my hands on. As the middle child of five, I spent years working at my parents' bed and breakfast, where I met countless fascinating guests and made an equal number of beds.</p>
 
 <p>It was actually one of those guests who first suggested technical writing to me in high school and connected me with an internship at IBM &mdash; and the rest is history. I&rsquo;m a Boston native and a New Englander at heart, and grateful for how it shaped me.</p>
 
-<h3>Today</h3>
-
 <p>I live in Minneapolis and have become something of an academic nomad &mdash; my husband (a cognitive neuroscience professor) and I have moved four times since 2020. Living with someone who studies attention, memory, and learning has given me a front-row seat to how the brain actually processes information, and I&rsquo;m always connecting those insights back to my work: how do people absorb new concepts? What makes technical explanations stick?</p>
-
-<h3>Interests</h3>
 
 <p>When I&rsquo;m not working, you&rsquo;ll find me puttering, thrifting, crafting, and daydreaming story ideas.</p>
 </div>
-
-<p class="credit">Initial S from Varro, <em>De re rustica</em>, <a href="https://digital.bodleian.ox.ac.uk/objects/e2c7b068-4180-48a9-95a9-d0fa21109bdb/">MS. Lat. class. d. 2</a>, fol. 1r. Image: Bodleian Libraries, University of Oxford. <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
 </section>

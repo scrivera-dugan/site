@@ -22,11 +22,9 @@
 
     /* Type: one job per family.
        display = headings and section titles, a light serif set tight
-       ui      = the workhorse: body, leads, nav, labels, lists, buttons
-       mono    = long-form prose set in columns */
+       ui      = the workhorse: body, leads, nav, labels, lists, buttons */
     --font-display: 'Crimson Pro', Georgia, 'Times New Roman', serif;
     --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     --font-text: var(--font-ui);
 
     /* Tracking: the light serif needs pulling in, the sans slightly */
@@ -312,7 +310,7 @@ pre code {
        gutters .site sets, which is invisible on desktop (the column is
        centred) but runs text to both screen edges on a phone. */
     padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
 }
 
 /* ========================================
@@ -584,7 +582,14 @@ pre code {
 .site-footer {
     width: min(100% - 2 * var(--gutter), var(--content-max));
     margin-inline: auto;
-    padding: 0 0 var(--space-xl);
+    margin-top: var(--space-lg);
+    padding: var(--space-md) 0 var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm) var(--space-lg);
 }
 
 .elsewhere {
@@ -724,14 +729,6 @@ pre code {
 
 .prose-columns p {
     margin-bottom: var(--space-md);
-}
-
-/* Keep a subhead attached to the paragraph it introduces rather than
-   letting the column break between them. */
-.prose-columns h3 {
-    break-after: avoid;
-    break-inside: avoid;
-    margin-top: var(--space-md);
 }
 
 .prose-columns p:last-child {
@@ -1031,21 +1028,6 @@ pre code {
     color: var(--color-text-secondary);
     font-family: var(--font-ui);
     font-size: var(--step-small);
-}
-
-.initial {
-    float: left;
-    width: 6.4rem;
-    height: auto;
-    margin: 0.4rem 0.9rem 0.1rem 0;
-    border-radius: 2px;
-}
-
-.credit {
-    clear: both;
-    margin-top: var(--space-xl);
-    font-size: var(--step-small);
-    color: var(--color-text-secondary);
 }
 
 /* ========================================
@@ -1520,9 +1502,8 @@ a.index-row:hover .what {
    ======================================== */
 
 .colophon {
-    margin-top: var(--space-xxl);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-border);
+    margin: 0;
+    max-width: 44ch;
 }
 
 .colophon p {
