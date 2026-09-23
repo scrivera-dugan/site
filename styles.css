@@ -583,8 +583,8 @@ pre code {
 .site-footer {
     width: min(100% - 2 * var(--gutter), var(--content-max));
     margin-inline: auto;
-    margin-top: var(--space-section);
-    padding: var(--space-xl) 0 var(--space-lg);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg) 0 var(--space-lg);
     border-top: 1px dashed var(--color-text-secondary);
     /* The closing line sizes itself to this box, so the sentence fills the
        width and the centred pill below it reads as centred. */
