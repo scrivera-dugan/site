@@ -24,15 +24,15 @@ title: Home
     <li><a href="{{ '/about-me.html' | relative_url }}"><span class="name">About</span><span class="desc">The rest of me</span></a></li>
 </ul>
 
+{% if feed.posts and feed.posts.size > 0 %}
 <section class="feed" aria-labelledby="feed-title">
     <h2 id="feed-title">{{ feed.title }}</h2>
     <p class="sub">My newsletter on Substack.</p>
-    {% if feed.posts and feed.posts.size > 0 %}
     <ul class="index">
         {% for post in feed.posts limit: 3 %}
         <li><a href="{{ post.link }}"><span class="name">{{ post.title }}</span><span class="desc">{{ post.date | date: "%b %-d, %Y" }}</span></a></li>
         {% endfor %}
     </ul>
-    {% endif %}
     <a class="button" href="{{ feed.link }}">Subscribe on Substack</a>
 </section>
+{% endif %}
