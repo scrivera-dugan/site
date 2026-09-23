@@ -1,0 +1,57 @@
+# Single source for the Portfolio page and the home page's "Selected work".
+# featured: true puts a project on the home page (keep it to three or four).
+# role and outcome are optional. They only show up once you fill them in,
+# and a concrete outcome ("cut support tickets by X%") is the most
+# persuasive line on the whole site.
+
+docs:
+  - title: Vertex AI Grounding
+    org: Google Cloud
+    kind: Docs set
+    url: https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview
+    summary: A complete documentation set for grounding Gemini responses in factual sources.
+    featured: true
+    # role:
+    # outcome:
+
+  - title: Stellic Learning Center
+    org: Stellic
+    kind: Portal, IA
+    url: https://learn.stellic.com/
+    summary: A documentation portal built from scratch, with 500+ pages migrated to GitBook and AI-powered search.
+    featured: true
+    # role:
+    # outcome:
+
+  - title: Gemini Embeddings
+    org: Google Cloud
+    kind: Docs set
+    url: https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+    summary: The embeddings story end to end, from fundamentals to implementation.
+    featured: true
+    # role:
+    # outcome:
+
+  - title: Vector Search
+    org: Google Cloud
+    kind: Docs set
+    url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
+    summary: Documentation for Google Cloud's Vector Search, which runs similarity search at scale.
+    # role:
+    # outcome:
+
+writing:
+  - title: Vertex AI Model Registry launch
+    where: Google Cloud Blog
+    url: https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-model-registry
+    summary: The launch post introducing Google Cloud's centralized model management.
+
+  - title: MLOps with BigQuery ML and Vertex AI
+    where: Google Cloud Blog
+    url: https://cloud.google.com/blog/topics/developers-practitioners/mlops-bigquery-ml-vertex-ai-model-registry
+    summary: Practical MLOps workflows across Google Cloud's ML platform, written for developers.
+
+  - title: Three reasons I'm excited about Model Registry
+    where: Medium
+    url: https://medium.com/google-cloud/three-reasons-why-im-excited-about-google-cloud-vertex-ai-model-registry-c088e6bbbf3b
+    summary: A personal take on why centralized model management matters for ML teams.
