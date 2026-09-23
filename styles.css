@@ -598,6 +598,21 @@ pre code {
     font-size: var(--size-15);
 }
 
+.initial {
+    float: left;
+    width: 6.4rem;
+    height: auto;
+    margin: 0.4rem 0.9rem 0.1rem 0;
+    border-radius: 2px;
+}
+
+.credit {
+    clear: both;
+    margin-top: var(--space-xl);
+    font-size: var(--size-15);
+    color: var(--color-text-secondary);
+}
+
 /* ========================================
    Resume (generated from _data/resume.yml)
    ======================================== */
