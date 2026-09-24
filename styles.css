@@ -1392,8 +1392,8 @@ pre code {
 .block::after {
     content: "";
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
     margin: var(--space-xl) auto 0;
     background: url('/images/ivy.webp') center / contain no-repeat;
 }
