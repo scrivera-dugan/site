@@ -589,9 +589,9 @@ pre code {
     /* The closing line sizes itself to this box, so the sentence fills the
        width and the centred pill below it reads as centred. */
     container-type: inline-size;
-    /* 100 / the sentence's width in em (8.28em for this one), shaved a
+    /* 100 / the sentence's width in em (6.25em for this one), shaved a
        little so rounding never wraps it. Retune if the sentence changes. */
-    --closing-fit: 11.8;
+    --closing-fit: 15.7;
 }
 
 /* One closing line, set large in the display face with the last word in
@@ -601,7 +601,7 @@ pre code {
     max-width: none;
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(2.5rem, calc(var(--closing-fit) * 1cqw), 8.5rem);
+    font-size: clamp(2.5rem, calc(var(--closing-fit) * 1cqw), 12rem);
     line-height: 1.02;
     letter-spacing: var(--track-display);
     text-wrap: balance;
@@ -610,7 +610,7 @@ pre code {
 
 @supports not (font-size: 1cqw) {
     .closing-line {
-        font-size: clamp(2.5rem, 8.6vw, 8.5rem);
+        font-size: clamp(2.5rem, 13.6vw, 12rem);
     }
 }
 
