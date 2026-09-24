@@ -20,11 +20,13 @@ jobs:
       - name: Fetch feed
         run: |
           python3 - <<'PY'
-          import json, urllib.request, urllib.parse, xml.etree.ElementTree as ET
+          import json, time, urllib.request, urllib.parse, xml.etree.ElementTree as ET
           from datetime import datetime
           from email.utils import parsedate_to_datetime
 
           FEED = "https://sarahdocs.substack.com/feed"
+          # The relays cache by URL, so a throwaway parameter forces a fresh read.
+          FRESH = FEED + "?r=" + str(int(time.time()))
           HEADERS = {
               "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36",
               "Accept": "application/rss+xml, application/json, application/xml;q=0.9, */*;q=0.8",
@@ -45,7 +47,7 @@ jobs:
           def from_relay():
               # Substack's edge blocks GitHub's runners, so this reads the same
               # feed through a public RSS-to-JSON relay instead.
-              url = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(FEED, safe="")
+              url = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(FRESH, safe="")
               data = json.loads(get(url))
               if data.get("status") != "ok":
                   raise RuntimeError("relay: " + str(data.get("message")))
@@ -57,7 +59,7 @@ jobs:
               return data["feed"]["title"].strip(), data["feed"]["link"].strip(), posts
 
           def from_relay2():
-              url = "https://feed2json.org/convert?url=" + urllib.parse.quote(FEED, safe="")
+              url = "https://feed2json.org/convert?url=" + urllib.parse.quote(FRESH, safe="")
               data = json.loads(get(url))
               posts = [{
                   "title": i["title"].strip(),
