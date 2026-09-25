@@ -1,7 +1,5 @@
-# Sarah Dugan | Portfolio
+# sarahdocs.com
 
-Personal portfolio site for Sarah Dugan, Technical Content Lead & ML Writer.
+Source for [sarahdocs.com](https://sarahdocs.com), the personal site of Sarah Dugan, a technical writer working in AI.
 
-**Live site:** [scrivera-dugan.github.io/site](https://scrivera-dugan.github.io/site/)
-
-Built with Jekyll and GitHub Pages.
+Built with Jekyll on GitHub Pages. A daily GitHub Action pulls the latest posts from my newsletter, [Write this down](https://sarahdocs.substack.com), into `_data/substack.json`.
