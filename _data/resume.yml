@@ -1,13 +1,4 @@
-# Single source for the resume page and its printed PDF.
-# Edit this file; the page (resume.md) is generated from it.
-
-updated: 2026-11-17
-
-summary: >-
-  Builds documentation that developers and their AI agents can both act on.
-  Owns docs end to end, from information architecture to the quality bar, and runs them as code
-  with AI pipelines and human review. Previously wrote the PaLM 2 API reference and the
-  Gemini embeddings and grounding docs at Google Cloud.
+# The "Where I've been" timeline on the home page: titles, companies, and years.
 
 experience:
   - id: gitbook
@@ -15,91 +6,48 @@ experience:
     company: GitBook
     industry: Content Infrastructure
     start: "2026"
-    bullets:
-      - Rebuilt GitBook's public docs from the ground up as the company's first docs lead. Consolidated product docs, developer docs, changelog, and Help Center into one Git-synced repo, now 323 pages across 5 sections, and restructured navigation around reader jobs instead of product features.
-      - Ran the migration with Claude connected to GitBook through MCP. Every AI-proposed edit went through a reviewable change request, and each section was tested by asking AI tools real user questions before it shipped.
-      - Write docs for agents as well as people. Wrote the repo's agent instructions that tell coding agents where pages go and how URLs work, and contributed to GitBook's skill.md files.
-      - Built AI docs pipelines with human review, including a radar that scans engineering PRs and files tickets for pages a change will make stale, a release-notes skill, and a daily review sweep for agent-opened change requests.
-      - Built a weekly docs-signal report on the GitBook API that ranks Ask AI questions and page ratings, so content gaps go straight into the docs backlog.
 
   - id: stellic
     title: Founding Tech Docs Lead
     company: Stellic
     industry: Education Tech
-    location: Remote, USA
     start: "2025"
     end: "2026"
-    bullets:
-      - Built technical documentation as a core product function, establishing the company's first dedicated content strategy and documentation processes for a 70-person organization.
-      - Architected and maintained the company documentation portal, independently researching, executing, and launching a complete migration from Intercom to GitBook in under 3 months, enabling AI-powered insights and analytics across all user documentation.
-      - Own end-to-end product launch communications, managing all documentation deliverables from conception to publication across 500+ pages of technical content.
-      - Establish operational excellence through building Linear project management workflows, documentation governance processes, and scalable content systems that position the company for best-in-class standards.
 
   - id: google
     title: Senior Technical Writer
     company: Google Cloud
     industry: Machine Learning, LLMs
-    location: Remote, USA
     start: "2021"
     end: "2025"
-    bullets:
-      - Owned the development and publication lifecycles for 3 enterprise products, delivering hundreds of public-facing documents annually for Google's Large Language Model (LLM), Gemini.
-      - Wrote the launch documentation, code samples, and hand-written API reference for PaLM 2, Google's LLM at the time.
-      - Wrote Python notebook samples on GitHub for Vertex AI features and launch posts for the Google Cloud Blog, and partnered with sales engineering on technical content.
-      - Recognized as a top 5% leader at Google based on annual review rankings for job profile and organizational impact.
 
   - id: amazon
     title: Technical Writer and Technical Editor
     company: Amazon Alexa, Amazon Web Services
     industry: Machine Learning
-    location: Boston, MA
     start: "2019"
     end: "2021"
-    bullets:
-      - Led technical editing efforts across a wide range of AWS training content, including Game Tech, End User Computing, Security, Media Services, and IoT, supporting 20+ curriculum developers.
-      - Delivered significant quality improvements by editing over 30 technical courses in 6 months and contributing to a customer satisfaction score increase from 4.0 to 4.8 (out of 5).
-      - Empowered colleagues by mentoring, training, and leading sessions on effective technical writing practices.
-      - As a Technical Writer, provided comprehensive writing and editing support to 200+ Amazonians working on Alexa AI
-      - Developed a robust internal learning portal with a well-defined information architecture to assist new and experienced scientists in the Alexa AI team.
-      - Drove successful monthly team business reviews by aggregating and reporting metrics and KPIs from 5 sub-teams.
 
   - id: onapsis
     title: Technical Writer
     company: Onapsis
     industry: Cybersecurity
-    location: Boston, MA
     start: "2017"
     end: "2019"
-    bullets:
-      - Led the development of comprehensive user documentation, including user guides, release notes, and in-product walkthroughs, reporting directly to the Chief Product Officer.
-      - Streamlined user onboarding and learning by converting 500 pages of Word documentation into a user-friendly, searchable portal built with MadCap Flare.
-      - Optimized review processes for agility, establishing efficient review schedules to align with bi-weekly sprints.
-      - Provided ongoing documentation support to Fortune 500 companies through bi-weekly contributions in Salesforce.
 
   - id: nanthealth
     title: Technical Writer
     company: NantHealth
     industry: Health Tech
-    location: Boston, MA
     start: "2016"
     end: "2017"
-    bullets:
-      - Contributed to the development and management of comprehensive documentation for NaviNet
-      - Empowered user adoption for over 50 health plans (technical User Guides, FAQs, and new features)
-      - Authored compelling release notes for marketing teams
-      - Championed agile practices and collaboration within the documentation team (6-week sprints, daily stand-ups)
 
   - id: ibm
     title: Information Designer
     company: IBM Big Data Analytics
     industry: Data Analytics
-    location: Boston, MA
     start: "2013"
     end: "2016"
-    bullets:
-      - Developed customer-centric technical content in DITA XML to IBM products as a full time student
-      - Enhanced user experience through design contributions, video tutorials, and end-to-end samples
-      - Created and delivered training programming and documentation for the global IBM Design Camp
 
 education:
   - school: University of Massachusetts, Amherst

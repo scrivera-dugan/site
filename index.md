@@ -103,9 +103,6 @@ title: Home
 
 <section class="block resume" id="resume" aria-labelledby="resume-h">
 {% include section-head.html id="resume-h" label="Where I've" title="been" %}
-<h1 class="print-only">Sarah C. Dugan</h1>
-<p class="contact print-only">sarahcdugan@gmail.com · linkedin.com/in/scdugan · sarahdocs.com</p>
-<p class="summary print-only">{{ r.summary }}</p>
 
 <h3 class="sub-label">Experience</h3>
 <ul class="index-list">
@@ -113,16 +110,9 @@ title: Home
     <li id="{{ job.id }}">
         <span class="index-row">
             <span class="what">{{ job.title }}</span>
-            <span class="where"><span class="co">{{ job.company }}</span>{% if job.industry %}<span class="industry">{{ job.industry }}</span>{% endif %}{% if job.location %}<span class="loc">{{ job.location }}</span>{% endif %}</span>
+            <span class="where"><span class="co">{{ job.company }}</span>{% if job.industry %}<span class="industry">{{ job.industry }}</span>{% endif %}</span>
             <span class="when">{{ job.start }}{% if job.end %} &ndash; {{ job.end }}{% endif %}</span>
         </span>
-        {%- comment -%}
-        The bullets stay in the markup but are hidden on screen: the section
-        is a glance, while the printed PDF is still a full resume.
-        {%- endcomment -%}
-        {% if job.bullets %}<ul class="role-detail print-only">
-        {% for bullet in job.bullets %}<li>{{ bullet }}</li>
-        {% endfor %}</ul>{% endif %}
     </li>
 {% endfor %}
 </ul>
@@ -140,7 +130,6 @@ title: Home
     </li>
 {% endfor %}
 </ul>
-<a class="resume-download" href="{{ '/sarah-dugan-resume.pdf' | relative_url }}">Full resume (PDF)</a>
 </section>
 
 <section class="block" id="about" aria-labelledby="about-h">

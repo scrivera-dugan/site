@@ -560,8 +560,7 @@ pre code {
     }
 
     .hero .sub,
-    .newsletter > p,
-    .resume .summary {
+    .newsletter > p {
         font-size: var(--step-body);
     }
 }
@@ -793,21 +792,6 @@ pre code {
     text-transform: uppercase;
     color: var(--color-text-secondary);
     cursor: pointer;
-}
-
-.resume-download {
-    display: inline-block;
-    margin-top: var(--space-md);
-    font-family: var(--font-ui);
-    font-size: var(--step-label);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-}
-
-.resume-download:hover {
-    color: var(--accent);
 }
 
 .js .index-toggle {
@@ -1104,7 +1088,6 @@ pre code {
 
 /* Section lead: the paragraph directly under a section header. */
 .newsletter .boxed > p,
-.resume .summary,
 .hero .sub {
     font-family: var(--font-ui);
     font-size: var(--step-lead);
@@ -1217,16 +1200,8 @@ pre code {
 }
 
 /* ========================================
-   Resume (generated from _data/resume.yml)
+   Resume timeline (from _data/resume.yml)
    ======================================== */
-
-.resume h1 {
-    margin-bottom: 0;
-}
-
-.resume .summary {
-    margin-top: var(--space-md);
-}
 
 .resume .meta {
     display: flex;
@@ -1240,16 +1215,6 @@ pre code {
     font-weight: 500;
     font-size: var(--step-small);
     color: var(--color-text-secondary);
-}
-
-.print-only {
-    display: none;
-}
-
-/* The company alone keeps every row to one line on screen. The location
-   still belongs on the printed resume. */
-.loc {
-    display: none;
 }
 
 /* ========================================
@@ -1405,154 +1370,12 @@ a.index-row:hover .what {
     }
 }
 
-/* Printing the resume page (or saving it as PDF) */
+/* Printing the page: sections fade in on scroll, so show them all. */
 @media print {
-    @page {
-        size: letter;
-        margin: 0.6in 0.65in;
-    }
-
-    :root,
-    :root:not([data-theme="light"]) {
-        --color-bg: #FFFFFF;
-        --color-text: #111111;
-        --color-text-secondary: #444444;
-        --color-border: #CCCCCC;
-        --color-accent: #111111;
-        --color-rubric: #111111;
-    }
-
-    body {
-        font-size: 10.5pt;
-        line-height: 1.45;
-    }
-
-    /* Sections fade in on scroll; a print taken before scrolling would
-       otherwise come out blank. */
-    .resume-download {
-        display: none;
-    }
-
     .js .block {
         opacity: 1;
         transform: none;
         transition: none;
-    }
-
-    .section-menu,
-    .hero,
-    .site-footer,
-    .skip-link,
-    .resume .meta,
-    #work,
-    #substack,
-    #about {
-        display: none !important;
-    }
-
-    .print-only {
-        display: block;
-    }
-
-    .index-row .co,
-    .index-row .industry,
-    .loc {
-        display: inline;
-        font-style: normal;
-    }
-
-    .index-row .industry::before,
-    .loc::before {
-        content: " \00b7 ";
-    }
-
-    .section-head {
-        margin-bottom: 10pt;
-    }
-
-    .section-head h2 {
-        font-size: 15pt;
-        padding-bottom: 4pt;
-        border-bottom: 1pt solid var(--color-border);
-    }
-
-    .block::after {
-        display: none;
-    }
-
-    .index-list > li {
-        break-inside: avoid;
-    }
-
-    .index-row .what {
-        font-weight: 600;
-    }
-
-    .index-row {
-        padding: 7pt 0 2pt;
-    }
-
-    /* The bullets are hidden on screen; the printed resume needs them. */
-    .role-detail {
-        display: block;
-        margin: 0 0 6pt;
-        padding-left: 14pt;
-        max-width: none;
-    }
-
-    .role-detail li {
-        font-size: 9.5pt;
-        line-height: 1.4;
-        color: var(--color-text);
-    }
-
-    .role-detail li + li {
-        margin-top: 2pt;
-    }
-
-    .site {
-        display: block;
-        max-width: none;
-        padding: 0;
-    }
-
-    .content {
-        padding: 0;
-    }
-
-    .resume h1 {
-        font-size: 20pt;
-    }
-
-    .resume .contact {
-        margin: 4pt 0 0;
-        font-family: var(--font-ui);
-        font-size: 9.5pt;
-        color: var(--color-text-secondary);
-    }
-
-    .resume .summary {
-        margin-top: 10pt;
-    }
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    a {
-        text-decoration: none;
     }
 }
 
