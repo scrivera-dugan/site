@@ -3,6 +3,11 @@
   "link": "https://sarahdocs.substack.com/",
   "posts": [
     {
+      "title": "The Woman Without a Face",
+      "link": "https://sarahdocs.substack.com/p/the-woman-without-a-face",
+      "date": "2026-11-17"
+    },
+    {
       "title": "Ada Lovelace, Poetical Scientist",
       "link": "https://sarahdocs.substack.com/p/ada-lovelace-poetical-scientist",
       "date": "2026-10-30"
@@ -11,11 +16,6 @@
       "title": "Our jobs are changing. Our posture isn't.",
       "link": "https://sarahdocs.substack.com/p/our-jobs-are-changing-our-posture",
       "date": "2026-09-24"
-    },
-    {
-      "title": "The procedure is older than writing",
-      "link": "https://sarahdocs.substack.com/p/the-procedure-is-older-than-writing",
-      "date": "2026-06-03"
     }
   ]
 }
