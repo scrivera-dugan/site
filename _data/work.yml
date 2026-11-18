@@ -14,7 +14,7 @@ featured:
   summary: >-
     A ground-up rebuild of GitBook's entire docs, consolidated into a single repo and
     restructured around real user journeys, with hundreds of pages migrated using GitBook's own AI tooling.
-  meta: Founding Tech Docs Lead · Shipped 2026
+  meta: Head of Docs · Shipped 2026
 
 docs:
   - title: Gemini Embeddings
