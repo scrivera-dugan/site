@@ -174,19 +174,11 @@ h1, h2, h3, h4, h5, h6,
     text-wrap: balance;
 }
 
-.lead {
-    font-family: var(--font-text);
-    font-size: var(--step-lead);
-    line-height: 1.5;
-}
-
 /* Structure voice: uppercase, spaced, never a headline */
 .eyebrow,
 .label,
 .sub-label,
-.caption,
 .meta,
-.credit,
 button,
 .button,
 nav {
@@ -202,9 +194,7 @@ nav {
     letter-spacing: 0.18em;
 }
 
-.caption,
-.meta,
-.credit {
+.meta {
     font-size: var(--step-small);
     text-transform: none;
     letter-spacing: normal;
@@ -726,12 +716,6 @@ pre code {
     transform: translateY(0);
 }
 
-.section-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 /* Link lists carry the arrow in the title, like the cards, and have no
    third column to hold a lone glyph. */
 .index-list--links .index-row {
@@ -918,7 +902,6 @@ pre code {
     color: var(--color-text-secondary);
 }
 
-/* Work: cards with an image slot, or a placeholder until a real image is added */
 /* The overview spans the full width of the cards, set in two columns so
    it stays inside a readable measure instead of running 110 characters.
    Scoped through .block to outrank the .block > p measure rule. */
@@ -1119,38 +1102,6 @@ pre code {
     font-size: var(--step-small);
 }
 
-.writing {
-    list-style: none;
-    margin: 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.writing li {
-    margin: 0;
-    border-top: 1px solid var(--color-border);
-}
-
-.writing a {
-    display: grid;
-    grid-template-columns: 9.5rem minmax(0, 1fr);
-    column-gap: var(--space-md);
-    align-items: baseline;
-    padding: var(--space-sm) 0;
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-.writing .where {
-    font-family: var(--font-ui);
-    font-size: var(--step-label);
-    color: var(--color-text-secondary);
-}
-
-.writing a:hover .title {
-    color: var(--accent);
-}
-
-/* Newsletter */
 /* Section lead: the paragraph directly under a section header. */
 .newsletter .boxed > p,
 .resume .summary,
@@ -1159,10 +1110,6 @@ pre code {
     font-size: var(--step-lead);
     line-height: 1.6;
     max-width: 62ch;
-}
-
-.newsletter .writing {
-    margin-bottom: var(--space-md);
 }
 
 .subscribe {
@@ -1218,11 +1165,6 @@ pre code {
     color: var(--color-text-secondary);
 }
 
-.closing {
-    margin-top: var(--space-xl);
-    font-size: var(--step-lead);
-}
-
 .button {
     display: inline-block;
     margin-top: var(--space-md);
@@ -1274,16 +1216,6 @@ pre code {
     white-space: nowrap;
 }
 
-.about-placeholder {
-    border: 1px dashed var(--color-border);
-    border-radius: var(--radius);
-    padding: var(--space-lg);
-    text-align: center;
-    color: var(--color-text-secondary);
-    font-family: var(--font-ui);
-    font-size: var(--step-small);
-}
-
 /* ========================================
    Resume (generated from _data/resume.yml)
    ======================================== */
@@ -1294,81 +1226,6 @@ pre code {
 
 .resume .summary {
     margin-top: var(--space-md);
-}
-
-.jump {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs) var(--space-md);
-    margin-top: var(--space-md);
-    font-family: var(--font-ui);
-    font-weight: 500;
-    font-size: var(--step-small);
-}
-
-.jump a:hover {
-    color: var(--accent);
-}
-
-.resume-section {
-    margin-top: var(--space-xl);
-    padding-bottom: var(--space-xs);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.role {
-    margin-top: var(--space-lg);
-}
-
-.role-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-sm);
-}
-
-.role h3 {
-    margin: 0;
-    font-size: var(--step-body);
-}
-
-.role h3 a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.role h3 a:hover {
-    color: var(--accent);
-}
-
-.dates {
-    font-family: var(--font-ui);
-    font-weight: 500;
-    font-size: var(--step-small);
-    color: var(--color-text-secondary);
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-}
-
-.role .where {
-    margin: 0.125rem 0 0;
-    color: var(--color-text-secondary);
-}
-
-.role ul {
-    margin: var(--space-sm) 0 0 1.1rem;
-}
-
-.role li {
-    margin: 0;
-}
-
-.role li + li {
-    margin-top: var(--space-xs);
-}
-
-.role li::marker {
-    color: var(--color-text-secondary);
 }
 
 .resume .meta {
@@ -1394,7 +1251,6 @@ pre code {
 .loc {
     display: none;
 }
-
 
 /* ========================================
    Section headings and the hedera
@@ -1549,13 +1405,6 @@ a.index-row:hover .what {
     }
 }
 
-@media (max-width: 700px) {
-    .role-head {
-        flex-direction: column;
-        gap: 0;
-    }
-}
-
 /* Printing the resume page (or saving it as PDF) */
 @media print {
     @page {
@@ -1594,8 +1443,6 @@ a.index-row:hover .what {
     .hero,
     .site-footer,
     .skip-link,
-    .jump,
-    .screen-only,
     .resume .meta,
     #work,
     #substack,
@@ -1688,39 +1535,21 @@ a.index-row:hover .what {
         margin-top: 10pt;
     }
 
-    .resume-section {
-        margin-top: 16pt;
-        font-size: 13pt;
-    }
+    
 
-    .role {
-        margin-top: 10pt;
-    }
+    
 
-    .role-head,
-    .role .where {
-        break-after: avoid;
-    }
+    
 
-    .role li {
-        break-inside: avoid;
-    }
+    
 
-    .role h3 {
-        font-size: 11pt;
-    }
+    
 
-    .dates {
-        font-size: 9.5pt;
-    }
+    
 
-    .role ul {
-        margin-top: 4pt;
-    }
+    
 
-    .role li + li {
-        margin-top: 2pt;
-    }
+    
 
     a {
         text-decoration: none;
@@ -1754,20 +1583,6 @@ a.index-row:hover .what {
    in dark mode.
    ======================================== */
 
-main .photo-carousel::-webkit-scrollbar-track {
-    background: var(--color-border);
-    border-radius: var(--radius);
-}
-
-main .photo-carousel::-webkit-scrollbar-thumb {
-    border-radius: var(--radius);
-}
-
-main .photo-carousel-item img {
-    border-radius: var(--radius);
-    box-shadow: none;
-}
-
 .content img {
     box-shadow: none !important;
 }
@@ -1779,17 +1594,6 @@ main .photo-carousel-item img {
 @media (max-width: 40rem) {
     .work-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 700px) {
-    .writing a {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .writing .where {
-        display: block;
-        margin-bottom: 0.125rem;
     }
 }
 
