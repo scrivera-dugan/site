@@ -132,3 +132,17 @@ speaking:
     event: Write the Docs Portland
     date: 2026-05-03
     url: https://www.writethedocs.org/conf/portland/2026/writing-day/
+
+# Public code and docs-as-code work.
+code:
+  - title: GitBook's docs, as code
+    where: GitHub · Merged pull requests
+    url: https://github.com/GitbookIO/public-docs/pulls?q=is%3Apr+author%3Ascrivera-dugan+is%3Amerged
+
+  - title: Agent instructions for GitBook's docs repo
+    where: GitHub · AGENTS.md
+    url: https://github.com/GitbookIO/public-docs/blob/main/AGENTS.md
+
+  - title: This site
+    where: GitHub · Jekyll and a Python GitHub Action
+    url: https://github.com/scrivera-dugan/site

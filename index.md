@@ -39,6 +39,17 @@ title: Home
 </article>
 {% endfor %}
 </div>
+{% if work.code and work.code.size > 0 %}
+<h3 class="sub-label">Code</h3>
+<ul class="index-list index-list--links">
+{% for item in work.code %}
+    <li><a class="index-row" href="{{ item.url }}" rel="noopener">
+        <span class="what">{{ item.title }}</span>
+        <span class="where">{{ item.where }}</span>
+    </a></li>
+{% endfor %}
+</ul>
+{% endif %}
 {% if work.writing and work.writing.size > 0 %}
 <h3 class="sub-label">Writing elsewhere</h3>
 {% assign shown = 3 %}
