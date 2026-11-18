@@ -2,9 +2,9 @@
 
 experience:
   - id: gitbook
-    title: Founding Tech Docs Lead
+    title: Head of Docs and Context Engineer
     company: GitBook
-    industry: Content Infrastructure
+    industry: Docs-as-code platform
     start: "2026"
 
   - id: stellic
@@ -29,7 +29,7 @@ experience:
     end: "2021"
 
   - id: onapsis
-    title: Technical Writer
+    title: Lead Technical Writer
     company: Onapsis
     industry: Cybersecurity
     start: "2017"
