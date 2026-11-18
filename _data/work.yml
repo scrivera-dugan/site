@@ -12,17 +12,31 @@ featured:
   kind: Full docs rebuild
   url: https://gitbook.com/docs
   summary: >-
-    A ground-up rebuild of GitBook's entire docs — consolidated into a single repo and
+    A ground-up rebuild of GitBook's entire docs, consolidated into a single repo and
     restructured around real user journeys, with hundreds of pages migrated using GitBook's own AI tooling.
   meta: Founding Tech Docs Lead · Shipped 2026
 
 docs:
+  - title: Gemini Embeddings
+    org: Google Cloud
+    logo: gemini
+    kind: Docs set
+    url: https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+    summary: The embeddings story end to end, from fundamentals to implementation.
+
   - title: Vertex AI Grounding
     org: Google Cloud
     logo: gcloud
     kind: Docs set
     url: https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/overview
     summary: A complete docs set for grounding Gemini responses in factual sources.
+
+  - title: Vector Search
+    org: Google Cloud
+    logo: gcloud
+    kind: Docs set
+    url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
+    summary: Docs for Google Cloud's Vector Search, which runs similarity search at scale.
 
   - title: Stellic Learning Center
     org: Stellic
@@ -32,20 +46,6 @@ docs:
     # The docs themselves sit behind auth, so this points at the public site.
     gated: true
     summary: An entire docs site built from scratch on GitBook, with 500+ pages of content.
-
-  - title: Gemini Embeddings
-    org: Google Cloud
-    logo: gemini
-    kind: Docs set
-    url: https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
-    summary: The embeddings story end to end, from fundamentals to implementation.
-
-  - title: Vector Search
-    org: Google Cloud
-    logo: gcloud
-    kind: Docs set
-    url: https://cloud.google.com/vertex-ai/docs/vector-search/overview
-    summary: Docs for Google Cloud's Vector Search, which runs similarity search at scale.
 
 # writing is grouped by company on the page, in the order the companies first appear.
 writing:
@@ -106,3 +106,29 @@ writing:
     where: GitBook Blog
     logo: gitbook
     url: https://www.gitbook.com/blog/sarah-dugan-first-30
+
+# Talks, panels, and workshops, newest first.
+speaking:
+  - title: "Ada Lovelace the Tech Writer: Her 183-Year-Old Principles for Content in the Age of AI"
+    kind: Talk
+    event: LavaCon 2026
+    date: 2026-10-26
+    url: https://www.lavacon.org/blog/speaker/sarah-dugan/
+
+  - title: Practical AI for Documentation
+    kind: Workshop
+    event: Write the Docs Bay Area
+    date: 2026-10-06
+    url: https://www.gitbook.com/blog/write-the-docs-san-francisco-ai-workshop
+
+  - title: State of the Docs
+    kind: Panel
+    event: Write the Docs Bay Area
+    date: 2026-05-07
+    url: https://luma.com/e5r410lo
+
+  - title: Docs Site Constructive Review
+    kind: Writing Day session
+    event: Write the Docs Portland
+    date: 2026-05-03
+    url: https://www.writethedocs.org/conf/portland/2026/writing-day/

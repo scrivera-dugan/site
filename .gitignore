@@ -8,3 +8,4 @@ _site/
 Gemfile.lock
 
 .DS_Store
+_resume/resume.html

@@ -9,7 +9,7 @@ title: Home
 <section class="block" id="work" aria-labelledby="work-h">
 {% include section-head.html id="work-h" label="Selected" title="work" %}
 
-<p class="section-intro">A note on what&rsquo;s here: much of my strongest work lives behind NDAs and internal docs, so this is a partial, public-facing slice &mdash; including early testing on Gemini (back when it was Bard) at Google, across a range of tech-writing tools and stacks. For now these are just links. I&rsquo;ll build them into proper case studies down the line.</p>
+<p class="section-intro">A note on what&rsquo;s here: much of my strongest work lives behind NDAs and internal docs, so this is a partial, public-facing slice, including early testing on Gemini (back when it was Bard) at Google, across a range of tech-writing tools and stacks. For now these are just links. I&rsquo;ll build them into proper case studies down the line.</p>
 
 {% if work.featured %}
 <article class="work-card work-card--lead">
@@ -32,7 +32,7 @@ title: Home
         {% include logo.html name=item.logo %}
         <div class="text">
         <h3><a href="{{ item.url }}" rel="noopener">{{ item.title }}</a></h3>
-        <p class="org">{{ item.org }} &middot; {{ item.kind }}{% if item.gated %} <span class="gated-tag">Access-gated<span class="visually-hidden"> &mdash; this link opens the public site, not the documentation</span></span>{% endif %}</p>
+        <p class="org">{{ item.org }} &middot; {{ item.kind }}{% if item.gated %} <span class="gated-tag">Access-gated<span class="visually-hidden">: this link opens the public site, not the documentation</span></span>{% endif %}</p>
         <p>{{ item.summary }}</p>
         </div>
     </div>
@@ -59,6 +59,18 @@ title: Home
 <button class="index-toggle" type="button" aria-controls="writing-{{ group.name | slugify }}" aria-expanded="false" data-more-toggle data-more="Show {{ extra }} more" data-less="Show fewer">Show {{ extra }} more</button>
 {% endif %}
 {% endfor %}
+{% endif %}
+{% if work.speaking and work.speaking.size > 0 %}
+<h3 class="sub-label">Speaking</h3>
+<ul class="index-list index-list--links index-list--dated">
+{% for talk in work.speaking %}
+    <li><a class="index-row" href="{{ talk.url }}" rel="noopener">
+        <span class="what">{{ talk.title }}</span>
+        <span class="where">{{ talk.event }} &middot; {{ talk.kind }}</span>
+        <span class="when">{{ talk.date | date: "%b %Y" }}</span>
+    </a></li>
+{% endfor %}
+</ul>
 {% endif %}
 </section>
 
@@ -128,6 +140,7 @@ title: Home
     </li>
 {% endfor %}
 </ul>
+<a class="resume-download" href="{{ '/sarah-dugan-resume.pdf' | relative_url }}">Full resume (PDF)</a>
 </section>
 
 <section class="block" id="about" aria-labelledby="about-h">
@@ -136,9 +149,9 @@ title: Home
 <div class="prose-columns">
 <p>I grew up reading, writing, and watching every movie I could get my hands on. As the middle child of five, I spent years working at my parents' bed and breakfast, where I met countless fascinating guests and made an equal number of beds.</p>
 
-<p>It was actually one of those guests who first suggested technical writing to me in high school and connected me with an internship at IBM &mdash; and the rest is history. I&rsquo;m a Boston native and a New Englander at heart, and grateful for how it shaped me.</p>
+<p>It was actually one of those guests who first suggested technical writing to me in high school and connected me with an internship at IBM, and the rest is history. I&rsquo;m a Boston native and a New Englander at heart, and grateful for how it shaped me.</p>
 
-<p>I live in Minneapolis and have become something of an academic nomad &mdash; my husband (a cognitive neuroscience professor) and I have moved four times since 2020. Living with someone who studies attention, memory, and learning has given me a front-row seat to how the brain actually processes information, and I&rsquo;m always connecting those insights back to my work: how do people absorb new concepts? What makes technical explanations stick?</p>
+<p>I live in Minneapolis and have become something of an academic nomad. My husband (a cognitive neuroscience professor) and I have moved four times since 2020. Living with someone who studies attention, memory, and learning has given me a front-row seat to how the brain actually processes information, and I&rsquo;m always connecting those insights back to my work: how do people absorb new concepts? What makes technical explanations stick?</p>
 
 <p>When I&rsquo;m not working, you&rsquo;ll find me puttering, thrifting, crafting, and daydreaming story ideas.</p>
 </div>

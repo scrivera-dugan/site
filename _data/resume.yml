@@ -1,15 +1,13 @@
 # Single source for the resume page and its printed PDF.
 # Edit this file; the page (resume.md) is generated from it.
 
-updated: 2026-09-22
+updated: 2026-11-17
 
 summary: >-
-  Specialized ML writer with nearly a decade of experience crafting content for machine learning products.
-  Combines deep technical knowledge with creative storytelling to make complex AI concepts accessible.
-  Thrives in collaborative environments, bringing kind energy and solution-focused leadership to cross-functional teams.
-  Excels in navigating ambiguity, transforming blank-slate challenges into polished technical narratives,
-  and building strong partnerships with stakeholders and customers. Consistently delivers clear, impactful content
-  that elevates product understanding and user experience.
+  Builds documentation that developers and their AI agents can both act on.
+  Owns docs end to end, from information architecture to the quality bar, and runs them as code
+  with AI pipelines and human review. Previously wrote the PaLM 2 API reference and the
+  Gemini embeddings and grounding docs at Google Cloud.
 
 experience:
   - id: gitbook
@@ -17,6 +15,12 @@ experience:
     company: GitBook
     industry: Content Infrastructure
     start: "2026"
+    bullets:
+      - Rebuilt GitBook's public docs from the ground up as the company's first docs lead. Consolidated product docs, developer docs, changelog, and Help Center into one Git-synced repo, now 323 pages across 5 sections, and restructured navigation around reader jobs instead of product features.
+      - Ran the migration with Claude connected to GitBook through MCP. Every AI-proposed edit went through a reviewable change request, and each section was tested by asking AI tools real user questions before it shipped.
+      - Write docs for agents as well as people. Wrote the repo's agent instructions that tell coding agents where pages go and how URLs work, and contributed to GitBook's skill.md files.
+      - Built AI docs pipelines with human review, including a radar that scans engineering PRs and files tickets for pages a change will make stale, a release-notes skill, and a daily review sweep for agent-opened change requests.
+      - Built a weekly docs-signal report on the GitBook API that ranks Ask AI questions and page ratings, so content gaps go straight into the docs backlog.
 
   - id: stellic
     title: Founding Tech Docs Lead
@@ -40,9 +44,8 @@ experience:
     end: "2025"
     bullets:
       - Owned the development and publication lifecycles for 3 enterprise products, delivering hundreds of public-facing documents annually for Google's Large Language Model (LLM), Gemini.
-      - Spearheaded the creation of launch documentation and code samples for Google's cutting-edge LLM, PaLM 2, including hand-crafting the API reference.
-      - Developed engaging creative content for official Google blogs, GitHub notebook samples, and collaborated with the sales engineering team as a content partner.
-      - Demonstrated leadership as the team's health and wellness liaison, managing a $20,000 budget.
+      - Wrote the launch documentation, code samples, and hand-written API reference for PaLM 2, Google's LLM at the time.
+      - Wrote Python notebook samples on GitHub for Vertex AI features and launch posts for the Google Cloud Blog, and partnered with sales engineering on technical content.
       - Recognized as a top 5% leader at Google based on annual review rankings for job profile and organizational impact.
 
   - id: amazon

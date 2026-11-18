@@ -780,6 +780,16 @@ pre code {
     font-size: var(--step-body);
 }
 
+/* Link lists with a date (Speaking) keep the third column for it, set at
+   the same size as the rest of the row. */
+.index-list--dated .index-row {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) 8.5rem;
+}
+
+.index-list--dated .when {
+    font-size: var(--step-body);
+}
+
 /* Past the first few rows the list folds; JavaScript adds the toggle and
    hides the rest, and without it everything simply shows. */
 .js .index-list--collapsible:not(.is-expanded) .index-more {
@@ -799,6 +809,21 @@ pre code {
     text-transform: uppercase;
     color: var(--color-text-secondary);
     cursor: pointer;
+}
+
+.resume-download {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-family: var(--font-ui);
+    font-size: var(--step-label);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+.resume-download:hover {
+    color: var(--accent);
 }
 
 .js .index-toggle {
@@ -1553,6 +1578,18 @@ a.index-row:hover .what {
         line-height: 1.45;
     }
 
+    /* Sections fade in on scroll; a print taken before scrolling would
+       otherwise come out blank. */
+    .resume-download {
+        display: none;
+    }
+
+    .js .block {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
     .section-menu,
     .hero,
     .site-footer,
@@ -1762,5 +1799,17 @@ main .photo-carousel-item img {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Phones: the title gets the full width, and the date shares the event's
+   line beneath it. */
+@media (max-width: 40rem) {
+    .index-list--dated .index-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "what what"
+            "where when";
+        align-items: baseline;
     }
 }
