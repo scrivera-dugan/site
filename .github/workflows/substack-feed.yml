@@ -1,11 +1,13 @@
-# Pulls the latest posts from Substack into _data/substack.json once a day.
+# Pulls the latest posts from Substack into _data/substack.json every hour.
 # GitHub Pages rebuilds the site whenever that file changes.
 # Run it by hand anytime from the Actions tab: "Update Substack feed" > Run workflow.
 name: Update Substack feed
 
 on:
   schedule:
-    - cron: "0 13 * * *"   # daily, 8am Minneapolis time (CDT)
+    # Hourly, off the top of the hour, when GitHub's scheduler is least busy.
+    # It commits only when the posts change, so quiet hours leave no trace.
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
