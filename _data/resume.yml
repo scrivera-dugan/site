@@ -2,13 +2,13 @@
 
 experience:
   - id: gitbook
-    title: Head of Docs and Context Engineer
+    title: Docs Lead
     company: GitBook
     industry: Docs-as-code platform
     start: "2026"
 
   - id: stellic
-    title: Founding Tech Docs Lead
+    title: Docs Lead
     company: Stellic
     industry: Education Tech
     start: "2025"
